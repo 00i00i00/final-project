@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Api } from '../services/api.service';
-// import { Router } from '@angular/router';
 
 interface Events {
   category: string;
@@ -18,8 +18,7 @@ results: Event[];
   styleUrls: ['./events.component.css']
 })
 export class EventsComponent implements OnInit {
-
-  constructor(private api: Api) {}
+  constructor(private api: Api, private route: ActivatedRoute){}
 
   ngOnInit() {
 
