@@ -1,0 +1,25 @@
+input {
+    border: solid 1px black;
+}
+
+.largeLogo {
+    text-align: center;
+    font-size: 6rem;
+    background: -webkit-linear-gradient(#9999cd, #33999b);        
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.carousel-item  {
+    background-image: linear-gradient(#9999cd, #33999b);
+    height: 250px;
+    line-height: 250px;
+    margin: 0 auto;
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  button {
+      border: none;
+  }

@@ -14,8 +14,8 @@ import { HomeComponent } from './home/home.component';
 
 //commented out for now, we can add this once it is going to be used. 
 const appRoutes: Routes =[
-  { path: 'home', component: HomeComponent},
-  { path: 'events', component: EventsComponent},
+  { path: '', component: HomeComponent},
+  // { path: 'events', component: EventsComponent},
   { path: 'favorites', component: FavoritesComponent},
   { path: 'filter', component: FilterComponent}
 ];
