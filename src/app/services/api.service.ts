@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { FilterComponent } from '../filter/filter.component';
 
 @Injectable()
 export class Api {
@@ -12,5 +13,9 @@ export class Api {
 
 getEvent = () =>  {
     return this.http.get(this.baseUrl + '/events', { headers: this.headers });
+}
+
+getBusiness = () => {
+    return this.http.get(this.baseUrl + '/businesses/search?location=detroit', { headers: this.headers });
 }
 }
