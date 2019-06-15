@@ -2,6 +2,7 @@
 input {
     border: none;
     width: 100px;
+}
 
 .overlay {
     position: absolute;
@@ -118,18 +119,18 @@ color: white;
     color: white;
     font-size: 2rem;
     text-align: center;
-  }
+}
 
-  button {
-      border: none;
-  }
+button {
+    border: none;
+}
 
-  .far 
-  .fa-heart {
+.far 
+  fa-heart {
     display: inline-block;
     font-style: normal;
     font-variant: normal;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
-  }
+}
 
