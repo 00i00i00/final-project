@@ -28,7 +28,6 @@ interface ApiData {
   businesses: Businesses[];
 }
 
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -37,37 +36,44 @@ interface ApiData {
 export class HomeComponent implements OnInit {
   locationInput: string;
   list: Businesses[];
+  showModal: boolean = true;
   constructor(private api: Api, private route: ActivatedRoute, private router: Router){}
   logoNumber: number = 1;
 
   ngOnInit() {
-    this.api.location.subscribe(location => this.locationInput = location);
-    this.api.updateLocation(this.locationInput);
-    this.api.getBusiness().subscribe(data => console.log('data from api', data));
-
+    
+    // this.api.getBusiness().subscribe(data => console.log('data from api', data));
   }
 
+  locationClick = location => {
+    this.api.getLocation(location).subscribe(data => {
+      this.api.updateLocation(this.locationInput);
+      console.log('location data', data);
+      this.showModal = !this.showModal;
+    });
+  }
+  
   firstDateClick = () => {
     this.router.navigateByUrl('/filter');
-    this.api.getFirstDate().subscribe(data => console.log('data from api', data));
+    this.api.getFirstDate(this.locationInput).subscribe(data => console.log('data from api', data));
   }
 
   romanticClick = () => {
     this.router.navigateByUrl('/filter');
-    this.api.getRomantic().subscribe(data => console.log('data from api', data));
+    this.api.getRomantic(this.locationInput).subscribe(data => console.log('data from api', data));
 
   }
 
-  adventurousClick = () => {
-    this.router.navigateByUrl('/filter');
-  }
+  // adventurousClick = () => {
+  //   this.router.navigateByUrl('/filter');
+  // }
 
-  oneOfClick = () => {
-    this.router.navigateByUrl('/filter');
-  }
+  // oneOfClick = () => {
+  //   this.router.navigateByUrl('/filter');
+  // }
 
-  lastDateClick = () => {
-    this.router.navigateByUrl('/filter');
-  }
+  // lastDateClick = () => {
+  //   this.router.navigateByUrl('/filter');
+  // }
 
 }

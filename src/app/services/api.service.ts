@@ -17,21 +17,25 @@ export class Api {
 
 updateLocation = newLocation => this._location.next(newLocation);
 
+getLocation = location => this.http.get(this.baseUrl + '/businesses/search?location=' + location, { headers: this.headers });
+
 getEvent = () =>  {
     return this.http.get(this.baseUrl + '/events', { headers: this.headers });
 }
 
-getBusiness = () => {
-    console.log(this.location);
-    return this.http.get(this.baseUrl + `/businesses/search?location=${this.location}`, { headers: this.headers });
+// getBusiness = location => {
+//     console.log('getBusiness');
+//     return this.http.get(this.baseUrl + `/businesses/search?location=${location}`, { headers: this.headers });
+// }
+
+getFirstDate = location => {
+    console.log('first date');
+    return this.http.get(this.baseUrl + '/businesses/search?location=' + location + '&categories=aquariums', {headers: this.headers});
 }
 
-getFirstDate = () => {
-    return this.http.get(this.baseUrl + '/businesses/search?location=detroit&categories=aquariums', {headers: this.headers});
-}
-
-getRomantic = () => {
-    return this.http.get(this.baseUrl + '/businesses/search?location=detroit&categories=jazzandblues&categories=arcades', {headers: this.headers});
+getRomantic = location => {
+    console.log('romantic date');
+    return this.http.get(this.baseUrl + '/businesses/search?location=' + location + '&categories=jazzandblues&categories=arcades', {headers: this.headers});
 }
 
 
