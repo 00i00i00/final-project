@@ -63,9 +63,11 @@ export class HomeComponent implements OnInit {
 
   }
 
-  // adventurousClick = () => {
-  //   this.router.navigateByUrl('/filter');
-  // }
+  adventureClick = () => {
+    this.router.navigateByUrl('/adventure');
+    this.api.getAdventure(this.locationInput).subscribe(data => console.log('data from api', data));
+
+  }
 
   // oneOfClick = () => {
   //   this.router.navigateByUrl('/filter');

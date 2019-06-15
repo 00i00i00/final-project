@@ -11,13 +11,15 @@ import { EventsComponent } from './events/events.component';
 import { FavoritesComponent } from './favorites/favorites.component';
 import { FilterComponent } from './filter/filter.component';
 import { HomeComponent } from './home/home.component';
+import { AdventureComponent } from './adventure/adventure.component';
 
 //commented out for now, we can add this once it is going to be used. 
 const appRoutes: Routes =[
   { path: '', component: HomeComponent},
   // { path: 'events', component: EventsComponent},
   { path: 'favorites', component: FavoritesComponent},
-  { path: 'filter', component: FilterComponent}
+  { path: 'filter', component: FilterComponent},
+  { path: 'adventure', component: AdventureComponent }
 ];
 
 
@@ -28,7 +30,8 @@ const appRoutes: Routes =[
     EventsComponent,
     FavoritesComponent,
     FilterComponent,
-    HomeComponent
+    HomeComponent,
+    AdventureComponent
   ],
   imports: [
     BrowserModule, FormsModule, HttpClientModule, RouterModule.forRoot(appRoutes)
