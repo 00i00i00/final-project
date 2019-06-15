@@ -22,6 +22,7 @@ export class HeaderComponent implements OnInit {
   main: boolean = false;
   movie: any;
   movieString: string;
+  logoNumber: number = 1;
 
   mainfilter: boolean = false;
   // search_result: [];
