@@ -54,7 +54,7 @@ export class HomeComponent implements OnInit {
   }
   
   firstDateClick = () => {
-    this.router.navigateByUrl('/filter');
+    this.router.navigateByUrl('/first-date');
     this.api.getFirstDate(this.locationInput).subscribe(data => console.log('data from api', data));
   }
 
