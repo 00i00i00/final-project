@@ -1,3 +1,8 @@
+
+input {
+    border: none;
+    width: 100px;
+
 .overlay {
     position: absolute;
     top: 0px;
@@ -72,14 +77,37 @@ font-size: 1.5rem;
 /* border: 2px solid white; */
 background-color: rgb(160, 158, 158);
 color: white;
+
 }
 
-.largeLogo {
+.logo-input {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Rubik', sans-serif;
+    height: 300px;
+}
+
+.plus-logo {
     text-align: center;
-    font-size: 7rem;
+
+    font-size: 4rem;
     background: -webkit-linear-gradient(#9999cd, #33999b);        
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    margin: 0px;
+    font-family: 'Rubik', sans-serif;
+}
+
+.largeLogo {
+    text-align: left;
+    font-size: 6rem;
+
+    background: -webkit-linear-gradient(#9999cd, #33999b);        
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Rubik', sans-serif;
 }
 
 .carousel-item  {
@@ -95,3 +123,13 @@ color: white;
   button {
       border: none;
   }
+
+  .far 
+  .fa-heart {
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+  }
+
