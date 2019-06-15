@@ -1,6 +1,13 @@
-<div class="modal-background">
-  <div class="modal">
-    <input type="text" [(ngModel)]="locationInput" placeholder="Location of date?" />
+<div class="overlay" *ngIf="showModal"></div>
+<div class="modal-container" *ngIf="showModal">
+  <div class="locationDiv">
+    <h1>HEY</h1>
+    <!-- <h2>SO YOU FOUND YOUR +1</h2> -->
+    <h3>LET'S BUILD A DATE!</h3>
+    <div class="inputContainer">
+      <input class="locationInput" type="text" [(ngModel)]="locationInput" placeholder="City and State" />
+      <button type="button"  (click)="locationClick(locationInput)">Go!</button>
+    </div>
   </div>
 </div>
 <div class="largeLogo">+1</div>
@@ -36,20 +43,3 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
-
-<!-- <div id="carousel1" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carousel1" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel1" data-slide-to="1"></li>
-    <li data-target="#carousel1" data-slide-to="2"></li>
-    <li data-target="#carousel1" data-slide-to="3"></li>
-    <li data-target="#carousel1" data-slide-to="4"></li>
-    <li data-target="#carousel1" data-slide-to="5"></li>
-  </ol>
-
-<div>First Date</div>
-<div>Romantic</div>
-<div>Adventurous</div>
-<div>One of a kind</div>
-<div>Last Date</div>
-</div> -->

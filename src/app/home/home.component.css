@@ -1,10 +1,82 @@
-input {
-    border: solid 1px black;
+.overlay {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 99;
+    background-color: rgb(46, 46, 46);
+    opacity: 0.9;
+    width: 100%;
+    height: 100%;
+}
+
+.modal-container {
+    position: fixed; 
+    top: 10%;
+    z-index: 100;
+}
+
+
+.locationDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    height: 300px;
+    background-image: linear-gradient(#9999cd, #33999b);
+    color: white;
+    margin: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 3px;
+
+}
+
+h1 {
+    font-size: 6rem;
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 35px;
+}
+
+
+
+.inputContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.locationInput {
+    border: none;
+    border-radius: 3px;
+    color: black;
+    font-size: 1.5rem;
+    text-align: center;
+    width: 70%;
+    margin-right: 10px;
+
+}
+
+.inputContainer button {
+border-radius: 3px;
+font-size: 1.5rem;
+/* border: 2px solid white; */
+background-color: rgb(160, 158, 158);
+color: white;
 }
 
 .largeLogo {
     text-align: center;
-    font-size: 6rem;
+    font-size: 7rem;
     background: -webkit-linear-gradient(#9999cd, #33999b);        
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
