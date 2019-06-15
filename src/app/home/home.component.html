@@ -3,7 +3,10 @@
     <input type="text" [(ngModel)]="locationInput" placeholder="Location of date?" />
   </div>
 </div>
-<div class="largeLogo">+1</div>
+<div class="logo-input">
+    <p class="plus-logo">+</p>
+  <input class="largeLogo" [(ngModel)]="logoNumber" type="number" placeholder="1"/>
+</div>
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
       <button class="carousel-item active" (click)="firstDateClick()">
@@ -53,3 +56,4 @@
 <div>One of a kind</div>
 <div>Last Date</div>
 </div> -->
+

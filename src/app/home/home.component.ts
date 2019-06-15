@@ -38,6 +38,7 @@ export class HomeComponent implements OnInit {
   locationInput: string;
   list: Businesses[];
   constructor(private api: Api, private route: ActivatedRoute, private router: Router){}
+  logoNumber: number = 1;
 
   ngOnInit() {
     this.api.location.subscribe(location => this.locationInput = location);

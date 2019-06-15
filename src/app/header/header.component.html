@@ -1,21 +1,29 @@
-  <nav id="navbar-example2" class="navbar navbar-light bg-light">
-    <a class="navbar-brand" href="#">Navbar</a>
+  <nav id="navbar-example2" class="navbar navbar-light  navbar-dark-background">
+      <span class="logo-input navbar-brand">
+          <p class="plus-logo">+</p>
+        <input class="small-logo" [(ngModel)]="logoNumber" type="number" placeholder="1"/>
+      </span>
+    <!-- <a class="small-logo navbar-brand" href="#">+1{{logo}}</a> -->
     <ul class="nav nav-pills">
       <li class="nav-item">
-        <a class="nav-link" href="#fat">Event</a>
+        <a class="nav-link" href="#fat"><i class="fa fa-align-right"></i></a>
       </li>
+    
       <li class="nav-item">
-        <a class="nav-link" href="#mdo">Favorites</a>
+        <a class="nav-link" href="#mdo"><i class="fa fa-heart"></i></a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-search"></i></a>
         <div class="dropdown-menu">
           <a class="dropdown-item" href="#firstDate">First Date</a>
-          <a class="dropdown-item" href="#romantic">Romantic</a>
-          <a class="dropdown-item" href="#adventurous">Adventurous</a>
-          <a class="dropdown-item" href="#1ofKind">One of a Kind</a>
+          <div role="separator" class="dropdown-divider"></div>
           <a class="dropdown-item" href="#romantic">Romantic</a>
           <div role="separator" class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#adventurous">Adventurous</a>
+          <div role="separator" class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#1ofKind">One of a Kind</a>
+          <div role="separator" class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#lastDate">Last Date</a>
           <!-- <a class="dropdown-item" href="#three">three</a> -->
         </div>
       </li>
