@@ -16,7 +16,7 @@ interface ApiData {
 @Component({
     selector: 'favorites-list',
     templateUrl: './favorites.component.html',
-    // styleUrls: ['./favorites.component.css']
+    styleUrls: ['./favorites.component.css']
 })
 
 export class FavoritesComponent implements OnInit{
