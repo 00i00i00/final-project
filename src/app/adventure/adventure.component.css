@@ -1,0 +1,14 @@
+.container {
+    margin-top: 50px;
+    border: 1px solid pink;
+
+}
+
+.business {
+    border: 1px solid blue;
+}
+
+img {
+    width: 100px;
+    height: auto;
+}

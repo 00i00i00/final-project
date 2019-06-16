@@ -7,7 +7,7 @@ import { BehaviorSubject } from 'rxjs';
 export class Api {
     baseUrl = 'https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3';
 
-     headers = new HttpHeaders({
+    headers = new HttpHeaders({
         "Authorization":"Bearer 5pIHLNTdSTs09-cvgqNOfEJP8D8Rx0ntlwKe-Kqo7pjkv2m88fuTYmq-PkqDwaD9JzyD3bqzjRQYFarXwkiYk_FrkTluO0Ri9-4u6x9WCybjoYFCt1bp93e42gP_XHYx"
         });
 
@@ -36,6 +36,11 @@ getFirstDate = location => {
 getRomantic = location => {
     console.log('romantic date');
     return this.http.get(this.baseUrl + '/businesses/search?location=' + location + '&categories=jazzandblues&categories=arcades', {headers: this.headers});
+}
+
+getAdventure = location => {
+    console.log('adventure date');
+    return this.http.get(this.baseUrl + '/businesses/search?limit=50&'+ 'location=' + location + '&categories=airsoft&categories=archery&categories=axethrowing&categories=bobsledding&categories=bungeejumping&categories=canyoneering&categories=challengecourses&categories=escapegames&categories=gliding&categories=gokarts&categories=hanggliding&categories=horsebackriding&categories=hot_air_balloons&categories=paraglidin&categories=parasailing&categories=zipline&categories=hauntedhouses', {headers: this.headers});
 }
 
 
