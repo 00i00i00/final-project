@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Route, Router } from '@angular/router';
+import { Api } from '../services/api.service';
 
 interface Location {
   city: string;
@@ -8,6 +10,7 @@ interface Location {
   state: string;
   address1: string;
   zip_code: string;
+  display_address: [];
 }
 
 interface Categories {
@@ -16,18 +19,30 @@ interface Categories {
 }
 
 interface Businesses {
-  rating: number;
-  price: string;
-  phone: string; 
-  id: string; 
   alias: string; 
   categories: Categories[];
-  review_count: number;
+  id: string; 
+  rating: number;
+  price: string;
+  display_phone: string; 
   name: string; 
   url: string;
   image_url: string;
   location: Location[];
   distance: number;
+  review_count: number;
+
+}
+
+interface ApiData {
+  total: number;
+  businesses: Businesses[];
+  region: {
+    center: {
+      latitude:number;
+      longitude: number;
+    }
+  }
 }
 
 @Component({
@@ -36,10 +51,22 @@ interface Businesses {
   styleUrls: ['./adventure.component.css']
 })
 export class AdventureComponent implements OnInit {
+  location: string;
+  business: any;
+  list: Businesses[];
 
-  constructor() { }
+  constructor(private api: Api, private route: ActivatedRoute, private router: Router){}
 
   ngOnInit() {
+    this.api.location.subscribe(data => {
+    console.log(data);
+    this.location = data;
+    });
+    
+    this.api.getAdventure(this.location).subscribe((data:ApiData) => {
+      console.log('Adventure data from api', data)
+      this.list = data.businesses;
+    });
   }
 
 }

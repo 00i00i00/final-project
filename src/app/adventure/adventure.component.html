@@ -1,3 +1,9 @@
-<p>
-  adventure works!
-</p>
+<div class="container">
+  <div class="business" *ngFor="let business of list">
+    <p>{{ business.name}}</p>
+    <p>{{ business.display_phone}}</p>
+    <p>{{business.location.display_address}}</p>
+    <p>{{ business.url }}</p>
+    <img src="{{ business.image_url }}" />
+    </div>
+</div>
