@@ -10,7 +10,10 @@
     </div>
   </div>
 </div>
-<div class="largeLogo">+1</div>
+<div class="logo-input">
+    <p class="plus-logo">+</p>
+  <input class="largeLogo" [(ngModel)]="logoNumber" type="number" placeholder="1"/>
+</div>
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
       <button class="carousel-item active" (click)="firstDateClick()">
@@ -43,3 +46,20 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
+
+<!-- <div id="carousel1" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carousel1" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel1" data-slide-to="1"></li>
+    <li data-target="#carousel1" data-slide-to="2"></li>
+    <li data-target="#carousel1" data-slide-to="3"></li>
+    <li data-target="#carousel1" data-slide-to="4"></li>
+    <li data-target="#carousel1" data-slide-to="5"></li>
+  </ol>
+
+<div>First Date</div>
+<div>Romantic</div>
+<div>Adventurous</div>
+<div>One of a kind</div>
+<div>Last Date</div>
+</div> -->
