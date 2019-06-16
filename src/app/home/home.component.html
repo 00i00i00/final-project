@@ -1,16 +1,20 @@
-<div class="overlay" *ngIf="showModal"></div>
+<div class="overlay" *ngIf="showModal">
 <div class="modal-container" *ngIf="showModal">
   <div class="locationDiv">
-    <h1>HEY</h1>
+    <h1>Hey!</h1>
     <!-- <h2>SO YOU FOUND YOUR +1</h2> -->
-    <h3>LET'S BUILD A DATE!</h3>
+    <h3>Where is your next<br>perfect date?</h3>
     <div class="inputContainer">
-      <input class="locationInput" type="text" [(ngModel)]="locationInput" placeholder="City and State" />
-      <button type="button"  (click)="locationClick(locationInput)">Go!</button>
+      <input class="locationInput" type="text" [(ngModel)]="locationInput" placeholder="city & state" />
+      <button class="location-button" type="button" (click)="locationClick(locationInput)"><i class="fa fa-search"></i></button>
     </div>
   </div>
 </div>
-<div class="largeLogo">+1</div>
+</div>
+<div class="logo-input">
+    <p class="plus-logo">+</p>
+  <input class="largeLogo" [(ngModel)]="logoNumber" type="number" placeholder="1"/>
+</div>
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
       <button class="carousel-item active" (click)="firstDateClick()">
@@ -43,3 +47,20 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
+
+<!-- <div id="carousel1" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carousel1" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel1" data-slide-to="1"></li>
+    <li data-target="#carousel1" data-slide-to="2"></li>
+    <li data-target="#carousel1" data-slide-to="3"></li>
+    <li data-target="#carousel1" data-slide-to="4"></li>
+    <li data-target="#carousel1" data-slide-to="5"></li>
+  </ol>
+
+<div>First Date</div>
+<div>Romantic</div>
+<div>Adventurous</div>
+<div>One of a kind</div>
+<div>Last Date</div>
+</div> -->
