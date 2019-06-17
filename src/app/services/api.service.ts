@@ -43,5 +43,10 @@ getAdventure = location => {
     return this.http.get(this.baseUrl + '/businesses/search?limit=50&'+ 'location=' + location + '&categories=airsoft&categories=archery&categories=axethrowing&categories=bobsledding&categories=bungeejumping&categories=canyoneering&categories=challengecourses&categories=escapegames&categories=gliding&categories=gokarts&categories=hanggliding&categories=horsebackriding&categories=hot_air_balloons&categories=paraglidin&categories=parasailing&categories=zipline&categories=hauntedhouses', {headers: this.headers});
 }
 
+getReviews = id => {
+    console.log('Reviews');
+    return this.http.get(this.baseUrl + `/businesses/${id}/reviews`, {headers: this.headers});
+}
+
 
 }

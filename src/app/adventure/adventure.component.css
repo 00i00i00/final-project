@@ -1,14 +1,88 @@
 .container {
-    margin-top: 50px;
-    border: 1px solid pink;
+    /* margin-top: 50px; */
+    /* border: 1px solid pink; */
 
 }
 
 .business {
-    border: 1px solid blue;
+    background: 
+    linear-gradient(90deg, transparent, white), 
+    linear-gradient(#33999b, #9999cd);
+    opacity: 0.8;
+    position: relative;
+    
 }
 
-img {
+.business-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 15px;
+    width: 60%;
+}
+
+.circular-landscape {
+    display: inline-block;
+    position: relative;
     width: 100px;
-    height: auto;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 50%;
+  }
+  
+  .circular-landscape img {
+    width: auto;
+    height: 100%;
+    margin-left: -50px;
+    position: absolute; 
+    top: 0;
+    right: 0;
+  }
+
+.image {
+    position: absolute; 
+    top: 15px;
+    right: 0;
+ }
+
+.fa-heart, .favorite{
+    position: absolute;
+    color: #2e8a8b;
+    font-size: 20px;
+    top: -4px;
+    left: 6px;
+}
+
+h1 {
+    margin: 25px 0;
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.business p {
+    margin-bottom: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    margin-bottom: 10px;
+}
+
+button {
+    border: none;
+    background-color: transparent;
+    width: 70%;
+    padding: 0;
+    text-align: left;
+    margin-bottom: 15px;
+
+}
+
+.infoDiv {
+margin: 15px;
+}
+
+.reviewText {
+    margin-bottom: 15px;
 }
