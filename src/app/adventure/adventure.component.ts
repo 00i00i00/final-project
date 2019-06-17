@@ -45,6 +45,27 @@ interface ApiData {
   }
 }
 
+interface User {
+  id: string;
+  profile_url: string;
+  image_url: string;
+  name: string;
+}
+
+interface ReviewData {
+  total: number;
+  reviews: Reviews[];
+}
+
+interface Reviews {
+  id: string;
+  text: string;
+  url: string;
+  rating: number;
+  time_created: string;
+  user: User[];
+}
+
 @Component({
   selector: 'app-adventure',
   templateUrl: './adventure.component.html',
@@ -54,6 +75,11 @@ export class AdventureComponent implements OnInit {
   location: string;
   business: any;
   list: Businesses[];
+  id: string;
+  reviews: Reviews[];
+  review: any;
+  info: boolean = false;
+  reviewId: Businesses[];
 
   constructor(private api: Api, private route: ActivatedRoute, private router: Router){}
 
@@ -64,9 +90,29 @@ export class AdventureComponent implements OnInit {
     });
     
     this.api.getAdventure(this.location).subscribe((data:ApiData) => {
-      console.log('Adventure data from api', data)
+      console.log('Adventure data from api', data);
       this.list = data.businesses;
+      // this.id = this.list.id;
+      //^need to figure out this issue
+
+    });
+
+    this.api.getReviews(this.id).subscribe((data:ReviewData) => {
+      console.log(`Reviews from id`, data);
+      this.reviews = data.reviews;
+      this.info = !this.info;
     });
   }
+
+//   moreInfo = id => {
+//     this.id = id;
+//     console.log(this.id);
+//     this.api.getReviews(this.id).subscribe((data:ReviewData) => {
+//       console.log(`Reviews from id`, data);
+//       this.reviews = data.reviews;
+//     });
+
+//     this.info = !this.info;
+// }
 
 }
