@@ -46,6 +46,9 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
+  ________________________________
+  
+  <div class="movie-item" [ngClass]="{'Business': pokemon.favoriteMovie === true}" *ngFor='let pokemon of list; let i = index' ></div>
 
 <!-- <div id="carousel1" data-ride="carousel">
   <ol class="carousel-indicators">

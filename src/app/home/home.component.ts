@@ -16,6 +16,12 @@ interface Location {
 }
 
 interface Businesses {
+  id: string;
+  alias: string;
+  image_url: string;
+  is_closed: false;
+  url: string;
+  review_count: number;
   rating: number;
   price: string;
   phone: string;
