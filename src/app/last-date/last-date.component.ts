@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Route, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Api } from '../services/api.service';
 
 interface Location {
@@ -65,13 +65,12 @@ interface Reviews {
   time_created: string;
   user: User[];
 }
-
 @Component({
-  selector: 'app-first-date',
-  templateUrl: './first-date.component.html',
-  styleUrls: ['./first-date.component.css']
+  selector: 'app-last-date',
+  templateUrl: './last-date.component.html',
+  styleUrls: ['./last-date.component.css']
 })
-export class FirstDateComponent implements OnInit {
+export class LastDateComponent implements OnInit {
   location: string;
   business: any;
   list: Businesses[];
@@ -81,26 +80,23 @@ export class FirstDateComponent implements OnInit {
   info: boolean = false;
   reviewId: Businesses[];
 
-  constructor(private api: Api, private route: ActivatedRoute, private router: Router){}
+  constructor(private api: Api, private route: ActivatedRoute){}
 
   ngOnInit() {
     this.api.location.subscribe(data => {
-      console.log(data);
-      this.location = data;
-      });
-   
-    this.api.getFirstDate(this.location).subscribe((data:ApiData) => {
-      console.log('First Date data from api', data);
-      this.list = data.businesses;
-      // this.id = this.list.id;
-      
-      
+    console.log(data);
+    this.location = data;
     });
-    
-    // this.api.getReviews(this.id).subscribe((data:ReviewData) => {
-    //   console.log(`Reviews from id`, data);
-    //   this.reviews = data.reviews;
-    //   this.info = !this.info;
-    // });
-  }
+
+    this.api.getLastDate(this.location).subscribe((data:ApiData) => {
+      console.log('Last date data from api', data);
+      this.list = data.businesses;    
+  });
+  
+  // this.api.getReviews(this.id).subscribe((data:ReviewData) => {
+  //   console.log(`Reviews from id`, data);
+  //   this.reviews = data.reviews;
+  //   this.info = !this.info;
+  // });
+ }
 }

@@ -67,11 +67,12 @@ interface Reviews {
 }
 
 @Component({
-  selector: 'app-first-date',
-  templateUrl: './first-date.component.html',
-  styleUrls: ['./first-date.component.css']
+  selector: 'app-romantic',
+  templateUrl: './romantic.component.html',
+  styleUrls: ['./romantic.component.css']
 })
-export class FirstDateComponent implements OnInit {
+
+export class RomanticComponent implements OnInit {
   location: string;
   business: any;
   list: Businesses[];
@@ -81,26 +82,41 @@ export class FirstDateComponent implements OnInit {
   info: boolean = false;
   reviewId: Businesses[];
 
-  constructor(private api: Api, private route: ActivatedRoute, private router: Router){}
+constructor(private api: Api, private route: ActivatedRoute, private router: Router){}
 
-  ngOnInit() {
-    this.api.location.subscribe(data => {
-      console.log(data);
-      this.location = data;
-      });
-   
-    this.api.getFirstDate(this.location).subscribe((data:ApiData) => {
-      console.log('First Date data from api', data);
-      this.list = data.businesses;
-      // this.id = this.list.id;
-      
-      
-    });
+ngOnInit() {
+  this.api.location.subscribe(data => {
+  console.log(data);
+  this.location = data;
+  });
+
+//   getRomantic = location => {
+//     console.log('romantic date');
+//     return this.http.get(this.baseUrl + '/businesses/search?location=' + location + '&categories=jazzandblues&categories=arcades', {headers: this.headers});
+// }
+  
+  this.api.getRomantic(this.location).subscribe((data:ApiData) => {
+    console.log('Romantic data from api', data);
+    this.list = data.businesses;
+    // this.id = this.list.id;
+
     
-    // this.api.getReviews(this.id).subscribe((data:ReviewData) => {
-    //   console.log(`Reviews from id`, data);
-    //   this.reviews = data.reviews;
-    //   this.info = !this.info;
-    // });
-  }
+  });
+
+  // this.api.getReviews(this.id).subscribe((data:ReviewData) => {
+  //   console.log(`Reviews from id`, data);
+  //   this.reviews = data.reviews;
+  //   this.info = !this.info;
+  // });
+ }
 }
+
+
+// scrollUp = () => {
+//   window.scroll(0,0);
+// }
+
+  
+  
+
+  

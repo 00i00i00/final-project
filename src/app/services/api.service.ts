@@ -19,10 +19,6 @@ updateLocation = newLocation => this._location.next(newLocation);
 
 getLocation = location => this.http.get(this.baseUrl + '/businesses/search?location=' + location, { headers: this.headers });
 
-getEvent = () =>  {
-    return this.http.get(this.baseUrl + '/events', { headers: this.headers });
-}
-
 // getBusiness = location => {
 //     console.log('getBusiness');
 //     return this.http.get(this.baseUrl + `/businesses/search?location=${location}`, { headers: this.headers });
@@ -30,17 +26,27 @@ getEvent = () =>  {
 
 getFirstDate = location => {
     console.log('first date');
-    return this.http.get(this.baseUrl + '/businesses/search?location=' + location + '&categories=aquariums', {headers: this.headers});
+    return this.http.get(this.baseUrl + '/businesses/search?limit=50&'+ 'location=' + location + '&categories=aquariums', {headers: this.headers});
 }
 
 getRomantic = location => {
     console.log('romantic date');
-    return this.http.get(this.baseUrl + '/businesses/search?location=' + location + '&categories=jazzandblues&categories=arcades', {headers: this.headers});
+    return this.http.get(this.baseUrl + '/businesses/search?limit=50&'+ 'location=' + location + '&categories=jazzandblues&categories=arcades', {headers: this.headers});
+}
+
+getOneOfAKind = location => {
+    console.log('one of a kind date');
+    return this.http.get(this.baseUrl + '/businesses/search?limit=50&'+ 'location=' + location + '&categories=jazzandblues&categories=arcades', {headers: this.headers});
 }
 
 getAdventure = location => {
     console.log('adventure date');
     return this.http.get(this.baseUrl + '/businesses/search?limit=50&'+ 'location=' + location + '&categories=airsoft&categories=archery&categories=axethrowing&categories=bobsledding&categories=bungeejumping&categories=canyoneering&categories=challengecourses&categories=escapegames&categories=gliding&categories=gokarts&categories=hanggliding&categories=horsebackriding&categories=hot_air_balloons&categories=paraglidin&categories=parasailing&categories=zipline&categories=hauntedhouses', {headers: this.headers});
+}
+
+getLastDate = location =>  {
+    console.log('last date');
+    return this.http.get(this.baseUrl + '/businesses/search?limit=50&'+ 'location=' + location + '&categories=jazzandblues&categories=arcades', {headers: this.headers});
 }
 
 getReviews = id => {

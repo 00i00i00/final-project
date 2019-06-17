@@ -1,92 +1,87 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Route } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { Api } from '../services/api.service';
-// import { genreListComponent } from '../genreList/genreList.component';
 
-interface GenreData {
-  genres: Genres[];
+interface Categories {
+  alias: string;
+  title: string;
 }
 
-interface Genres {
-  id: number;
-  number: string;
+interface Location {
+  city: string;
+  country: string;
+  address1: string;
+  zip_code: string;
+  state: string;
 }
 
+interface Businesses {
+  id: string;
+  alias: string;
+  image_url: string;
+  is_closed: false;
+  url: string;
+  review_count: number;
+  rating: number;
+  price: string;
+  phone: string;
+  categories: Categories[];
+  name: string;
+  location: Location[];
+}
+
+interface ApiData {
+  businesses: Businesses[];
+}
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css'],
+  styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  main: boolean = false;
-  movie: any;
-  movieString: string;
+  locationInput: string;
+  list: Businesses[];
+  showModal: boolean = true;
+  constructor(private api: Api, private route: ActivatedRoute, private router: Router){}
   logoNumber: number = 1;
 
-  mainfilter: boolean = false;
-  // search_result: [];
+  ngOnInit() {
+    
+    // this.api.getBusiness().subscribe(data => console.log('data from api', data));
+  }
 
-  search_result: [];
-  genreList: Genres[];
-  genreId: number = 0;
+  locationClick = location => {
+    this.api.getLocation(location).subscribe(data => {
+      this.api.updateLocation(this.locationInput);
+      console.log('location data', data);
+      this.showModal = !this.showModal;
+    });
+  }
+  
+  firstDateClick = () => {
+    this.router.navigateByUrl('/first-date');
+    this.api.getFirstDate(this.locationInput).subscribe(data => console.log('data from api', data));
+  }
 
+  romanticClick = () => {
+    this.router.navigateByUrl('/romantic');
+    this.api.getRomantic(this.locationInput).subscribe(data => console.log('data from api', data));
 
-constructor(private route: ActivatedRoute, private api: Api, ) { }
+  }
 
-ngOnInit() {
-        
-    //   this.api.getGenreMovies().subscribe((data:GenreData) => {
-    //     this.genreList = data.genres;
-    //   });
-     
-}
+  adventureClick = () => {
+    this.router.navigateByUrl('/adventure');
+    // this.api.getAdventure(this.locationInput).subscribe(data => console.log('data from api', data));
 
-  toggleSearchInput = () => {
-    this.main = !this.main;
- };
+  }
 
- toggleFilters = () => {
-  this.mainfilter = !this.mainfilter;
-};
+  // oneOfClick = () => {
+  //   this.router.navigateByUrl('/filter');
+  // }
 
-searchMovie = () => {
-//   this.api.searchMovie(this.movieString).subscribe((data: {results: []}) => {
-//     console.log(data.results);
-//     this.api.updateMovieList(data.results);
-//     this.genreId = 0;
-//   });
-}
-
-// getTopRatedMovies = () => {
-//   this.api.getTopRatedMovies().subscribe((data: {results: []}) => {
-//     console.log(data.results);
-//     this.api.updateMovieList(data.results);
-//   });
-// }
-
-// getNowPlayingMovies = () => {
-//   this.api.getNowPlayingMovies().subscribe((data: {results: []}) => {
-//     console.log(data.results);
-//     this.api.updateMovieList(data.results);
-//   });
-// }
-
-// getPopularMovies = () => {
-//   this.api.getPopularMovies().subscribe((data: {results: []}) => {
-//     console.log(data.results);
-//     this.api.updateMovieList(data.results);
-//   });
-// }
-
-onChange = (event) => {
-//   this.api.getGenreList(this.genreId).subscribe((data: {results: []}) => this.api.updateMovieList(data.results));
-//   console.log(this.genreId);
-}
-
-onClick = () => {
-  this.genreId = 0;
-  console.log(this.genreId);
-}
+  // lastDateClick = () => {
+  //   this.router.navigateByUrl('/filter');
+  // }
 
 }

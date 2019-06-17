@@ -7,20 +7,22 @@ import { Api } from './services/api.service';
 
 import { HeaderComponent } from './header/header.component';
 import { AppComponent } from './app.component';
-import { EventsComponent } from './events/events.component';
+import { LastDateComponent } from './last-date/last-date.component';
 import { FavoritesComponent } from './favorites/favorites.component';
-import { FilterComponent } from './filter/filter.component';
+import { OneOAKComponent } from './one-oak/one-oak.component';
 import { HomeComponent } from './home/home.component';
 import { AdventureComponent } from './adventure/adventure.component';
+import { RomanticComponent } from './romantic/romantic.component';
 import { FirstDateComponent } from './first-date/first-date.component';
 
 const appRoutes: Routes =[
   { path: '', component: HomeComponent},
-  // { path: 'events', component: EventsComponent},
+  { path: 'last-date', component: LastDateComponent},
   { path: 'favorites', component: FavoritesComponent},
-  { path: 'filter', component: FilterComponent},
+  { path: 'one-oak', component: OneOAKComponent},
   { path: 'adventure', component: AdventureComponent },
-  { path: 'firstdate', component: FirstDateComponent}
+  { path: 'romantic', component: RomanticComponent},
+  { path: 'first-date', component: FirstDateComponent}
 ];
 
 
@@ -28,11 +30,12 @@ const appRoutes: Routes =[
   declarations: [
     AppComponent,
     HeaderComponent,
-    EventsComponent,
+    LastDateComponent,
     FavoritesComponent,
-    FilterComponent,
+    OneOAKComponent,
     HomeComponent,
     AdventureComponent,
+    RomanticComponent,
     FirstDateComponent
   ],
   imports: [

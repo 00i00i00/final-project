@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="business" *ngFor="let business of list">
+      <div class="business-text">
+        <a routerLink='/firstdate' class="favorite"><i class="fa fa-heart"></i></a>
+        <h1>{{ business.name}}</h1>
+        <p>{{ business.display_phone }}</p>
+        <p>{{ business.location.display_address }}</p>
+        <a href="{{ business.url }}">Visit the website</a>
+        <button type="button" (click)="moreInfo(business.id)">MORE INFO...</button>
+      </div>
+    <div class="image">
+    <div class="circular-landscape">
+      <img src="{{ business.image_url }}" />
+    </div>
+    </div>
+  
+      <div *ngIf="info">
+        <p>{{business.price}}</p>
+        <div class="infoDiv" *ngFor="let review of reviews">
+          <p class="reviewText">{{review.text}}</p>
+        </div>
+      </div>
+    </div>
+  </div>

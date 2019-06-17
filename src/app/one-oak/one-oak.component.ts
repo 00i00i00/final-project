@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Route, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Api } from '../services/api.service';
 
 interface Location {
@@ -67,11 +67,12 @@ interface Reviews {
 }
 
 @Component({
-  selector: 'app-first-date',
-  templateUrl: './first-date.component.html',
-  styleUrls: ['./first-date.component.css']
+  selector: 'app-one-oak',
+  templateUrl: './one-oak.component.html',
+  styleUrls: ['./one-oak.component.css']
 })
-export class FirstDateComponent implements OnInit {
+
+export class OneOAKComponent implements OnInit {
   location: string;
   business: any;
   list: Businesses[];
@@ -81,26 +82,32 @@ export class FirstDateComponent implements OnInit {
   info: boolean = false;
   reviewId: Businesses[];
 
-  constructor(private api: Api, private route: ActivatedRoute, private router: Router){}
 
+  constructor(private api: Api, private route: ActivatedRoute) {}
   ngOnInit() {
     this.api.location.subscribe(data => {
-      console.log(data);
-      this.location = data;
-      });
-   
-    this.api.getFirstDate(this.location).subscribe((data:ApiData) => {
-      console.log('First Date data from api', data);
+    console.log(data);
+    this.location = data;
+    });
+  
+  //   getRomantic = location => {
+  //     console.log('romantic date');
+  //     return this.http.get(this.baseUrl + '/businesses/search?location=' + location + '&categories=jazzandblues&categories=arcades', {headers: this.headers});
+  // }
+    
+    this.api.getOneOfAKind(this.location).subscribe((data:ApiData) => {
+      console.log('Romantic data from api', data);
       this.list = data.businesses;
       // this.id = this.list.id;
-      
+  
       
     });
-    
+  
     // this.api.getReviews(this.id).subscribe((data:ReviewData) => {
     //   console.log(`Reviews from id`, data);
     //   this.reviews = data.reviews;
     //   this.info = !this.info;
     // });
+   }
   }
-}
+  
