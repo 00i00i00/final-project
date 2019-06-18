@@ -130,6 +130,7 @@ export class AdventureComponent implements OnInit {
       console.log('Adventure data from api', data);
       this.list = data.businesses;
     });
+
   }
 
   moreInfo = id => {
