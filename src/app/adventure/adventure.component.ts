@@ -113,6 +113,7 @@ export class AdventureComponent implements OnInit {
   hours: Hours[];
   hour: any;
   open: Open[];
+  times: any;
 
   constructor(private api: Api, private route: ActivatedRoute, private router: Router){}
 
@@ -136,7 +137,9 @@ export class AdventureComponent implements OnInit {
     this.api.getBusinessDetails(this.id).subscribe((data:BusinessDetails) => {
       console.log(`API Call: Business Details from id`, data);
       this.hours = data.hours;
-      this.open = data.hours.open;
+      // this.open = data.hours.open;
+      this.open = data.hours[0].open;
+      //above means now this.open is the array of objects
     });
 
     this.api.getReviews(this.id).subscribe((data:ReviewData) => {
