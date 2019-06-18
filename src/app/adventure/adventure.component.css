@@ -9,40 +9,35 @@
     linear-gradient(90deg, transparent, white), 
     linear-gradient(#33999b, #9999cd);
     opacity: 0.8;
+    display: flex;
+    flex-direction: column;
     position: relative;
-    
+    margin-top: 25px;
 }
 
 .business-text {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 15px;
+    width: 100%;
+    margin: 15px 15px 20px 15px;
+    
+}
+
+.name-price {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     width: 60%;
 }
 
-.circular-landscape {
-    display: inline-block;
-    position: relative;
-    width: 100px;
-    height: 100px;
-    overflow: hidden;
-    border-radius: 50%;
-  }
-  
-  .circular-landscape img {
-    width: auto;
-    height: 100%;
-    margin-left: -50px;
-    position: absolute; 
-    top: 0;
-    right: 0;
-  }
-
-.image {
-    position: absolute; 
+img {
     top: 15px;
     right: 0;
+    width: 100px;
+    height: auto;
+    position: absolute;
+    /* margin: 10px; */
  }
 
 .fa-heart, .favorite{
@@ -54,13 +49,13 @@
 }
 
 h1 {
-    margin: 25px 0;
+    /* margin: 25px 0; */
     font-size: 1.5rem;
     font-weight: 800;
 }
 
 .business p {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 a {
@@ -75,7 +70,7 @@ button {
     width: 70%;
     padding: 0;
     text-align: left;
-    margin-bottom: 15px;
+    margin-top: 20px;
 
 }
 
