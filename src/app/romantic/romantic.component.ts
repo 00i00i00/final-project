@@ -109,6 +109,16 @@ ngOnInit() {
   //   this.info = !this.info;
   // });
  }
+ moreInfo = id => {
+  this.id = id;
+  console.log(this.id);
+  this.api.getReviews(this.id).subscribe((data:ReviewData) => {
+    console.log(`Reviews from id`, data);
+    this.reviews = data.reviews;
+  });
+
+  this.info = !this.info;
+}
 }
 
 
