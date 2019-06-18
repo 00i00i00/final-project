@@ -11,6 +11,7 @@ interface Location {
   address1: string;
   zip_code: string;
   display_address: [];
+  cross_streets: string;
 }
 
 interface Categories {
@@ -66,6 +67,35 @@ interface Reviews {
   user: User[];
 }
 
+interface BusinessDetails {
+  categories: Categories[];
+  display_phone: string;
+  hours: Hours[];
+  id: string;
+  alias: string;
+  img_url: string;
+  location: Location[];
+  name: string;
+  phone: string;
+  photos: object[];
+  price: string;
+  rating: number;
+  review_count: number;
+  url: string;
+  attributes: object;
+}
+
+interface Hours {
+  is_open_now: boolean;
+  open: Open[];
+}
+
+interface Open {
+  day: number;
+  start: string;
+  end: string;
+}
+
 @Component({
   selector: 'app-adventure',
   templateUrl: './adventure.component.html',
@@ -75,12 +105,13 @@ export class AdventureComponent implements OnInit {
   location: string;
   business: any;
   list: Businesses[];
-  id: Businesses["id"];
+  id: Businesses[];
   reviews: Reviews[];
   review: any;
   info: boolean = false;
   reviewId: Businesses[];
-
+  hours: Hours[];
+  hour: any;
   constructor(private api: Api, private route: ActivatedRoute, private router: Router){}
 
   ngOnInit() {
@@ -89,27 +120,31 @@ export class AdventureComponent implements OnInit {
     this.location = data;
     });
     
-    this.api.getAdventure(this.location).subscribe((data:ApiData) => {
+    this.api.getAdventure('detroit').subscribe((data:ApiData) => {
       console.log('Adventure data from api', data);
       this.list = data.businesses;
-      this.id = data.businesses["id"];
-      console.log(this.id)
-      //^need to figure out this issue
-
+    
     });
 
-    // this.api.getReviews(this.id).subscribe((data:ReviewData) => {
-    //   console.log(`Reviews from id`, data);
-    //   this.reviews = data.reviews;
-    //   this.info = !this.info;
-    // });
   }
 
   moreInfo = id => {
+
     this.id = id;
     console.log(this.id);
+
+    this.api.getBusinessDetails(this.id).subscribe((data:BusinessDetails) => {
+      console.log(`API Call: Business Details from id`, data);
+      this.hours = data.hours;
+      // this.isOpen = data.hours.is_open_now;
+      // if (data.hours.is_open_now === false) {
+
+      // }
+      
+    });
+
     this.api.getReviews(this.id).subscribe((data:ReviewData) => {
-      console.log(`Reviews from id`, data);
+      console.log(`API Call: Reviews from id`, data);
       this.reviews = data.reviews;
     });
 

@@ -54,5 +54,9 @@ getReviews = id => {
     return this.http.get(this.baseUrl + `/businesses/${id}/reviews`, {headers: this.headers});
 }
 
+getBusinessDetails = id => {
+    console.log('Business Details');
+    return this.http.get(this.baseUrl + `/businesses/${id}`, {headers: this.headers});
+}
 
 }

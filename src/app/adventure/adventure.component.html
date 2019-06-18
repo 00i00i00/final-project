@@ -1,23 +1,29 @@
 <div class="container">
   <div class="business" *ngFor="let business of list">
-    <div class="business-text">
-      <a routerLink='/firstdate' class="favorite"><i class="fa fa-heart"></i></a>
-      <h1>{{ business.name}}</h1>
+      <div class="business-text">
+        <a routerLink='/favorite' class="favorite"><i class="fa fa-heart"></i></a>
+          <div class="name-price">
+            <h1>{{ business.name }}</h1>
+            <p>{{ business.price }}</p>
+          </div>
+        <div class="image">
+          <img src="{{ business.image_url }}" />
+        </div>
+        <p>{{ business.categories.title }}</p>
+        <p>{{ business.rating }}</p>
+        <p>{{ business.location.address1 }} {{ business.location.address2 }} {{ business.location.address3}}</p>
+        <p>{{ business.location.city }} {{ business.location.state }} {{ business.location.zip_code }}</p>
+        <!-- <a href="{{ business.url }}">Visit the website</a> -->
+        <button type="button" (click)="moreInfo(business.id)">MORE INFO...</button>
+      </div>
+    <div class="infoDiv" *ngIf="info">
       <p>{{ business.display_phone }}</p>
-      <p>{{ business.location.display_address }}</p>
-      <a href="{{ business.url }}">Visit the website</a>
-      <button type="button" (click)="moreInfo(business.id)">MORE INFO...</button>
-    </div>
-  <div class="image">
-  <div class="circular-landscape">
-    <img src="{{ business.image_url }}" />
-  </div>
-  </div>
-
-    <div *ngIf="info">
-      <p>{{business.price}}</p>
-      <div class="infoDiv" *ngFor="let review of reviews">
-        <p class="reviewText">{{review.text}}</p>
+      <div *ngFor="let hour of hours">
+        <p>{{ hour.is_open_now}}</p>
+        <!-- <p>{{ hour.open.day }} {{ hour.open.start }} {{ hour.open.end }}</p> -->
+      </div>
+      <div *ngFor="let review of reviews">
+        <p class="reviewText">{{ review.text }}</p>
       </div>
     </div>
   </div>
