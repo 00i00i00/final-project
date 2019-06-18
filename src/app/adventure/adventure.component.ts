@@ -75,7 +75,7 @@ export class AdventureComponent implements OnInit {
   location: string;
   business: any;
   list: Businesses[];
-  id: string;
+  id: Businesses["id"];
   reviews: Reviews[];
   review: any;
   info: boolean = false;
@@ -92,7 +92,8 @@ export class AdventureComponent implements OnInit {
     this.api.getAdventure(this.location).subscribe((data:ApiData) => {
       console.log('Adventure data from api', data);
       this.list = data.businesses;
-      // this.id = this.list.id;
+      this.id = data.businesses["id"];
+      console.log(this.id)
       //^need to figure out this issue
 
     });
@@ -104,15 +105,15 @@ export class AdventureComponent implements OnInit {
     // });
   }
 
-//   moreInfo = id => {
-//     this.id = id;
-//     console.log(this.id);
-//     this.api.getReviews(this.id).subscribe((data:ReviewData) => {
-//       console.log(`Reviews from id`, data);
-//       this.reviews = data.reviews;
-//     });
+  moreInfo = id => {
+    this.id = id;
+    console.log(this.id);
+    this.api.getReviews(this.id).subscribe((data:ReviewData) => {
+      console.log(`Reviews from id`, data);
+      this.reviews = data.reviews;
+    });
 
-//     this.info = !this.info;
-// }
+    this.info = !this.info;
+}
 
 }
