@@ -51,30 +51,30 @@ export class HeaderComponent implements OnInit {
     // this.api.getBusiness().subscribe(data => console.log('data from api', data));
   }
 
-  locationClick = location => {
-    this.api.getLocation(location).subscribe(data => {
-      this.api.updateLocation(this.locationInput);
-      console.log('location data', data);
-      this.showModal = !this.showModal;
-    });
-  }
+  // locationClick = location => {
+  //   this.api.getLocation(location).subscribe(data => {
+  //     this.api.updateLocation(this.locationInput);
+  //     console.log('location data', data);
+  //     this.showModal = !this.showModal;
+  //   });
+  // }
   
-  firstDateClick = () => {
-    this.router.navigateByUrl('/first-date');
-    this.api.getFirstDate(this.locationInput).subscribe(data => console.log('data from api', data));
-  }
+  // firstDateClick = () => {
+  //   this.router.navigateByUrl('/first-date');
+  //   this.api.getFirstDate(this.locationInput).subscribe(data => console.log('data from api', data));
+  // }
 
-  romanticClick = () => {
-    this.router.navigateByUrl('/romantic');
-    this.api.getRomantic(this.locationInput).subscribe(data => console.log('data from api', data));
+  // romanticClick = () => {
+  //   this.router.navigateByUrl('/romantic');
+  //   this.api.getRomantic(this.locationInput).subscribe(data => console.log('data from api', data));
 
-  }
+  // }
 
-  adventureClick = () => {
-    this.router.navigateByUrl('/adventure');
-    // this.api.getAdventure(this.locationInput).subscribe(data => console.log('data from api', data));
+  // adventureClick = () => {
+  //   this.router.navigateByUrl('/adventure');
+  //   // this.api.getAdventure(this.locationInput).subscribe(data => console.log('data from api', data));
 
-  }
+  // }
 
   // oneOfClick = () => {
   //   this.router.navigateByUrl('/filter');
