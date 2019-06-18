@@ -82,7 +82,7 @@ interface BusinessDetails {
   rating: number;
   review_count: number;
   url: string;
-  attributes: object;
+  // attributes: object;
 }
 
 interface Hours {
@@ -112,6 +112,8 @@ export class AdventureComponent implements OnInit {
   reviewId: Businesses[];
   hours: Hours[];
   hour: any;
+  open: Open[];
+
   constructor(private api: Api, private route: ActivatedRoute, private router: Router){}
 
   ngOnInit() {
@@ -123,9 +125,7 @@ export class AdventureComponent implements OnInit {
     this.api.getAdventure('detroit').subscribe((data:ApiData) => {
       console.log('Adventure data from api', data);
       this.list = data.businesses;
-    
     });
-
   }
 
   moreInfo = id => {
@@ -136,11 +136,7 @@ export class AdventureComponent implements OnInit {
     this.api.getBusinessDetails(this.id).subscribe((data:BusinessDetails) => {
       console.log(`API Call: Business Details from id`, data);
       this.hours = data.hours;
-      // this.isOpen = data.hours.is_open_now;
-      // if (data.hours.is_open_now === false) {
-
-      // }
-      
+      this.open = data.hours.open;
     });
 
     this.api.getReviews(this.id).subscribe((data:ReviewData) => {
