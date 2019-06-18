@@ -92,9 +92,9 @@ export class FirstDateComponent implements OnInit {
     this.api.getFirstDate(this.location).subscribe((data:ApiData) => {
       console.log('First Date data from api', data);
       this.list = data.businesses;
+      this.id = data.businesses["id"];
+      console.log(this.id)
       // this.id = this.list.id;
-      
-      
     });
     
     // this.api.getReviews(this.id).subscribe((data:ReviewData) => {
@@ -103,4 +103,16 @@ export class FirstDateComponent implements OnInit {
     //   this.info = !this.info;
     // });
   }
+
+    moreInfo = id => {
+      this.id = id;
+      console.log(this.id);
+      this.api.getReviews(this.id).subscribe((data:ReviewData) => {
+        console.log(`Reviews from id`, data);
+        this.reviews = data.reviews;
+      });
+
+      this.info = !this.info;
+  }
+
 }
