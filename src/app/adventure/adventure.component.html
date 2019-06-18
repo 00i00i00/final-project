@@ -20,8 +20,9 @@
       <p>{{ business.display_phone }}</p>
       <div *ngFor="let hour of hours">
         <p>{{ hour.is_open_now}}</p>
-        <!-- <p>{{ hour.open.day }} {{ hour.open.start }} {{ hour.open.end }}</p> -->
-      </div>
+        <div *ngFor="let open of hours">
+          <p>{{ open.day }} {{ open.start }} {{ open.end }}</p>
+        </div>
       <div *ngFor="let review of reviews">
         <p class="reviewText">{{ review.text }}</p>
       </div>
