@@ -56,12 +56,14 @@ export class HeaderComponent implements OnInit {
     // this.api.getBusiness().subscribe(data => console.log('data from api', data));
   }
 
-locationSearch = locationInput => {
-  this.location = locationInput;
-  this.api.updateLocation(this.location);
-  console.log(this.location);
+  
+  //in progress work
+  // locationSearch = locationInput => {
+    //   this.location = locationInput;
+    //   this.api.updateLocation(this.location);
+    //   console.log(this.location);
     
-}
+    // }
 
 
   // locationClick = location => {
