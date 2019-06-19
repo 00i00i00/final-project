@@ -14,6 +14,8 @@ import { HomeComponent } from './home/home.component';
 import { AdventureComponent } from './adventure/adventure.component';
 import { RomanticComponent } from './romantic/romantic.component';
 import { FirstDateComponent } from './first-date/first-date.component';
+import { TimeFormat } from './time.pipe';
+
 
 const appRoutes: Routes =[
   { path: '', component: HomeComponent},
@@ -36,7 +38,8 @@ const appRoutes: Routes =[
     HomeComponent,
     AdventureComponent,
     RomanticComponent,
-    FirstDateComponent
+    FirstDateComponent,
+    TimeFormat
   ],
   imports: [
     BrowserModule, FormsModule, HttpClientModule, RouterModule.forRoot(appRoutes)
