@@ -20,7 +20,7 @@
     flex-direction: column;
     justify-content: center;
     width: 100%;
-    margin: 15px 15px 20px 15px;
+    margin: 5px 15px 20px 15px;
     
 }
 
@@ -44,8 +44,8 @@ img {
     position: absolute;
     color: #2e8a8b;
     font-size: 20px;
-    top: -4px;
-    left: 6px;
+    top: -8px;
+    left: 12px;
 }
 
 h1 {
