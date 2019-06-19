@@ -34,7 +34,7 @@ getLocation = location => this.http.get(this.baseUrl + '/businesses/search?locat
 
 getFirstDate = location => {
     console.log('first date');
-    return this.http.get(this.baseUrl + '/businesses/search?limit=50&'+ 'location=' + location + '&categories=aquariums', {headers: this.headers});
+    return this.http.get(this.baseUrl + '/businesses/search?limit=50&'+ 'location=' + location + '&categories=aquariums,parks,axethrowing,gokarts,bars,coffee', {headers: this.headers});
 }
 
 getRomantic = location => {
