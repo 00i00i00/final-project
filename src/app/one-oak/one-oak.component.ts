@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Api } from '../services/api.service';
 
+
 interface Location {
   city: string;
   country: string;
-  address2: string;
-  address3: string;
+  address2: string; 
+  address3: string; 
   state: string;
   address1: string;
   zip_code: string;
@@ -20,19 +21,20 @@ interface Categories {
 }
 
 interface Businesses {
-  alias: string;
+  alias: string; 
   categories: Categories[];
-  id: string;
+  id: string; 
   rating: number;
   price: string;
-  display_phone: string;
-  name: string;
+  display_phone: string; 
+  name: string; 
   url: string;
   image_url: string;
   location: Location[];
   distance: number;
   review_count: number;
   info: boolean;
+  favorite: boolean;
 }
 
 interface ApiData {
@@ -40,7 +42,7 @@ interface ApiData {
   businesses: Businesses[];
   region: {
     center: {
-      latitude: number;
+      latitude:number;
       longitude: number;
     }
   }
@@ -105,7 +107,7 @@ export class OneOAKComponent implements OnInit {
   location: string;
   business: any;
   list: Businesses[];
-  id: string;
+  id: Businesses[];
   reviews: Reviews[];
   review: any;
   info: boolean = false;
@@ -115,8 +117,12 @@ export class OneOAKComponent implements OnInit {
   open: Open[];
   times: any;
   day: any;
-  dates: any = { 0: 'Monday', 1: 'Tuesday', 2: 'Wednesday', 3: 'Thursday', 4: 'Friday', 5: 'Saturday', 6: 'Sunday' };
+  dates: any = {0: 'Monday', 1: 'Tuesday', 2: 'Wednesday', 3: 'Thursday', 4: 'Friday', 5: 'Saturday', 6: 'Sunday' };
   favorite: boolean;
+  favoriteList: object[] = [];
+  biz: Businesses[];
+  category: any;
+  categories: Categories[];
 
   constructor(private api: Api, private route: ActivatedRoute) { }
 
@@ -129,14 +135,18 @@ export class OneOAKComponent implements OnInit {
     this.api.getOneOfAKind(this.location).subscribe((data: ApiData) => {
       console.log('Romantic data from api', data);
       this.list = data.businesses;
+      this.categories = data.businesses[0].categories;
+
     });
 
   }
 
   moreInfo = (id, business) => {
 
-    // this.id = id;
-    // console.log(this.id);
+    for (let business of this.list) {
+      business.info = false;
+    }
+
     business.info = !business.info;
 
     this.api.getBusinessDetails(id).subscribe((data: BusinessDetails) => {
@@ -153,6 +163,15 @@ export class OneOAKComponent implements OnInit {
     });
 
   }
+
+
+favoriteBusiness = business => {
+  business.favorite = !business.favorite;
+  this.biz = business;
+  this.favoriteList.push(this.biz);
+  this.api.updateFavorites(this.favoriteList);
+  console.log('heart clicked', this.favoriteList);
+}
 
 }
 

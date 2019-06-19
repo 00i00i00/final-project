@@ -141,12 +141,13 @@ export class AdventureComponent implements OnInit {
 
   moreInfo = (id, business) => {
 
-    // this.id = id;
-    // console.log(this.id);
-
     for (let business of this.list) {
       business.info = false;
     }
+    //code above is the fix from Adam
+    //we need to work on fixing the new issue w/ toggling 
+    //but we can address this later. 
+    
     business.info = !business.info;
 
     this.api.getBusinessDetails(id).subscribe((data:BusinessDetails) => {

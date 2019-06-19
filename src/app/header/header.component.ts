@@ -45,11 +45,24 @@ export class HeaderComponent implements OnInit {
   showModal: boolean = true;
   constructor(private api: Api, private route: ActivatedRoute, private router: Router){}
   logoNumber: number = 1;
+  location: string;
 
   ngOnInit() {
+    this.api.location.subscribe(data => {
+      console.log(data);
+      this.location = data;
+      });
     
     // this.api.getBusiness().subscribe(data => console.log('data from api', data));
   }
+
+locationSearch = locationInput => {
+  this.location = locationInput;
+  this.api.updateLocation(this.location);
+  console.log(this.location);
+    
+}
+
 
   // locationClick = location => {
   //   this.api.getLocation(location).subscribe(data => {
