@@ -116,7 +116,6 @@ export class AdventureComponent implements OnInit {
   times: any;
   day: any;
   dates: any = {0: 'Monday', 1: 'Tuesday', 2: 'Wednesday', 3: 'Thursday', 4: 'Friday', 5: 'Saturday', 6: 'Sunday' };
-  biz: any;
 
   constructor(private api: Api, private route: ActivatedRoute, private router: Router){}
 
@@ -135,10 +134,10 @@ export class AdventureComponent implements OnInit {
 
   moreInfo = (id, business) => {
 
-    this.id = id;
-    console.log(this.id);
+    // this.id = id;
+    // console.log(this.id);
 
-    this.api.getBusinessDetails(this.id).subscribe((data:BusinessDetails) => {
+    this.api.getBusinessDetails(id).subscribe((data:BusinessDetails) => {
       console.log(`API Call: Business Details from id`, data);
       this.hours = data.hours;
       this.open = data.hours[0].open;
@@ -146,7 +145,7 @@ export class AdventureComponent implements OnInit {
       this.day = this.open[0].day;
     });
 
-    this.api.getReviews(this.id).subscribe((data:ReviewData) => {
+    this.api.getReviews(id).subscribe((data:ReviewData) => {
       console.log(`API Call: Reviews from id`, data);
       this.reviews = data.reviews;
     });
