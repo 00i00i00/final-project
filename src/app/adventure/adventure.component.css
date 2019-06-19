@@ -81,3 +81,7 @@ margin: 15px;
 .reviewText {
     margin-bottom: 15px;
 }
+
+#carouselExampleControls {
+    border: 1px solid black;
+}

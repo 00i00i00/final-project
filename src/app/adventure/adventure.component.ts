@@ -32,7 +32,7 @@ interface Businesses {
   location: Location[];
   distance: number;
   review_count: number;
-
+  info: boolean;
 }
 
 interface ApiData {
@@ -116,7 +116,7 @@ export class AdventureComponent implements OnInit {
   times: any;
   day: any;
   dates: any = {0: 'Monday', 1: 'Tuesday', 2: 'Wednesday', 3: 'Thursday', 4: 'Friday', 5: 'Saturday', 6: 'Sunday' };
-
+  biz: any;
 
   constructor(private api: Api, private route: ActivatedRoute, private router: Router){}
 
@@ -133,7 +133,7 @@ export class AdventureComponent implements OnInit {
 
   }
 
-  moreInfo = id => {
+  moreInfo = (id, business) => {
 
     this.id = id;
     console.log(this.id);
@@ -150,8 +150,8 @@ export class AdventureComponent implements OnInit {
       console.log(`API Call: Reviews from id`, data);
       this.reviews = data.reviews;
     });
-
-    this.info = !this.info;
+    
+    business.info = !business.info;
 }
 
 }
