@@ -35,6 +35,8 @@ interface Businesses {
   info: boolean;
   favorite: boolean;
   fullWidth: boolean;
+  imgSize: boolean;
+
 }
 
 interface ApiData {
@@ -146,11 +148,14 @@ export class FavoritesComponent implements OnInit{
 
   moreInfo = (id, biz) => {
 
-    for (let biz of this.favoritesList) {
-      biz.info = false;
-    }    
+    const currentState = biz.info;
+    this.list.forEach(item => item.info = false);
+    biz.info = !currentState;
 
-      biz.info = !biz.info;
+    this.list.forEach(item => item.fullWidth = false);
+    this.list.forEach(item => item.imgSize = false);
+
+
 
       this.api.getBusinessDetails(id).subscribe((data:BusinessDetails) => {
           console.log(`API Call: Business Details from id`, data);
@@ -167,7 +172,8 @@ export class FavoritesComponent implements OnInit{
       
       
     biz.fullWidth = !biz.fullWidth;
-        
+    biz.imgSize = !biz.imgSize;
+
 }
 
 favoriteBusiness = biz => {
