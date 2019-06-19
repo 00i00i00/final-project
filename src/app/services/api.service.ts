@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
-
+ 
 
 @Injectable()
 export class Api {
@@ -64,6 +64,9 @@ getReviews = id => {
 
 getBusinessDetails = id => {
     console.log('Business Details');
+    // if (savedDetails[id]) {
+    //     return 
+    // }
     return this.http.get(this.baseUrl + `/businesses/${id}`, {headers: this.headers});
 }
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { Api } from '../services/api.service';
+
 interface Location {
   city: string;
   country: string;
@@ -34,7 +35,7 @@ interface Businesses {
   info: boolean;
   favorite: boolean;
   fullWidth: boolean;
-
+  imgSize: boolean;
 }
 
 interface ApiData {
@@ -125,28 +126,30 @@ export class FirstDateComponent implements OnInit {
   categories: Categories[];
 
   constructor(private api: Api, private route: ActivatedRoute, private router: Router){}
-
   ngOnInit() {
     this.api.location.subscribe(data => {
-      console.log(data);
-      this.location = data;
-      });
-   
-    this.api.getFirstDate(this.location).subscribe((data:ApiData) => {
-      console.log('First Date data from api', data);
-      this.list = data.businesses;
-      this.categories = data.businesses[0].categories;
-
+    console.log(data);
+    this.location = data;
     });
     
+    this.api.getAdventure('detroit').subscribe((data:ApiData) => {
+      console.log('Adventure data from api', data);
+      this.list = data.businesses;
+      this.categories = data.businesses[0].categories;
+    });
+
   }
 
   moreInfo = (id, business) => {
 
-    for (let business of this.list) {
-      business.info = false;
-    }
-    business.info = !business.info;
+   const currentState = business.info;
+    this.list.forEach(item => item.info = false);
+    business.info = !currentState;
+
+    this.list.forEach(item => item.fullWidth = false);
+    this.list.forEach(item => item.imgSize = false);
+
+
 
     this.api.getBusinessDetails(id).subscribe((data:BusinessDetails) => {
       console.log(`API Call: Business Details from id`, data);
@@ -160,13 +163,12 @@ export class FirstDateComponent implements OnInit {
       console.log(`API Call: Reviews from id`, data);
       this.reviews = data.reviews;
     });
-
-    business.fullWidth = !business.fullWidth;
-
     
-  }
+    business.fullWidth = !business.fullWidth;
+    business.imgSize = !business.imgSize;
 
- 
+}
+
 favoriteBusiness = business => {
   business.favorite = !business.favorite;
   this.biz = business;
