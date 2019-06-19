@@ -47,7 +47,6 @@ export class HeaderComponent implements OnInit {
   showModal: boolean = true;
   constructor(private api: Api, private route: ActivatedRoute, private router: Router){}
   logoNumber: number = 1;
-  location: string;
 
   ngOnInit() {
     this.api.location.subscribe(data => {
