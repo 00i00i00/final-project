@@ -82,7 +82,7 @@ export class HeaderComponent implements OnInit {
   //   this.api.getFirstDate(this.locationInput).subscribe(data => console.log('data from api', data));
   // }
 
-  }
+  // }
 
 
   getDateSearch = (location) => {
