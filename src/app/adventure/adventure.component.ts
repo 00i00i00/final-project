@@ -32,7 +32,8 @@ interface Businesses {
   location: Location[];
   distance: number;
   review_count: number;
-
+  info: boolean;
+  favorite: boolean;
 }
 
 interface ApiData {
@@ -114,6 +115,13 @@ export class AdventureComponent implements OnInit {
   hour: any;
   open: Open[];
   times: any;
+  day: any;
+  dates: any = {0: 'Monday', 1: 'Tuesday', 2: 'Wednesday', 3: 'Thursday', 4: 'Friday', 5: 'Saturday', 6: 'Sunday' };
+  favorite: boolean;
+  favoriteList: object[] = [];
+  biz: Businesses[];
+  category: any;
+  categories: Categories[];
 
   constructor(private api: Api, private route: ActivatedRoute, private router: Router){}
 
@@ -123,32 +131,47 @@ export class AdventureComponent implements OnInit {
     this.location = data;
     });
     
-    this.api.getAdventure('detroit').subscribe((data:ApiData) => {
+    this.api.getAdventure(this.location).subscribe((data:ApiData) => {
       console.log('Adventure data from api', data);
       this.list = data.businesses;
+      this.categories = data.businesses[0].categories;
     });
 
   }
 
-  moreInfo = id => {
+  moreInfo = (id, business) => {
 
-    this.id = id;
-    console.log(this.id);
+    // this.id = id;
+    // console.log(this.id);
 
-    this.api.getBusinessDetails(this.id).subscribe((data:BusinessDetails) => {
+    for (let business of this.list) {
+      business.info = false;
+    }
+    business.info = !business.info;
+
+    this.api.getBusinessDetails(id).subscribe((data:BusinessDetails) => {
       console.log(`API Call: Business Details from id`, data);
       this.hours = data.hours;
-      // this.open = data.hours.open;
       this.open = data.hours[0].open;
       //above means now this.open is the array of objects
+      this.day = this.open[0].day;
     });
 
-    this.api.getReviews(this.id).subscribe((data:ReviewData) => {
+    this.api.getReviews(id).subscribe((data:ReviewData) => {
       console.log(`API Call: Reviews from id`, data);
       this.reviews = data.reviews;
     });
+    
+    // business.info = !business.info;
 
-    this.info = !this.info;
+}
+
+favoriteBusiness = business => {
+  business.favorite = !business.favorite;
+  this.biz = business;
+  this.favoriteList.push(this.biz);
+  this.api.updateFavorites(this.favoriteList);
+  console.log('heart clicked', this.favoriteList);
 }
 
 }

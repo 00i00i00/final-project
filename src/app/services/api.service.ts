@@ -14,6 +14,10 @@ export class Api {
     constructor(private http: HttpClient) {}
     private _location = new BehaviorSubject<string>('');
     location = this._location.asObservable();
+    private _favoriteList = new BehaviorSubject<any[]>([]);
+    favoriteList = this._favoriteList.asObservable();
+
+updateFavorites = newBusiness => this._favoriteList.next(newBusiness);
 
 updateLocation = newLocation => this._location.next(newLocation);
 
@@ -46,7 +50,7 @@ getAdventure = location => {
 
 getLastDate = location =>  {
     console.log('last date');
-    return this.http.get(this.baseUrl + '/businesses/search?limit=50&'+ 'location=' + location + '&categories=jazzandblues&categories=arcades', {headers: this.headers});
+    return this.http.get(this.baseUrl + '/businesses/search?limit=50&'+ 'location=' + location + '&categories=galleries&categories=casinos&categories=choirs&categories=culturalcenter&categories=festivals&categories=jazzandblues&categories=artmuseums&categories=musicvenues&categories=opera&categories=theater&categories=spas&categories=cprclasses&categories=firearmtraining&categories=silentdisco&categories=beer_and_wine&categories=breweries&categories=bubbletea&categories=cideries&categories=desserts&categories=distilleries&categories=gelato&categories=juicebars&categories=milkshakebars&categories=bars&categories=beergardens&categories=coffeeshops&categories=restaurants&categories=pianobars', {headers: this.headers});
 }
 
 getReviews = id => {

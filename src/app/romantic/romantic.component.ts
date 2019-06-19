@@ -11,6 +11,7 @@ interface Location {
   address1: string;
   zip_code: string;
   display_address: [];
+  cross_streets: string;
 }
 
 interface Categories {
@@ -31,7 +32,7 @@ interface Businesses {
   location: Location[];
   distance: number;
   review_count: number;
-  
+  info: boolean;
 }
 
 interface ApiData {
@@ -66,12 +67,40 @@ interface Reviews {
   user: User[];
 }
 
+interface BusinessDetails {
+  categories: Categories[];
+  display_phone: string;
+  hours: Hours[];
+  id: string;
+  alias: string;
+  img_url: string;
+  location: Location[];
+  name: string;
+  phone: string;
+  photos: object[];
+  price: string;
+  rating: number;
+  review_count: number;
+  url: string;
+  // attributes: object;
+}
+
+interface Hours {
+  is_open_now: boolean;
+  open: Open[];
+}
+
+interface Open {
+  day: number;
+  start: string;
+  end: string;
+}
+
 @Component({
   selector: 'app-romantic',
   templateUrl: './romantic.component.html',
   styleUrls: ['./romantic.component.css']
 })
-
 export class RomanticComponent implements OnInit {
   location: string;
   business: any;
@@ -81,6 +110,13 @@ export class RomanticComponent implements OnInit {
   review: any;
   info: boolean = false;
   reviewId: Businesses[];
+  hours: Hours[];
+  hour: any;
+  open: Open[];
+  times: any;
+  day: any;
+  dates: any = {0: 'Monday', 1: 'Tuesday', 2: 'Wednesday', 3: 'Thursday', 4: 'Friday', 5: 'Saturday', 6: 'Sunday' };
+  favorite: boolean;
 
 constructor(private api: Api, private route: ActivatedRoute, private router: Router){}
 
@@ -89,43 +125,34 @@ ngOnInit() {
   console.log(data);
   this.location = data;
   });
-
-//   getRomantic = location => {
-//     console.log('romantic date');
-//     return this.http.get(this.baseUrl + '/businesses/search?location=' + location + '&categories=jazzandblues&categories=arcades', {headers: this.headers});
-// }
   
   this.api.getRomantic(this.location).subscribe((data:ApiData) => {
     console.log('Romantic data from api', data);
-    this.list = data.businesses;
-    // this.id = this.list.id;
-
-    
+    this.list = data.businesses;  
   });
 
-  // this.api.getReviews(this.id).subscribe((data:ReviewData) => {
-  //   console.log(`Reviews from id`, data);
-  //   this.reviews = data.reviews;
-  //   this.info = !this.info;
-  // });
  }
- moreInfo = id => {
-  this.id = id;
-  console.log(this.id);
-  this.api.getReviews(this.id).subscribe((data:ReviewData) => {
-    console.log(`Reviews from id`, data);
+
+ moreInfo = (id, business) => {
+
+  // this.id = id;
+  // console.log(this.id);
+  business.info = !business.info;
+
+  this.api.getBusinessDetails(id).subscribe((data:BusinessDetails) => {
+    console.log(`API Call: Business Details from id`, data);
+    this.hours = data.hours;
+    this.open = data.hours[0].open;
+    //above means now this.open is the array of objects
+    this.day = this.open[0].day;
+  });
+
+  this.api.getReviews(id).subscribe((data:ReviewData) => {
+    console.log(`API Call: Reviews from id`, data);
     this.reviews = data.reviews;
   });
-
-  this.info = !this.info;
 }
 }
-
-
-// scrollUp = () => {
-//   window.scroll(0,0);
-// }
-
   
   
 
