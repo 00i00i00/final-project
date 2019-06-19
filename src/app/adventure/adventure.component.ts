@@ -116,6 +116,7 @@ export class AdventureComponent implements OnInit {
   times: any;
   day: any;
   dates: any = {0: 'Monday', 1: 'Tuesday', 2: 'Wednesday', 3: 'Thursday', 4: 'Friday', 5: 'Saturday', 6: 'Sunday' };
+  favorite: boolean;
 
   constructor(private api: Api, private route: ActivatedRoute, private router: Router){}
 
@@ -136,6 +137,7 @@ export class AdventureComponent implements OnInit {
 
     // this.id = id;
     // console.log(this.id);
+    business.info = !business.info;
 
     this.api.getBusinessDetails(id).subscribe((data:BusinessDetails) => {
       console.log(`API Call: Business Details from id`, data);
@@ -150,7 +152,6 @@ export class AdventureComponent implements OnInit {
       this.reviews = data.reviews;
     });
     
-    business.info = !business.info;
 }
 
 }
