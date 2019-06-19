@@ -40,7 +40,9 @@ interface ApiData {
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  location: string;
   locationInput: string;
+  searchInput: string;
   list: Businesses[];
   showModal: boolean = true;
   constructor(private api: Api, private route: ActivatedRoute, private router: Router){}
@@ -52,6 +54,7 @@ export class HeaderComponent implements OnInit {
       console.log(data);
       this.location = data;
       });
+
     
     // this.api.getBusiness().subscribe(data => console.log('data from api', data));
   }
@@ -79,24 +82,19 @@ export class HeaderComponent implements OnInit {
   //   this.api.getFirstDate(this.locationInput).subscribe(data => console.log('data from api', data));
   // }
 
-  // romanticClick = () => {
-  //   this.router.navigateByUrl('/romantic');
-  //   this.api.getRomantic(this.locationInput).subscribe(data => console.log('data from api', data));
+  }
 
-  // }
 
-  // adventureClick = () => {
-  //   this.router.navigateByUrl('/adventure');
-  //   // this.api.getAdventure(this.locationInput).subscribe(data => console.log('data from api', data));
+  getDateSearch = (location) => {
+    this.api.getDateSearch(location, this.searchInput).subscribe((data: {results: []}) => {
+      console.log('Date input search from api', data.results);
+      this.api.updateDateList(data.results);
+    });
 
-  // }
-
-  // oneOfClick = () => {
-  //   this.router.navigateByUrl('/filter');
-  // }
-
-  // lastDateClick = () => {
-  //   this.router.navigateByUrl('/filter');
-  // }
+    // this.api.getDateSearch(location, this.searchInput).subscribe((data: {businesses: []}) => {
+    //   console.log('Date input search from api', data.businesses);
+    //   this.api.updateDateList(data.businesses);
+    // });
+  }
 
 }

@@ -12,6 +12,8 @@ export class Api {
         });
 
     constructor(private http: HttpClient) {}
+    private _dateList = new BehaviorSubject<any[]>([]);
+    dateList = this._dateList.asObservable();
     private _location = new BehaviorSubject<string>('');
     location = this._location.asObservable();
     private _favoriteList = new BehaviorSubject<any[]>([]);
@@ -19,6 +21,8 @@ export class Api {
 
 updateFavorites = newBusiness => this._favoriteList.next(newBusiness);
 
+updateDateList = newList => this._dateList.next(newList);
+getDate = () => this.http.get(this.baseUrl);    
 updateLocation = newLocation => this._location.next(newLocation);
 
 getLocation = location => this.http.get(this.baseUrl + '/businesses/search?location=' + location, { headers: this.headers });
@@ -61,6 +65,14 @@ getReviews = id => {
 getBusinessDetails = id => {
     console.log('Business Details');
     return this.http.get(this.baseUrl + `/businesses/${id}`, {headers: this.headers});
+}
+
+getDateSearch = (location, searchInput) => {
+    if (!searchInput) {
+        return this.getDate();
+    }
+    console.log('Date Search');
+    return this.http.get(this.baseUrl + '/businesses/search?limit=50&' + 'location=' + location + '&' + searchInput, {headers: this.headers});
 }
 
 }

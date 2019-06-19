@@ -1,9 +1,8 @@
 <div class="container">
     <div class="business" *ngFor="let business of list">
         <div class="business-text">
-          <!-- <a class="favorite" (click)="favoriteBusiness(business)" [ngClass]="{'like': business.favorite===true}"><i class="fa fa-heart"></i></a> -->
      <a class="favorite" (click)="favoriteBusiness(business)"><i class="fa fa-heart" [ngClass]="{'like': business.favorite===true}"></i></a>
-    
+   
           <div class="name-price">
               <h1>{{ business.name }}</h1>
               <p>{{ business.price }}</p>
@@ -18,7 +17,8 @@
           <p>{{ business.location.address1 }} {{ business.location.address2 }} {{ business.location.address3}}</p>
           <p>{{ business.location.city }} {{ business.location.state }} {{ business.location.zip_code }}</p>
           <!-- <a href="{{ business.url }}">Visit the website</a> -->
-          <button type="button" (click)="moreInfo(business.id, business)">MORE INFO...</button>
+          <button type="button" (click)="moreInfo(business.id, business)" data-toggle="collapse">MORE INFO...</button>
+          <!-- <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Simple collapsible</button> -->
         </div>
       <div class="infoDiv" *ngIf="business.info">
         <p>{{ business.display_phone }}</p>
@@ -29,8 +29,10 @@
             <p>{{ dates[times.day] }}: {{ times.start | convertFrom24To12Format }} - {{ times.end | convertFrom24To12Format }}</p>
           </div>
         <div class="reviews" *ngFor="let review of reviews">
+            <!-- <div id="demo" class="collapse"> -->
           <p class="reviewText">{{ review.text }}</p>
           <a href="{{ review.url }}">(Read more)</a>
+          <!-- </div> -->
         </div>
       </div>
     </div>
