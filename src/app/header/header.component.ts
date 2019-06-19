@@ -40,15 +40,32 @@ interface ApiData {
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  location: string;
   locationInput: string;
+  searchInput: string;
   list: Businesses[];
   showModal: boolean = true;
   constructor(private api: Api, private route: ActivatedRoute, private router: Router){}
   logoNumber: number = 1;
 
   ngOnInit() {
-    
-    // this.api.getBusiness().subscribe(data => console.log('data from api', data));
+    this.api.location.subscribe(data => {
+      console.log(data);
+      this.location = data;
+      });
+  }
+
+
+  getDateSearch = (location) => {
+    this.api.getDateSearch(location, this.searchInput).subscribe((data: {results: []}) => {
+      console.log('Date input search from api', data.results);
+      this.api.updateDateList(data.results);
+    });
+
+    // this.api.getDateSearch(location, this.searchInput).subscribe((data: {businesses: []}) => {
+    //   console.log('Date input search from api', data.businesses);
+    //   this.api.updateDateList(data.businesses);
+    // });
   }
 
 }
