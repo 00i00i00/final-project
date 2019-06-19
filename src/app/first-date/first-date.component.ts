@@ -141,6 +141,10 @@ export class FirstDateComponent implements OnInit {
 
     // this.id = id;
     // console.log(this.id);
+  
+    for (let business of this.list) {
+      business.info = false;
+    }
     business.info = !business.info;
 
     this.api.getBusinessDetails(id).subscribe((data:BusinessDetails) => {
