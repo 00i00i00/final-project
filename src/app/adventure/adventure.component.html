@@ -1,7 +1,6 @@
 <div class="container">
-  <div class="business" *ngFor="let business of list">
+  <div class="business" *ngFor="let business of list" [ngClass]="{'fullWidth': business.fullWidth===true}">
       <div class="business-text">
-        <!-- <a class="favorite" (click)="favoriteBusiness(business)" [ngClass]="{'like': business.favorite===true}"><i class="fa fa-heart"></i></a> -->
    <a class="favorite" (click)="favoriteBusiness(business)"><i class="fa fa-heart" [ngClass]="{'like': business.favorite===true}"></i></a>
   
         <div class="name-price">
@@ -18,7 +17,7 @@
         <p>{{ business.location.address1 }} {{ business.location.address2 }} {{ business.location.address3}}</p>
         <p>{{ business.location.city }} {{ business.location.state }} {{ business.location.zip_code }}</p>
         <!-- <a href="{{ business.url }}">Visit the website</a> -->
-        <button type="button" (click)="moreInfo(business.id, business)">MORE INFO...</button>
+        <button type="button" (click)="moreInfo(business.id, business)" >MORE INFO...</button>
       </div>
     <div class="infoDiv" *ngIf="business.info">
       <p>{{ business.display_phone }}</p>

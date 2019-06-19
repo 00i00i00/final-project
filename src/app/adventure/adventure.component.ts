@@ -34,6 +34,7 @@ interface Businesses {
   review_count: number;
   info: boolean;
   favorite: boolean;
+  fullWidth: boolean;
 }
 
 interface ApiData {
@@ -131,7 +132,7 @@ export class AdventureComponent implements OnInit {
     this.location = data;
     });
     
-    this.api.getAdventure(this.location).subscribe((data:ApiData) => {
+    this.api.getAdventure('detroit').subscribe((data:ApiData) => {
       console.log('Adventure data from api', data);
       this.list = data.businesses;
       this.categories = data.businesses[0].categories;
@@ -163,7 +164,7 @@ export class AdventureComponent implements OnInit {
       this.reviews = data.reviews;
     });
     
-    // business.info = !business.info;
+    business.fullWidth = !business.fullWidth;
 
 }
 

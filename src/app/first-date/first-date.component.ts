@@ -33,6 +33,8 @@ interface Businesses {
   review_count: number;
   info: boolean;
   favorite: boolean;
+  fullWidth: boolean;
+
 }
 
 interface ApiData {
@@ -158,6 +160,9 @@ export class FirstDateComponent implements OnInit {
       console.log(`API Call: Reviews from id`, data);
       this.reviews = data.reviews;
     });
+
+    business.fullWidth = !business.fullWidth;
+
     
   }
 
