@@ -162,13 +162,21 @@ ngOnInit() {
   });
 }
 
+
 favoriteBusiness = business => {
   business.favorite = !business.favorite;
   this.biz = business;
+
+  this.api.favoriteList.subscribe(data => {
+    console.log(data);
+    this.favoriteList = data;
+  });
+
   this.favoriteList.push(this.biz);
   this.api.updateFavorites(this.favoriteList);
   console.log('heart clicked', this.favoriteList);
 }
+
 }
   
   
