@@ -14,6 +14,10 @@ export class Api {
     constructor(private http: HttpClient) {}
     private _location = new BehaviorSubject<string>('');
     location = this._location.asObservable();
+    private _favoriteList = new BehaviorSubject<any[]>([]);
+    favoriteList = this._favoriteList.asObservable();
+
+updateFavorites = newBusiness => this._favoriteList.next(newBusiness);
 
 updateLocation = newLocation => this._location.next(newLocation);
 

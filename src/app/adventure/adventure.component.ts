@@ -33,6 +33,7 @@ interface Businesses {
   distance: number;
   review_count: number;
   info: boolean;
+  favorite: boolean;
 }
 
 interface ApiData {
@@ -117,6 +118,10 @@ export class AdventureComponent implements OnInit {
   day: any;
   dates: any = {0: 'Monday', 1: 'Tuesday', 2: 'Wednesday', 3: 'Thursday', 4: 'Friday', 5: 'Saturday', 6: 'Sunday' };
   favorite: boolean;
+  favoriteList: object[] = [];
+  biz: Businesses[];
+  category: any;
+  categories: Categories[];
 
   constructor(private api: Api, private route: ActivatedRoute, private router: Router){}
 
@@ -129,6 +134,7 @@ export class AdventureComponent implements OnInit {
     this.api.getAdventure(this.location).subscribe((data:ApiData) => {
       console.log('Adventure data from api', data);
       this.list = data.businesses;
+      this.categories = data.businesses[0].categories;
     });
 
   }
@@ -137,6 +143,10 @@ export class AdventureComponent implements OnInit {
 
     // this.id = id;
     // console.log(this.id);
+
+    for (let business of this.list) {
+      business.info = false;
+    }
     business.info = !business.info;
 
     this.api.getBusinessDetails(id).subscribe((data:BusinessDetails) => {
@@ -152,6 +162,16 @@ export class AdventureComponent implements OnInit {
       this.reviews = data.reviews;
     });
     
+    // business.info = !business.info;
+
+}
+
+favoriteBusiness = business => {
+  business.favorite = !business.favorite;
+  this.biz = business;
+  this.favoriteList.push(this.biz);
+  this.api.updateFavorites(this.favoriteList);
+  console.log('heart clicked', this.favoriteList);
 }
 
 }

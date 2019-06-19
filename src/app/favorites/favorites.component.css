@@ -42,7 +42,8 @@ img {
 
 .fa-heart, .favorite{
     position: absolute;
-    color: #2e8a8b;
+
+    color: black;
     font-size: 20px;
     top: -4px;
     left: 6px;
@@ -87,10 +88,10 @@ margin: 15px;
 
 }
 
+.favorite {
+    color: black;
 
-
-
-
+}
 
 
 /* .idea-list {

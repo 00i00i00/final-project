@@ -1,24 +1,25 @@
 <div class="container">
-    <div class="business" *ngFor="let business of list">
+    <div class="business" *ngFor="let biz of favoritesList">
         <div class="business-text">
-          <a routerLink='/favorite' class="favorite"><i class="fa fa-heart"></i></a>
+            <a class="favorite" (click)="favoriteBusiness(business)"><i class="fa fa-heart"></i></a>
             <div class="name-price">
-              <h1>{{ business.name }}</h1>
-              <p>{{ business.price }}</p>
+              <h1>{{ biz.name }}</h1>
+              <p>{{ biz.price }}</p>
             </div>
           <div class="image">
-            <img src="{{ business.image_url }}" />
+            <img src="{{ biz.image_url }}" />
           </div>
-          <p>{{ business.categories.title }}</p>
-          <p>{{ business.rating }}</p>
-          <p>{{ business.location.address1 }} {{ business.location.address2 }} {{ business.location.address3}}</p>
-          <p>{{ business.location.city }} {{ business.location.state }} {{ business.location.zip_code }}</p>
-          <!-- <a href="{{ business.url }}">Visit the website</a> -->
-          <button type="button" (click)="moreInfo(business.id, business)">MORE INFO...</button>
+          <div *ngFor="let category of categories">
+              <p>{{ category.title }}</p>            
+          </div>
+          <p>{{ biz.rating }}</p>
+          <p>{{ biz.location.address1 }} {{ biz.location.address2 }} {{ biz.location.address3}}</p>
+          <p>{{ biz.location.city }} {{ biz.location.state }} {{ biz.location.zip_code }}</p>
+          <button type="button" (click)="moreInfo(biz.id, business)">MORE INFO...</button>
         </div>
-      <div class="infoDiv" *ngIf="business.info">
-        <p>{{ business.display_phone }}</p>
-        <div *ngFor="let hour of hours">
+      <!-- <div class="infoDiv" *ngIf="business.info">
+        <p>{{ biz.display_phone }}</p>
+ <div *ngFor="let hour of hours">
           <p>{{ hour.is_open_now === false ? 'Closed' : 'Open' }}</p>
           <p>HOURS</p>
           <div *ngFor="let times of open">
@@ -29,10 +30,11 @@
           <a href="{{ review.url }}">(Read more)</a>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
+</div> 
 
-
+  
 
 
 <!-- <div class="idea-list">
@@ -65,3 +67,11 @@
     </div>
   </div>
 </div> -->
+<!-- <div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="..." alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div> -->
