@@ -47,12 +47,41 @@ export class HeaderComponent implements OnInit {
   showModal: boolean = true;
   constructor(private api: Api, private route: ActivatedRoute, private router: Router){}
   logoNumber: number = 1;
+  location: string;
 
   ngOnInit() {
     this.api.location.subscribe(data => {
       console.log(data);
       this.location = data;
       });
+
+    
+    // this.api.getBusiness().subscribe(data => console.log('data from api', data));
+  }
+
+  
+  //in progress work
+  // locationSearch = locationInput => {
+    //   this.location = locationInput;
+    //   this.api.updateLocation(this.location);
+    //   console.log(this.location);
+    
+    // }
+
+
+  // locationClick = location => {
+  //   this.api.getLocation(location).subscribe(data => {
+  //     this.api.updateLocation(this.locationInput);
+  //     console.log('location data', data);
+  //     this.showModal = !this.showModal;
+  //   });
+  // }
+  
+  // firstDateClick = () => {
+  //   this.router.navigateByUrl('/first-date');
+  //   this.api.getFirstDate(this.locationInput).subscribe(data => console.log('data from api', data));
+  // }
+
   }
 
 

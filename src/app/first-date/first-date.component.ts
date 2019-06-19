@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { Api } from '../services/api.service';
-
 interface Location {
   city: string;
   country: string;
@@ -33,6 +32,7 @@ interface Businesses {
   distance: number;
   review_count: number;
   info: boolean;
+  favorite: boolean;
 }
 
 interface ApiData {
@@ -133,15 +133,14 @@ export class FirstDateComponent implements OnInit {
     this.api.getFirstDate(this.location).subscribe((data:ApiData) => {
       console.log('First Date data from api', data);
       this.list = data.businesses;
+      this.categories = data.businesses[0].categories;
+
     });
     
   }
 
   moreInfo = (id, business) => {
 
-    // this.id = id;
-    // console.log(this.id);
-  
     for (let business of this.list) {
       business.info = false;
     }
@@ -163,11 +162,12 @@ export class FirstDateComponent implements OnInit {
   }
 
   favoriteBusiness = business => {
-    business.favoriteBusiness = !business.favoriteBusiness;
+    business.favorite = !business.favorite;
     this.biz = business;
     this.favoriteList.push(this.biz);
     this.api.updateFavorites(this.favoriteList);
-    
-  };
+    console.log('heart clicked', this.favoriteList);
+  }
+
 
 }

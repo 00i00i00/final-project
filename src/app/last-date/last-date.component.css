@@ -40,7 +40,7 @@ img {
     /* margin: 10px; */
  }
 
-.fa-heart, .favorite{
+.fa-heart {
     position: absolute;
     color: #2e8a8b;
     font-size: 20px;
@@ -84,5 +84,10 @@ margin: 15px;
 
 .reviews {
     margin-top: 15px;
+
+}
+
+.like {
+    color: black;
 
 }
