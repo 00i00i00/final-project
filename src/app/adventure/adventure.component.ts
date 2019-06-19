@@ -126,7 +126,7 @@ export class AdventureComponent implements OnInit {
     this.location = data;
     });
     
-    this.api.getAdventure('detroit').subscribe((data:ApiData) => {
+    this.api.getAdventure(this.location).subscribe((data:ApiData) => {
       console.log('Adventure data from api', data);
       this.list = data.businesses;
     });
