@@ -1,9 +1,3 @@
-.container {
-    /* margin-top: 50px; */
-    /* border: 1px solid pink; */
-
-}
-
 .business {
     background: 
     linear-gradient(90deg, transparent, white), 
@@ -89,5 +83,36 @@ margin: 15px;
 
 .like {
     color: black;
+
+}
+
+@media only screen and (min-width: 480px) {
+.container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.business {
+    width: 45%;
+}
+
+.fullWidth {
+    width: 100%;
+}
+
+}
+
+@media only screen and (min-width: 1024px) {
+
+    .business {
+        width: 30%;
+    }
+    
+    .fullWidth {
+        width: 100%;
+    }
+
 
 }

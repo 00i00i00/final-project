@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="business" *ngFor="let biz of favoritesList">
+    <div class="business" *ngFor="let biz of favoritesList" [ngClass]="{'fullWidth': biz.fullWidth===true}">
         <div class="business-text">
             <a class="favorite" (click)="favoriteBusiness(biz)"><i class="fa fa-heart"></i></a>
             <div class="name-price">

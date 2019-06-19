@@ -85,3 +85,34 @@ margin: 15px;
     color: black;
 
 }
+
+@media only screen and (min-width: 480px) {
+.container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.business {
+    width: 45%;
+}
+
+.fullWidth {
+    width: 100%;
+}
+
+}
+
+@media only screen and (min-width: 1024px) {
+
+    .business {
+        width: 30%;
+    }
+    
+    .fullWidth {
+        width: 100%;
+    }
+
+
+}
