@@ -40,48 +40,32 @@ interface ApiData {
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  location: string;
   locationInput: string;
+  searchInput: string;
   list: Businesses[];
   showModal: boolean = true;
   constructor(private api: Api, private route: ActivatedRoute, private router: Router){}
   logoNumber: number = 1;
 
   ngOnInit() {
-    
-    // this.api.getBusiness().subscribe(data => console.log('data from api', data));
+    this.api.location.subscribe(data => {
+      console.log(data);
+      this.location = data;
+      });
   }
 
-  // locationClick = location => {
-  //   this.api.getLocation(location).subscribe(data => {
-  //     this.api.updateLocation(this.locationInput);
-  //     console.log('location data', data);
-  //     this.showModal = !this.showModal;
-  //   });
-  // }
-  
-  // firstDateClick = () => {
-  //   this.router.navigateByUrl('/first-date');
-  //   this.api.getFirstDate(this.locationInput).subscribe(data => console.log('data from api', data));
-  // }
 
-  // romanticClick = () => {
-  //   this.router.navigateByUrl('/romantic');
-  //   this.api.getRomantic(this.locationInput).subscribe(data => console.log('data from api', data));
+  getDateSearch = (location) => {
+    this.api.getDateSearch(location, this.searchInput).subscribe((data: {results: []}) => {
+      console.log('Date input search from api', data.results);
+      this.api.updateDateList(data.results);
+    });
 
-  // }
-
-  // adventureClick = () => {
-  //   this.router.navigateByUrl('/adventure');
-  //   // this.api.getAdventure(this.locationInput).subscribe(data => console.log('data from api', data));
-
-  // }
-
-  // oneOfClick = () => {
-  //   this.router.navigateByUrl('/filter');
-  // }
-
-  // lastDateClick = () => {
-  //   this.router.navigateByUrl('/filter');
-  // }
+    // this.api.getDateSearch(location, this.searchInput).subscribe((data: {businesses: []}) => {
+    //   console.log('Date input search from api', data.businesses);
+    //   this.api.updateDateList(data.businesses);
+    // });
+  }
 
 }
