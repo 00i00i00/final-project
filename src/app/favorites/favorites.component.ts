@@ -145,6 +145,10 @@ export class FavoritesComponent implements OnInit{
 
   moreInfo = (id, biz) => {
 
+    for (let biz of this.favoritesList) {
+      biz.info = false;
+    }    
+
       biz.info = !biz.info;
 
       this.api.getBusinessDetails(id).subscribe((data:BusinessDetails) => {
