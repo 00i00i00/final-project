@@ -1,7 +1,7 @@
 <div class="container">
     <div class="business" *ngFor="let biz of favoritesList">
         <div class="business-text">
-            <a class="favorite" (click)="favoriteBusiness(business)"><i class="fa fa-heart"></i></a>
+            <a class="favorite" (click)="favoriteBusiness(biz)"><i class="fa fa-heart"></i></a>
             <div class="name-price">
               <h1>{{ biz.name }}</h1>
               <p>{{ biz.price }}</p>
@@ -15,11 +15,12 @@
           <p>{{ biz.rating }}</p>
           <p>{{ biz.location.address1 }} {{ biz.location.address2 }} {{ biz.location.address3}}</p>
           <p>{{ biz.location.city }} {{ biz.location.state }} {{ biz.location.zip_code }}</p>
-          <button type="button" (click)="moreInfo(biz.id, business)">MORE INFO...</button>
+          <button type="button" (click)="moreInfo(biz.id, biz)">MORE INFO...</button>
         </div>
-      <!-- <div class="infoDiv" *ngIf="business.info">
+      <div class="infoDiv" *ngIf="biz.info">
+          <!-- <div class="infoDiv"> -->
         <p>{{ biz.display_phone }}</p>
- <div *ngFor="let hour of hours">
+        <div *ngFor="let hour of hours">
           <p>{{ hour.is_open_now === false ? 'Closed' : 'Open' }}</p>
           <p>HOURS</p>
           <div *ngFor="let times of open">
@@ -30,7 +31,7 @@
           <a href="{{ review.url }}">(Read more)</a>
         </div>
       </div>
-    </div> -->
+    </div>
   </div>
 </div> 
 

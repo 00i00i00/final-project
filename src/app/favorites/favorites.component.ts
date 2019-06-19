@@ -83,7 +83,7 @@ interface BusinessDetails {
   rating: number;
   review_count: number;
   url: string;
-  info: boolean;
+  // info: boolean;
   
   // attributes: object;
 }
@@ -107,7 +107,7 @@ interface Open {
 
 export class FavoritesComponent implements OnInit{
   location: string;
-  business: any;
+  business: Businesses[];
   list: Businesses[];
   id: Businesses[];
   reviews: Reviews[];
@@ -143,9 +143,14 @@ export class FavoritesComponent implements OnInit{
    });
   }
 
-  moreInfo = (id, business) => {
+  moreInfo = (id, biz) => {
 
-      
+    for (let biz of this.favoritesList) {
+      biz.info = false;
+    }    
+
+      biz.info = !biz.info;
+
       this.api.getBusinessDetails(id).subscribe((data:BusinessDetails) => {
           console.log(`API Call: Business Details from id`, data);
           this.hours = data.hours;
@@ -159,12 +164,11 @@ export class FavoritesComponent implements OnInit{
             this.reviews = data.reviews;
         });
         
-        business.info = !business.info;
 }
 
-favoriteBusiness = business => {
+favoriteBusiness = biz => {
 //   business.favorite = !business.favorite;
-    const index = this.favoritesList.indexOf(business);
+    const index = this.favoritesList.indexOf(biz);
     console.log('index', index);
     this.favoritesList.splice(index, 1);
     this.api.updateFavorites(this.favoritesList);
