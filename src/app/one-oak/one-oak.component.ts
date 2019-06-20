@@ -136,8 +136,8 @@ export class OneOAKComponent implements OnInit {
     this.location = data;
     });
     
-    this.api.getAdventure('detroit').subscribe((data:ApiData) => {
-      console.log('Adventure data from api', data);
+    this.api.getOneOfAKind(this.location).subscribe((data:ApiData) => {
+      console.log('OOAK data from api', data);
       this.list = data.businesses;
       this.categories = data.businesses[0].categories;
     });
@@ -168,9 +168,7 @@ export class OneOAKComponent implements OnInit {
       this.reviews = data.reviews;
     });
     
-    business.fullWidth = !business.fullWidth;
-    business.imgSize = !business.imgSize;
-
+    
 }
 
 favoriteBusiness = business => {

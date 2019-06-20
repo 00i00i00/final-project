@@ -1,5 +1,7 @@
 <div class="container">
-    <div class="business" *ngFor="let business of list" [ngClass]="{'fullWidth': business.fullWidth===true}">
+    <!-- <div class="business" *ngFor="let business of list" [ngClass]="{'fullWidth': business.fullWidth===true}"> -->
+        <div class="business" *ngFor="let business of list" >
+  
       <div class="business-text">
         <a class="favorite" (click)="favoriteBusiness(business)"><i class="fa fa-heart"
             [ngClass]="{'like': business.favorite===true}"></i></a>
@@ -8,7 +10,9 @@
           <p>{{ business.price }}</p>
         </div>
         <div class="image">
-          <img [ngClass]="{'imgSize': business.imgSize===true}" src="{{ business.image_url }}" />
+          <!-- <img [ngClass]="{'imgSize': business.imgSize===true}" src="{{ business.image_url }}" /> -->
+          <img src="{{ business.image_url }}" />
+  
         </div>
         <p><i class="fas fa-star"></i> {{ business.rating }}</p>
         <div *ngFor="let category of categories">

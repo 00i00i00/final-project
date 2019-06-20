@@ -149,11 +149,13 @@ export class FavoritesComponent implements OnInit{
   moreInfo = (id, biz) => {
 
     const currentState = biz.info;
-    this.list.forEach(item => item.info = false);
+    this.favoritesList.forEach(item => item.info = false);
     biz.info = !currentState;
 
-    this.list.forEach(item => item.fullWidth = false);
-    this.list.forEach(item => item.imgSize = false);
+  
+
+    this.favoritesList.forEach(item => item.fullWidth = false);
+    this.favoritesList.forEach(item => item.imgSize = false);
 
 
 
