@@ -84,10 +84,11 @@ export class HeaderComponent implements OnInit {
   // }
 
 
-  getDateSearch = (location) => {
-    this.api.getDateSearch(location, this.searchInput).subscribe((data: {results: []}) => {
-      console.log('Date input search from api', data.results);
-      this.api.updateDateList(data.results);
+  getDateSearch = (location,businesses) => {
+    this.api.getLocation(location).subscribe(data => {
+      this.api.updateLocation(location);
+      console.log('location data', data);
+      this.showModal = !this.showModal;
     });
 
     // this.api.getDateSearch(location, this.searchInput).subscribe((data: {businesses: []}) => {

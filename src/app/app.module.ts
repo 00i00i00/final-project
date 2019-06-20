@@ -15,6 +15,7 @@ import { AdventureComponent } from './adventure/adventure.component';
 import { RomanticComponent } from './romantic/romantic.component';
 import { FirstDateComponent } from './first-date/first-date.component';
 import { TimeFormat } from './time.pipe';
+import { SearchComponent } from './search/search.component';
 
 
 const appRoutes: Routes =[
@@ -39,7 +40,8 @@ const appRoutes: Routes =[
     AdventureComponent,
     RomanticComponent,
     FirstDateComponent,
-    TimeFormat
+    TimeFormat,
+    SearchComponent
   ],
   imports: [
     BrowserModule, FormsModule, HttpClientModule, RouterModule.forRoot(appRoutes)
