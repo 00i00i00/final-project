@@ -1,39 +1,42 @@
 <div class="container">
-    <div class="business" *ngFor="let business of list" [ngClass]="{'fullWidth': business.fullWidth===true}">
-        <div class="business-text">
-          <!-- <a class="favorite" (click)="favoriteBusiness(business)" [ngClass]="{'like': business.favorite===true}"><i class="fa fa-heart"></i></a> -->
-     <a class="favorite" (click)="favoriteBusiness(business)"><i class="fa fa-heart" [ngClass]="{'like': business.favorite===true}"></i></a>
-    
-          <div class="name-price">
-              <h1>{{ business.name }}</h1>
-              <p>{{ business.price }}</p>
-            </div>
-          <div class="image">
-            <img src="{{ business.image_url }}" />
-          </div>
-          <div *ngFor="let category of categories">
-            <p>{{ category.title }}</p>
-          </div>
-          <p>{{ business.rating }}</p>
-          <p>{{ business.location.address1 }} {{ business.location.address2 }} {{ business.location.address3}}</p>
-          <p>{{ business.location.city }} {{ business.location.state }} {{ business.location.zip_code }}</p>
-          <!-- <a href="{{ business.url }}">Visit the website</a> -->
-          <button type="button" (click)="moreInfo(business.id, business)">MORE INFO...</button>
+    <!-- <div class="business" *ngFor="let business of list" [ngClass]="{'fullWidth': business.fullWidth===true}"> -->
+        <div class="business" *ngFor="let business of list" >
+  
+      <div class="business-text">
+        <a class="favorite" (click)="favoriteBusiness(business)"><i class="fa fa-heart"
+            [ngClass]="{'like': business.favorite===true}"></i></a>
+        <div class="name-price">
+          <h1>{{ business.name }}</h1>
+          <p>{{ business.price }}</p>
         </div>
+        <div class="image">
+          <!-- <img [ngClass]="{'imgSize': business.imgSize===true}" src="{{ business.image_url }}" /> -->
+          <img src="{{ business.image_url }}" />
+  
+        </div>
+        <p><i class="fas fa-star"></i> {{ business.rating }}</p>
+        <div *ngFor="let category of categories">
+          <p class="categories"><i class="fas fa-tag"></i> {{ category.title }}</p>
+        </div>
+        <p class="address"><i class="fas fa-map-marker-alt"></i> {{ business.location.address1 }} {{ business.location.address2 }}
+          {{ business.location.address3}}</p>
+        <p>{{ business.location.city }} {{ business.location.state }} {{ business.location.zip_code }}</p>
+        <!-- <a href="{{ business.url }}">Visit the website</a> -->
+        <button type="button" (click)="moreInfo(business.id, business)">MORE INFO...</button>
+      </div>
       <div class="infoDiv" *ngIf="business.info">
-        <p>{{ business.display_phone }}</p>
-        <div *ngFor="let hour of hours">
-          <p>{{ hour.is_open_now === false ? 'Closed' : 'Open' }}</p>
-          <p>HOURS</p>
-          <div *ngFor="let times of open">
-            <p>{{ dates[times.day] }}: {{ times.start | convertFrom24To12Format }} - {{ times.end | convertFrom24To12Format }}</p>
+        <p class="phone"><i class="fas fa-phone"></i> {{ business.display_phone }}</p>
+        <div *ngFor="let hour of hours" class="hoursDiv">
+          <p><i class="far fa-clock"></i> {{ hour.is_open_now === false ? 'Closed' : 'Open' }}</p>
+          <p class="hoursTitle">HOURS</p>
+          <div class="hoursTimes" *ngFor="let times of open">
+            <p>{{ dates[times.day] }}: {{ times.start | convertFrom24To12Format }} -
+              {{ times.end | convertFrom24To12Format }}</p>
           </div>
-        <div class="reviews" *ngFor="let review of reviews">
-          <p class="reviewText">{{ review.text }}</p>
-          <a href="{{ review.url }}">(Read more)</a>
+          <div class="reviews" *ngFor="let review of reviews">
+            <p class="reviewText"><i class="far fa-comment"></i> {{ review.text }}</p>
+            <a href="{{ review.url }}">(Read more)</a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  
-  

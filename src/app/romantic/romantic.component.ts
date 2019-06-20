@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { Api } from '../services/api.service';
+
 interface Location {
   city: string;
   country: string;
@@ -34,6 +35,7 @@ interface Businesses {
   info: boolean;
   favorite: boolean;
   fullWidth: boolean;
+  imgSize: boolean;
 }
 
 interface ApiData {
@@ -97,7 +99,6 @@ interface Open {
   end: string;
 }
 
-
 @Component({
   selector: 'app-romantic',
   templateUrl: './romantic.component.html',
@@ -134,20 +135,17 @@ ngOnInit() {
   
   this.api.getRomantic(this.location).subscribe((data:ApiData) => {
     console.log('Romantic data from api', data);
-    this.list = data.businesses;  
+    this.list = data.businesses;
     this.categories = data.businesses[0].categories;
-
   });
 
- }
+}
 
- moreInfo = (id, business) => {
+moreInfo = (id, business) => {
 
-  for (let business of this.list) {
-    business.info = false;
-  }
-
-  business.info = !business.info;
+ const currentState = business.info;
+  this.list.forEach(item => item.info = false);
+  business.info = !currentState;
 
   this.api.getBusinessDetails(id).subscribe((data:BusinessDetails) => {
     console.log(`API Call: Business Details from id`, data);
@@ -162,27 +160,21 @@ ngOnInit() {
     this.reviews = data.reviews;
   });
 
-  business.fullWidth = !business.fullWidth;
-
 }
-
 
 favoriteBusiness = business => {
-  business.favorite = !business.favorite;
-  this.biz = business;
+business.favorite = !business.favorite;
+this.biz = business;
 
-  this.api.favoriteList.subscribe(data => {
-    console.log(data);
-    this.favoriteList = data;
-  });
+this.api.favoriteList.subscribe(data => {
+  console.log(data);
+  this.favoriteList = data;
+});
 
-  this.favoriteList.push(this.biz);
-  this.api.updateFavorites(this.favoriteList);
-  console.log('heart clicked', this.favoriteList);
+this.favoriteList.push(this.biz);
+this.api.updateFavorites(this.favoriteList);
+console.log('heart clicked', this.favoriteList);
 }
 
-}
-  
-  
 
-  
+}

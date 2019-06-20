@@ -35,6 +35,7 @@ interface Businesses {
   info: boolean;
   favorite: boolean;
   fullWidth: boolean;
+  imgSize: boolean;
 }
 
 interface ApiData {
@@ -142,14 +143,14 @@ export class AdventureComponent implements OnInit {
 
   moreInfo = (id, business) => {
 
-    for (let business of this.list) {
-      business.info = false;
-    }
-    //code above is the fix from Adam
-    //we need to work on fixing the new issue w/ toggling 
-    //but we can address this later. 
-    
-    business.info = !business.info;
+   const currentState = business.info;
+    this.list.forEach(item => item.info = false);
+    business.info = !currentState;
+
+    // this.list.forEach(item => item.fullWidth = false);
+    // this.list.forEach(item => item.imgSize = false);
+
+
 
     this.api.getBusinessDetails(id).subscribe((data:BusinessDetails) => {
       console.log(`API Call: Business Details from id`, data);
@@ -164,7 +165,8 @@ export class AdventureComponent implements OnInit {
       this.reviews = data.reviews;
     });
     
-    business.fullWidth = !business.fullWidth;
+    // business.fullWidth = !business.fullWidth;
+    // business.imgSize = !business.imgSize;
 
 }
 
