@@ -147,8 +147,8 @@ export class AdventureComponent implements OnInit {
     this.list.forEach(item => item.info = false);
     business.info = !currentState;
 
-    this.list.forEach(item => item.fullWidth = false);
-    this.list.forEach(item => item.imgSize = false);
+    // this.list.forEach(item => item.fullWidth = false);
+    // this.list.forEach(item => item.imgSize = false);
 
 
 
@@ -165,8 +165,8 @@ export class AdventureComponent implements OnInit {
       this.reviews = data.reviews;
     });
     
-    business.fullWidth = !business.fullWidth;
-    business.imgSize = !business.imgSize;
+    // business.fullWidth = !business.fullWidth;
+    // business.imgSize = !business.imgSize;
 
 }
 

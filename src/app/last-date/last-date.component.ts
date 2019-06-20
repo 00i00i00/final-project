@@ -133,8 +133,8 @@ export class LastDateComponent implements OnInit {
     this.location = data;
     });
     
-    this.api.getAdventure('detroit').subscribe((data:ApiData) => {
-      console.log('Adventure data from api', data);
+    this.api.getLastDate(this.location).subscribe((data:ApiData) => {
+      console.log('Last Date data from api', data);
       this.list = data.businesses;
       this.categories = data.businesses[0].categories;
     });
@@ -146,11 +146,6 @@ export class LastDateComponent implements OnInit {
    const currentState = business.info;
     this.list.forEach(item => item.info = false);
     business.info = !currentState;
-
-    this.list.forEach(item => item.fullWidth = false);
-    this.list.forEach(item => item.imgSize = false);
-
-
 
     this.api.getBusinessDetails(id).subscribe((data:BusinessDetails) => {
       console.log(`API Call: Business Details from id`, data);
@@ -165,8 +160,7 @@ export class LastDateComponent implements OnInit {
       this.reviews = data.reviews;
     });
     
-    business.fullWidth = !business.fullWidth;
-    business.imgSize = !business.imgSize;
+  
 
 }
 
