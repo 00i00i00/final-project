@@ -132,12 +132,20 @@ export class AdventureComponent implements OnInit {
     console.log(data);
     this.location = data;
     });
+
+    this.api.businessList.subscribe(list => {
+      if (!list.adventure) {
+        this.api.getAdventure('detroit').subscribe((data:ApiData) => {
+          console.log('Adventure data from api', data);
+          this.list = data.businesses;
+          this.categories = data.businesses[0].categories;
+          this.api.updateBusinessList({adventure: this.list});
+        });
+      }
+
+      this.list = list.adventure;
+    })
     
-    this.api.getAdventure('detroit').subscribe((data:ApiData) => {
-      console.log('Adventure data from api', data);
-      this.list = data.businesses;
-      this.categories = data.businesses[0].categories;
-    });
 
   }
 
@@ -146,11 +154,6 @@ export class AdventureComponent implements OnInit {
    const currentState = business.info;
     this.list.forEach(item => item.info = false);
     business.info = !currentState;
-
-    // this.list.forEach(item => item.fullWidth = false);
-    // this.list.forEach(item => item.imgSize = false);
-
-
 
     this.api.getBusinessDetails(id).subscribe((data:BusinessDetails) => {
       console.log(`API Call: Business Details from id`, data);
