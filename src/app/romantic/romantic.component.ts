@@ -120,7 +120,7 @@ export class RomanticComponent implements OnInit {
   day: any;
   dates: any = {0: 'Monday', 1: 'Tuesday', 2: 'Wednesday', 3: 'Thursday', 4: 'Friday', 5: 'Saturday', 6: 'Sunday' };
   favorite: boolean;
-  favoriteList: object[] = [];
+  favoriteList: Businesses[];
   biz: Businesses[];
   category: any;
   categories: Categories[];
@@ -128,17 +128,22 @@ export class RomanticComponent implements OnInit {
 constructor(private api: Api, private route: ActivatedRoute, private router: Router){}
 
 ngOnInit() {
-  this.api.location.subscribe(data => {
-  console.log(data);
-  this.location = data;
-  });
-  
-  this.api.getRomantic(this.location).subscribe((data:ApiData) => {
-    console.log('Romantic data from api', data);
-    this.list = data.businesses;
-    this.categories = data.businesses[0].categories;
-  });
+  this.api.businessList.subscribe(list => {
+    if (!list.romantic) {
+      this.api.getRomantic().subscribe((data: ApiData) => {
+        console.log('Romantic data from api', data);
+        this.list = data.businesses;
+        this.categories = data.businesses[0].categories;
+        this.api.updateBusinessList({ romantic: this.list });
+      });
+    }
 
+    if (list.favorites) {
+      this.favoriteList = list.favorites;
+    } 
+
+    this.list = list.romantic;
+  });
 }
 
 moreInfo = (id, business) => {
@@ -163,18 +168,16 @@ moreInfo = (id, business) => {
 }
 
 favoriteBusiness = business => {
-business.favorite = !business.favorite;
-this.biz = business;
+  business.favorite = !business.favorite;
+  // this.biz = business;
+  console.log('heart clicked', business);
+    if (business.favorite) {
+      this.favoriteList = [...this.favoriteList, business];
+    } else {
+      this.favoriteList = this.favoriteList.filter(b => b.favorite);
+    }
+    this.api.updateBusinessList({ favorite: this.favoriteList });
 
-this.api.favoriteList.subscribe(data => {
-  console.log(data);
-  this.favoriteList = data;
-});
-
-this.favoriteList.push(this.biz);
-this.api.updateFavorites(this.favoriteList);
-console.log('heart clicked', this.favoriteList);
 }
-
 
 }
