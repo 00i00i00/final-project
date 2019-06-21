@@ -132,19 +132,12 @@ export class FavoritesComponent implements OnInit{
   constructor(private api: Api, private route: ActivatedRoute, private router: Router){}
 
   ngOnInit() {
-    this.api.location.subscribe(data => {
-    console.log(data);
-    this.location = data;
-    });
-    
-   this.api.favoriteList.subscribe(list => {
-    this.favoritesList = list;
-    console.log(this.favoritesList);
-    this.categories = list[0].categories;
-    console.log('categories', this.categories);
+  
+    this.api.businessList.subscribe(list => {
+        this.list = list.favorites;
 
-   });
-  }
+    });
+}
 
   moreInfo = (id, biz) => {
 
@@ -152,12 +145,8 @@ export class FavoritesComponent implements OnInit{
     this.favoritesList.forEach(item => item.info = false);
     biz.info = !currentState;
 
-  
-
     this.favoritesList.forEach(item => item.fullWidth = false);
     this.favoritesList.forEach(item => item.imgSize = false);
-
-
 
       this.api.getBusinessDetails(id).subscribe((data:BusinessDetails) => {
           console.log(`API Call: Business Details from id`, data);
@@ -172,18 +161,15 @@ export class FavoritesComponent implements OnInit{
             this.reviews = data.reviews;
         });
       
-      
-    biz.fullWidth = !biz.fullWidth;
-    biz.imgSize = !biz.imgSize;
-
 }
 
 favoriteBusiness = biz => {
-//   business.favorite = !business.favorite;
-    const index = this.favoritesList.indexOf(biz);
-    console.log('index', index);
-    this.favoritesList.splice(index, 1);
-    this.api.updateFavorites(this.favoritesList);
+    biz.favorite = !biz.favorite;
+    if (biz.favorite) {
+      this.list = this.list.filter(b => b.favorite);
+    }
+    this.api.updateBusinessList({favorite: this.list});
+
 }
 
 }

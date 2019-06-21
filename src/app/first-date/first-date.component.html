@@ -1,6 +1,6 @@
 <div class="container">
     <!-- <div class="business" *ngFor="let business of list" [ngClass]="{'fullWidth': business.fullWidth===true}"> -->
-        <div class="business" *ngFor="let business of list" >
+    <div class="business" *ngFor="let business of list">
   
       <div class="business-text">
         <a class="favorite" (click)="favoriteBusiness(business)"><i class="fa fa-heart"
@@ -18,7 +18,8 @@
         <div *ngFor="let category of categories">
           <p class="categories"><i class="fas fa-tag"></i> {{ category.title }}</p>
         </div>
-        <p class="address"><i class="fas fa-map-marker-alt"></i> {{ business.location.address1 }} {{ business.location.address2 }}
+        <p class="address"><i class="fas fa-map-marker-alt"></i> {{ business.location.address1 }}
+          {{ business.location.address2 }}
           {{ business.location.address3}}</p>
         <p>{{ business.location.city }} {{ business.location.state }} {{ business.location.zip_code }}</p>
         <!-- <a href="{{ business.url }}">Visit the website</a> -->
@@ -40,3 +41,4 @@
         </div>
       </div>
     </div>
+  </div>

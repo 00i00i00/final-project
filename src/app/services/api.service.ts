@@ -33,38 +33,39 @@ updateBusinessList = newBusinessList => {
     const currentValue = this._businessList.getValue();
     this._businessList.next({...currentValue, ...newBusinessList}); 
 }
-updateDateList = newList => this._dateList.next(newList);
 getDate = () => this.http.get(this.baseUrl);    
+
 updateLocation = newLocation => this._location.next(newLocation);
 
 getLocation = location => this.http.get(this.baseUrl + '/businesses/search?location=' + location, { headers: this.headers });
 
-// getBusiness = location => {
-//     console.log('getBusiness');
-//     return this.http.get(this.baseUrl + `/businesses/search?location=${location}`, { headers: this.headers });
-// }
-
-getFirstDate = location => {
+getFirstDate = () => {
     console.log('first date');
-    return this.http.get(this.baseUrl + '/businesses/search?limit=50&'+ 'location=' + location + '&categories=aquariums,parks,axethrowing,gokarts,bars,coffee', {headers: this.headers});
+    const location = this._location.getValue();
+    return this.http.get(this.baseUrl + '/businesses/search?limit=50&'+ 'location=' + location + '&categories=aquariums&categories=parks&categories=axethrowing&categories=gokarts&categories=bars&categories=coffee', {headers: this.headers});
 }
 
-getRomantic = location => {
+getRomantic = () => {
     console.log('romantic date');
+    const location = this._location.getValue();
     return this.http.get(this.baseUrl + '/businesses/search?limit=50&'+ 'location=' + location + '&categories=jazzandblues&categories=dancerestaurants&categories=danceclubs&categories=speakeasies&categories=cocktailbars&categories=champagne_bars&categories=skiresorts&categories=resorts&categories=wineries&categories=wine_bars&categories=winetasteclasses&categories=winetastingroom&categories=winetours&categories=theater&categories=musicvenues&categories=opera&categories=artmuseums&categories=galleries&categories=steak&categories=seafood&categories=signature_cuisine&categories=hotel_bar', {headers: this.headers});
 }
 
-getOneOfAKind = location => {
+getOneOak = () => {
     console.log('one of a kind date');
+    const location = this._location.getValue();
     return this.http.get(this.baseUrl + '/businesses/search?limit=50&'+ 'location=' + location + '&categories=jazzandblues&categories=arcades', {headers: this.headers});
 }
-getAdventure = location => {
-    console.log('adventure date');
 
-        return this.http.get(this.baseUrl + '/businesses/search?limit=50&'+ 'location=' + location + '&categories=airsoft&categories=archery&categories=axethrowing&categories=bobsledding&categories=bungeejumping&categories=canyoneering&categories=challengecourses&categories=escapegames&categories=gliding&categories=gokarts&categories=hanggliding&categories=horsebackriding&categories=hot_air_balloons&categories=paraglidin&categories=parasailing&categories=zipline&categories=hauntedhouses', {headers: this.headers});
+getAdventure = () => {
+    console.log('adventure API called');
+    const location = this._location.getValue();
+    return this.http.get(this.baseUrl + '/businesses/search?limit=50&'+ 'location=' + location + '&categories=airsoft&categories=archery&categories=axethrowing&categories=bobsledding&categories=bungeejumping&categories=canyoneering&categories=challengecourses&categories=escapegames&categories=gliding&categories=gokarts&categories=hanggliding&categories=horsebackriding&categories=hot_air_balloons&categories=paraglidin&categories=parasailing&categories=zipline&categories=hauntedhouses', {headers: this.headers});
 }
-getLastDate = location =>  {
+
+getLastDate = () =>  {
     console.log('last date');
+    const location = this._location.getValue();
     return this.http.get(this.baseUrl + '/businesses/search?limit=50&'+ 'location=' + location + '&categories=galleries&categories=casinos&categories=choirs&categories=culturalcenter&categories=festivals&categories=jazzandblues&categories=artmuseums&categories=musicvenues&categories=opera&categories=theater&categories=spas&categories=cprclasses&categories=firearmtraining&categories=silentdisco&categories=beer_and_wine&categories=breweries&categories=bubbletea&categories=cideries&categories=desserts&categories=distilleries&categories=gelato&categories=juicebars&categories=milkshakebars&categories=bars&categories=beergardens&categories=coffeeshops&categories=restaurants&categories=pianobars', {headers: this.headers});
 }
 
@@ -75,9 +76,6 @@ getReviews = id => {
 
 getBusinessDetails = id => {
     console.log('Business Details');
-    // if (savedDetails[id]) {
-    //     return 
-    // }
     return this.http.get(this.baseUrl + `/businesses/${id}`, {headers: this.headers});
 }
 

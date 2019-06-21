@@ -120,7 +120,7 @@ export class LastDateComponent implements OnInit {
   day: any;
   dates: any = {0: 'Monday', 1: 'Tuesday', 2: 'Wednesday', 3: 'Thursday', 4: 'Friday', 5: 'Saturday', 6: 'Sunday' };
   favorite: boolean;
-  favoriteList: object[] = [];
+  favoriteList: Businesses[];
   biz: Businesses[];
   category: any;
   categories: Categories[];
@@ -128,15 +128,21 @@ export class LastDateComponent implements OnInit {
   constructor(private api: Api, private route: ActivatedRoute){}
 
   ngOnInit() {
-    this.api.location.subscribe(data => {
-    console.log(data);
-    this.location = data;
-    });
-    
-    this.api.getLastDate(this.location).subscribe((data:ApiData) => {
-      console.log('Last Date data from api', data);
-      this.list = data.businesses;
-      this.categories = data.businesses[0].categories;
+    this.api.businessList.subscribe(list => {
+      if (!list.lastDate) {
+        this.api.getLastDate().subscribe((data: ApiData) => {
+          console.log('Adventure data from api', data);
+          this.list = data.businesses;
+          this.categories = data.businesses[0].categories;
+          this.api.updateBusinessList({ lastDate: this.list });
+        });
+      }
+
+      if (list.favorites) {
+        this.favoriteList = list.favorites;
+      } 
+
+      this.list = list.lastDate;
     });
 
   }
@@ -166,16 +172,16 @@ export class LastDateComponent implements OnInit {
 
 favoriteBusiness = business => {
   business.favorite = !business.favorite;
-  this.biz = business;
-
-  this.api.favoriteList.subscribe(data => {
-    console.log(data);
-    this.favoriteList = data;
-  });
-
-  this.favoriteList.push(this.biz);
-  this.api.updateFavorites(this.favoriteList);
-  console.log('heart clicked', this.favoriteList);
+    // this.biz = business;
+    console.log('heart clicked', business);
+      if (business.favorite) {
+        this.favoriteList = [...this.favoriteList, business];
+      } else {
+        this.favoriteList = this.favoriteList.filter(b => b.favorite);
+      }
+      this.api.updateBusinessList({ favorite: this.favoriteList });
+  
+  
 }
 
 
