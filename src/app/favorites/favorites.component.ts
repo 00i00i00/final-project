@@ -134,8 +134,8 @@ export class FavoritesComponent implements OnInit{
   ngOnInit() {
   
     this.api.businessList.subscribe(list => {
-        this.list = list.favorites;
-
+      this.list = list.favorites;
+      console.log(list.favorites);
     });
 }
 
@@ -144,9 +144,6 @@ export class FavoritesComponent implements OnInit{
     const currentState = biz.info;
     this.favoritesList.forEach(item => item.info = false);
     biz.info = !currentState;
-
-    this.favoritesList.forEach(item => item.fullWidth = false);
-    this.favoritesList.forEach(item => item.imgSize = false);
 
       this.api.getBusinessDetails(id).subscribe((data:BusinessDetails) => {
           console.log(`API Call: Business Details from id`, data);
