@@ -36,6 +36,7 @@ interface Businesses {
   favorite: boolean;
   fullWidth: boolean;
   imgSize: boolean;
+  hoursDetails: boolean;
 }
 
 interface ApiData {
@@ -124,6 +125,8 @@ export class LastDateComponent implements OnInit {
   biz: Businesses[];
   category: any;
   categories: Categories[];
+  price: string;
+  hoursDetails: boolean = false;
 
   constructor(private api: Api, private route: ActivatedRoute){}
 
@@ -166,8 +169,10 @@ export class LastDateComponent implements OnInit {
       this.reviews = data.reviews;
     });
     
-  
+}
 
+hoursDetailsButton = () => {
+  this.hoursDetails = !this.hoursDetails;
 }
 
 favoriteBusiness = business => {

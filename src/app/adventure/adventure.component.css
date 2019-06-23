@@ -36,7 +36,6 @@ img {
     width: 100px;
     height: auto;
     position: absolute;
-    /* margin: 10px; */
  }
 
 .fa-heart {
@@ -48,7 +47,6 @@ img {
 }
 
 h1 {
-    /* margin: 25px 0; */
     font-size: 1.5rem;
     font-weight: 800;
 }
@@ -89,10 +87,6 @@ margin: 15px;
 .phone {
     margin-bottom: 15px;
 }
-
-/* .hoursTimes{
-    margin-bottom: 10px;
-} */
 
 .hoursTitle {
     margin-top: 15px;
