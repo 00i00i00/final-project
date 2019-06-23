@@ -36,6 +36,7 @@ interface Businesses {
   favorite: boolean;
   fullWidth: boolean;
   imgSize: boolean;
+  hoursDetails: boolean;
 }
 
 interface ApiData {
