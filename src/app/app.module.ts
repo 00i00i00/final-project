@@ -16,6 +16,7 @@ import { RomanticComponent } from './romantic/romantic.component';
 import { FirstDateComponent } from './first-date/first-date.component';
 import { TimeFormat } from './time.pipe';
 import { SearchComponent } from './search/search.component';
+import { UserCuratedComponent } from './user-curated/user-curated.component';
 
 
 const appRoutes: Routes =[
@@ -25,7 +26,9 @@ const appRoutes: Routes =[
   { path: 'one-oak', component: OneOAKComponent},
   { path: 'adventure', component: AdventureComponent },
   { path: 'romantic', component: RomanticComponent},
-  { path: 'first-date', component: FirstDateComponent}
+  { path: 'first-date', component: FirstDateComponent},
+  { path: 'user-curated', component: UserCuratedComponent}
+
 ];
 
 
@@ -41,7 +44,8 @@ const appRoutes: Routes =[
     RomanticComponent,
     FirstDateComponent,
     TimeFormat,
-    SearchComponent
+    SearchComponent,
+    UserCuratedComponent
   ],
   imports: [
     BrowserModule, FormsModule, HttpClientModule, RouterModule.forRoot(appRoutes)

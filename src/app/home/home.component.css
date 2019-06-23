@@ -89,12 +89,7 @@ color: white;
 }
 
 .logo-input {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Rubik', sans-serif;
-    height: 200px;
+   display: none;
 }
 
 .plus-logo {
@@ -141,8 +136,77 @@ color: white;
     -webkit-font-smoothing: antialiased;
   }
 
+  .categoriesDiv {
+      display: flex;
+      flex-flow: row wrap;
+  }
+
+  .categoriesDiv button {
+      display: flex;
+      justify-content: space-between;
+      height: 130px;
+      width: 130px;
+      position: relative;
+      padding: 0;
+      margin: 5px;
+      border-radius: 5px;
+
+  }
+    .categoriesDiv p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    }
+
+    
+
+  .categoryImg {
+    object-fit: cover;
+    height: 130px;
+    width: 130px;
+    filter: brightness(50%);
+    border-radius: 5px;
+
+  }
+
+  .categoryText {
+      font-size: 1.5rem;
+      text-align: center;
+      border: 2px solid #9999cd;
+      color: #9999cd;
+      border-radius: 5px;
+      margin: 15px;
+      padding: 15px;
+  }
+
+  .categoryText p i{
+      padding-top: 10px;
+  }
+
+  .submitCategories {
+    font-size: 1.25rem;
+    text-align: center;
+    border-radius: 5px;
+    background-image: linear-gradient(#9999cd, #33999b);
+  }
+
+  .submitCategories p {
+    color: white;
+  }
+
 
   @media only screen and (min-width: 480px) {
+
+    .logo-input {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Rubik', sans-serif;
+        height: 200px;
+    }
 
     .locationDiv {
         height: 450px;
