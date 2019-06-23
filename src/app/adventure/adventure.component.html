@@ -1,5 +1,4 @@
 <div class="container">
-  <!-- <div class="business" *ngFor="let business of list" [ngClass]="{'fullWidth': business.fullWidth===true}"> -->
   <div class="business" *ngFor="let business of list" [ngClass]="{'width': business.info===true}">
     <div class="business-text">
       <a class="favorite" (click)="favoriteBusiness(business)">
