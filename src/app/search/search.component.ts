@@ -132,7 +132,7 @@ export class SearchComponent implements OnInit {
         this.location = data;
         });
      
-      this.api.getFirstDate(this.location).subscribe((data:ApiData) => {
+      this.api.getFirstDate().subscribe((data:ApiData) => {
         console.log('First Date data from api', data);
         this.list = data.businesses;
         this.categories = data.businesses[0].categories;
@@ -166,20 +166,20 @@ export class SearchComponent implements OnInit {
       
     }
   
-   
-  favoriteBusiness = business => {
-    business.favorite = !business.favorite;
-    this.biz = business;
+   //THIS NEEDS TO BE CHANGED OVER TO NEW FORMAT OF CALLS
+  // favoriteBusiness = business => {
+  //   business.favorite = !business.favorite;
+  //   this.biz = business;
   
-    this.api.favoriteList.subscribe(data => {
-      console.log(data);
-      this.favoriteList = data;
-    });
+  //   this.api.favoriteList.subscribe(data => {
+  //     console.log(data);
+  //     this.favoriteList = data;
+  //   });
   
-    this.favoriteList.push(this.biz);
-    this.api.updateFavorites(this.favoriteList);
-    console.log('heart clicked', this.favoriteList);
-  }
+  //   this.favoriteList.push(this.biz);
+  //   this.api.updateFavorites(this.favoriteList);
+  //   console.log('heart clicked', this.favoriteList);
+  // }
   
   
   }

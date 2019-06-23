@@ -1,54 +1,59 @@
 <div class="overlay" *ngIf="showModal">
-<div class="modal-container" *ngIf="showModal">
-  <div class="locationDiv">
-    <h1>Hey!</h1>
-    <h3>Where is your next<br>perfect date?</h3>
-    <div class="inputContainer">
-      <input class="locationInput" type="text" [(ngModel)]="locationInput" placeholder="city & state" />
+  <div class="modal-container" *ngIf="showModal">
+    <div class="locationDiv">
+      <h1>Hey!</h1>
+      <h3>Where is your next<br>perfect date?</h3>
+      <div class="inputContainer">
+        <input class="locationInput" type="text" [(ngModel)]="locationInput" placeholder="city & state" />
       <button class="location-button" type="button" (click)="locationClick(locationInput)"><i class="fa fa-search"></i></button>
+        <!-- <form (ngSubmit)="onKeyPress($event)">
+          <input class="locationInput" type="text" [(ngModel)]="locationInput" placeholder="City & State" />
+          <button class="location-button" type="submit" (click)="locationClick(locationInput)"><i
+              class="fa fa-search"></i></button>
+        </form> -->
+      </div>
     </div>
   </div>
-</div>
 </div>
 <div class="logo-input">
-    <p class="plus-logo">+</p>
-  <input class="largeLogo" [(ngModel)]="logoNumber" type="number" placeholder="1"/>
+  <p class="plus-logo">+</p>
+  <input class="largeLogo" [(ngModel)]="logoNumber" type="number" placeholder="1" />
 </div>
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner">
-      <button class="carousel-item active" (click)="firstDateClick()">
-          First Date
-        <!-- <img class="d-block w-100" src="..." alt="First slide"> -->
-      </button>
-      <button class="carousel-item" (click)="romanticClick()">
-        Romantic
-        <!-- <img class="d-block w-100" src="..." alt="Second slide"> -->
-      </button>
-      <button class="carousel-item" (click)="adventureClick()">
-          Adventurous
-        <!-- <img class="d-block w-100" src="..." alt="Third slide"> -->
-      </button>
-      <button class="carousel-item" (click)="oneOfClick()">
-          One of a kind
-        <!-- <img class="d-block w-100" src="..." alt="Third slide"> -->
-      </button>
-      <button class="carousel-item" (click)="lastDateClick()">
-          Last Date
-        <!-- <img class="d-block w-100" src="..." alt="Third slide"> -->
-      </button>
-    </div>
-    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
+  <div class="carousel-inner">
+    <button class="carousel-item active" (click)="firstDateClick()">
+      First Date
+      <!-- <img class="d-block w-100" src="..." alt="First slide"> -->
+    </button>
+    <button class="carousel-item" (click)="romanticClick()">
+      Romantic
+      <!-- <img class="d-block w-100" src="..." alt="Second slide"> -->
+    </button>
+    <button class="carousel-item" (click)="adventureClick()">
+      Adventurous
+      <!-- <img class="d-block w-100" src="..." alt="Third slide"> -->
+    </button>
+    <button class="carousel-item" (click)="oneOfClick()">
+      One of a kind
+      <!-- <img class="d-block w-100" src="..." alt="Third slide"> -->
+    </button>
+    <button class="carousel-item" (click)="lastDateClick()">
+      Last Date
+      <!-- <img class="d-block w-100" src="..." alt="Third slide"> -->
+    </button>
   </div>
-  <!-- ________________________________ -->
-  
-  <!-- <div class="movie-item" [ngClass]="{'Business': pokemon.favoriteMovie === true}" *ngFor='let pokemon of list; let i = index' ></div> -->
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+<!-- ________________________________ -->
+
+<!-- <div class="movie-item" [ngClass]="{'Business': pokemon.favoriteMovie === true}" *ngFor='let pokemon of list; let i = index' ></div> -->
 
 <!-- <div id="carousel1" data-ride="carousel">
   <ol class="carousel-indicators">
