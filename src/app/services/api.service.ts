@@ -10,6 +10,7 @@ interface BusinessList {
     oneOAK ?: any[];
     firstDate ?: any[];
     lastDate ?: any[];
+    userCurated ?: any[];
 }
 
 @Injectable()
@@ -28,6 +29,8 @@ export class Api {
     private _businessList = new BehaviorSubject<BusinessList>({});
     businessList = this._businessList.asObservable();
 
+    private _userCategories = new BehaviorSubject<string>('');
+    userCategories = this._userCategories.asObservable();
 
 updateBusinessList = newBusinessList => { 
     const currentValue = this._businessList.getValue();
@@ -37,7 +40,22 @@ getDate = () => this.http.get(this.baseUrl);
 
 updateLocation = newLocation => this._location.next(newLocation);
 
+updateUserCategories = newList => this._userCategories.next(newList);
+
 getLocation = location => this.http.get(this.baseUrl + '/businesses/search?location=' + location, { headers: this.headers });
+
+// getCategories = () => {
+//     console.log('Getting all categories');
+//     const location = this._location.getValue();
+//     return this.http.get(this.baseUrl + '/categories', {headers: this.headers});
+// }
+
+getUserCurated = () => {
+    console.log('User Curated Date');
+    const location = this._location.getValue();
+    const userCategories = this._userCategories.getValue();
+    return this.http.get(this.baseUrl + '/businesses/search?limit=50&'+ 'location=' + location + '&categories=' + userCategories, {headers: this.headers});
+}
 
 getFirstDate = () => {
     console.log('first date');

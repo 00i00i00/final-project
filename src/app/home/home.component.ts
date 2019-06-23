@@ -5,6 +5,7 @@ import { Api } from '../services/api.service';
 interface Categories {
   alias: string;
   title: string;
+  parent_aliases: string[];
 }
 
 interface Location {
@@ -34,6 +35,10 @@ interface ApiData {
   businesses: Businesses[];
 }
 
+interface CategoriesAll {
+  categories: Categories[];
+}
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -43,13 +48,32 @@ export class HomeComponent implements OnInit {
   locationInput: string;
   list: Businesses[];
   showModal: boolean = true;
+  categories: Categories[];
+  category: any;
+  categoryList: any = [];
+  categoryListString: string;
   
   constructor(private api: Api, private route: ActivatedRoute, private router: Router){}
   logoNumber: number = 1;
 
   ngOnInit() {
-    
-    // this.api.getBusiness().subscribe(data => console.log('data from api', data));
+    // this.api.getCategories().subscribe((data: CategoriesAll) => { 
+    //   this.categories = data.categories;
+    // });
+
+  }
+
+  addedCategory = item => {
+    this.categoryList = [...this.categoryList, item];
+    console.log('list of categories', this.categoryList);
+  }
+
+  submitCategories = () => {
+    this.categoryListString = this.categoryList.join('&categories=');
+    console.log(this.categoryListString);
+    this.api.updateUserCategories(this.categoryListString);
+    this.router.navigateByUrl('/user-curated');
+
   }
 
   locationClick = (location) => {
