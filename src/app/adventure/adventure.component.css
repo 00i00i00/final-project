@@ -1,153 +1,326 @@
-p {
-    color: black;
+.container {
+    margin-top: 30px;
+    width: 100%;
+    padding: 0;
+    display: flex;
+    flex-flow: column wrap;
+   
 }
 
 .business {
-    background: 
-    linear-gradient(90deg, transparent, white), 
-    linear-gradient(#33999b, #9999cd);
-    opacity: 0.8;
-    display: flex;
-    flex-direction: column;
+    background-color: white;
     position: relative;
-    margin-top: 25px;
+    margin-bottom: 35px;
 }
 
 .business-text {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 60%;
-    margin: 5px 15px 20px 15px;
-    
+    flex-direction: row;
 }
 
-.name-price {
+.favorite {
+    position: absolute;
+    top: -12px;
+    left: 5px;
+    font-size: 26px;
+    z-index: 1;
+}
+
+.img-rating-price {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-    margin-bottom: 10px;
+    flex-direction: column;
+    margin-bottom: 20px;
+    color: #339999;
+    font-weight: 800;
+    margin: 18px 15px 15px 15px;
+}
+
+.price, .rating {
+    margin: 10px 0;
 }
 
 img {
-    top: 15px;
-    right: 0;
-    width: 100px;
-    height: auto;
-    position: absolute;
-    /* margin: 10px; */
- }
+    object-fit: cover;
+    height: 85px;
+    width: 85px;
+}
 
-.fa-heart {
-    position: absolute;
-    color: #2e8a8b;
-    font-size: 20px;
-    top: -8px;
-    left: 12px;
+.name-category-address {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-right: 10px;
 }
 
 h1 {
-    /* margin: 25px 0; */
     font-size: 1.5rem;
-    font-weight: 800;
+    font-weight: 900;
+    color: #339999;
+    margin: 15px 0 10px 0;
 }
+ 
+.fa-tag {
+    font-size: 0.7rem;
+    color: #999999;
+} 
 
-.business p {
+.categories {
+    font-size: 0.8rem;
+    font-weight: 900;
     margin-bottom: 5px;
 }
 
-.categories {
-    font-size: 0.9rem;
-}
-
 .address {
-    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    border-bottom: 1px solid #e0dddd;
+    border-top: 1px solid #e0dddd;
+    padding: 5px 0 5px 0;
+    font-size: 0.7rem;
+    font-weight: 600;
 }
 
+.fa-map-marker-alt {
+    font-size: 1.2rem;
+    color: #999999;
+    margin-right: 5px;
+}
+
+.address-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.address-text p {
+    margin-bottom: 5px;
+}
+
+.moreInfoDiv {
+    /* display: flex;
+    flex-direction: row; */
+    width: 100%;
+    /* margin-top: 20px; */
+}
+
+.moreInfo, .lessInfo {
+    /* display: flex;
+    justify-content: flex-end; */
+    font-size: 0.8rem;
+    border: none;
+    background-color: transparent;
+    font-weight: 600;
+    color: #339999;
+    text-align: end;
+    width: 100%;
+    padding: 10px 5px;
+
+    /* position: absolute; */
+}
+
+/* .moreInfo {
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.lessInfo {
+    margin-left: 10px;
+    margin-top: 10px;
+} */
+
+.infoDiv {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin:  15px;
+    border-top: 1px solid #e0dddd;
+    padding: 15px;
+}
+
+.phone, .open-button {
+    font-size: 0.8rem;
+    font-weight: 900;
+    margin-bottom: 5px;
+}
+
+.open-button {
+    width: 100px;
+}
+
+.infoDiv button{
+    background: transparent;
+    border: none;
+    font-size: 0.5;
+    position: absolute;
+}
+
+.down {
+    top: 30px;
+    left: 104px;
+}
+
+.up {
+    top: 35px;
+    left: 104px;
+}
+
+.hoursExpandedDiv {
+    margin-top: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e0dddd;
+}
+
+.hoursTimes {
+    display: flex;
+    flex-direction: row;
+}
+
+.hoursTitle, .hoursTimes, .reviews {
+    font-size: 0.8rem;
+    margin-bottom: 5px;
+}
+
+.day, .hoursTitle {
+    font-weight: 900;
+}
+
+.day {
+    margin-right: 5px;
+}
+
+.dayTimes {
+    font-weight: 400;
+}
 
 a {
     text-decoration: none;
-    color: black;
-    margin-bottom: 10px;
-}
-
-button {
-    border: none;
-    background-color: transparent;
-    width: 70%;
-    padding: 0;
-    text-align: left;
-    margin-top: 20px;
-
-}
-
-.infoDiv {
-margin: 15px;
-}
-
-.phone {
-    margin-bottom: 15px;
-}
-
-/* .hoursTimes{
-    margin-bottom: 10px;
-} */
-
-.hoursTitle {
-    margin-top: 15px;
-    font-weight: 600;
-}
-.reviewText {
-    margin-bottom: 15px;
+    font-size: 0.5rem;
+    color: #999999;
 }
 
 .reviews {
-    margin-top: 20px;
-
+    margin-top: 15px;
 }
 
 .like {
-    color: black;
-
+    color: #339999;
 }
+
+
 
 @media only screen and (min-width: 480px) {
 .container {
-    display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
-    margin-top: 20px;
+    justify-content: center;
 }
 
 .business {
     width: 45%;
+    margin: 18px;
+    
 }
 
-.fullWidth {
+.favorite {
+    top: 56px;
+    left: -13px;
+}
+
+img {
+    object-fit: cover;
+    height: 100px;
+    width: 100px;
+}
+
+/* .name-category-address {
     width: 100%;
+    margin-right: 10px;
+
+    } */
+
+.lessInfo {
+    right: 10px;
+    top: 168px;
 }
 
-.imgSize {
-    width: 300px;
+.width {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    -webkit-box-shadow: 9px 7px 42px -25px rgba(0,0,0,0.75);
+    -moz-box-shadow: 9px 7px 42px -25px rgba(0,0,0,0.75);
+    box-shadow: 9px 7px 42px -25px rgba(0,0,0,0.75);
 }
+
+.infoDiv {
+    width: 50%;
+    border-left: 1px solid #e0dddd;
+    border-top: none;
+}
+
+.down, .up {
+    left: 103px;
+}
+
 
 }
 
 @media only screen and (min-width: 1024px) {
-
-    .business {
-        width: 32%;
-    }
-    
-    .fullWidth {
+    /* .width {
+        display: flex;
+        flex-direction: row;
         width: 100%;
     }
 
-    .imgSize {
-        width: 350px;
-        top: 20px;
-        right: 20px;
+    .infoDiv {
+        width: 50%;
+        border-left: 1px solid #e0dddd;
+        border-top: none;
+    } */
+
+    
+    .lessInfo {
+        right: 10px;
+        top: 282px;
+
     }
 
-}
+    .down, .up {
+        left: 105px;
+    }
+   
+    .favorite {
+        top: 74px;
+        left: -20px;
+        font-size: 40px;
+    }
+
+    h1 {
+        width: 80%;
+    }
+
+    .img-rating-price {
+        margin: 0 15px 0 0;
+    }
+    
+    .price, .rating {
+        margin: 0;
+       position: absolute;
+       top: 15px;
+       right: 15px;
+    }
+
+    img {
+        object-fit: cover;
+        height: 200px;
+        width: 200px;
+    }
+   
+} 
+/* 
+@media only screen and (min-width: 1440px) {
+        .business {
+            margin-right: 15px;
+        
+        }
+   
+} */

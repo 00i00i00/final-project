@@ -48,5 +48,8 @@ table {
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
+	font-family: 'Montserrat', sans-serif;
+	background: rgb(231, 240, 243);
+	margin: 0;
+	width: 100%;
 }
