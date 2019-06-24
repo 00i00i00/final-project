@@ -118,10 +118,38 @@ color: white;
     height: 250px;
     line-height: 250px;
     margin: 0 auto;
+    /* filter: brightness(40%); */
+    text-align: center;
     color: white;
     font-size: 2rem;
-    text-align: center;
   }
+
+
+  /* #first-date {
+    background-image: url("https://images.unsplash.com/photo-1548051072-b34898021f8b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80");
+    background-size: cover;
+  }
+
+  #romantic {
+    background-image: url("https://images.unsplash.com/photo-1542557497-4c7b03d0d245?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=362&q=80");
+    background-size: cover;
+  }
+
+  #adventure {
+    background-image: url("https://images.pexels.com/photos/1819657/pexels-photo-1819657.jpeg?auto=format%2Ccompress&cs=tinysrgb&h=750&w=1260");
+    background-size: cover;
+  }
+
+  #ooak {
+    background-image: url("https://images.unsplash.com/42/QrXgXMhCSouyhU7idq7g_IMG_8402.JPG?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80");
+    background-size: cover;
+  }
+
+  #last-date {
+    background-image: url("https://images.unsplash.com/photo-1414759030024-7889df4b20f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1087&q=80");
+    background-size: cover;
+  }  */
+
 
   button {
       border: none;
@@ -136,9 +164,20 @@ color: white;
     -webkit-font-smoothing: antialiased;
   }
 
+  .container {
+      display: flex;
+      flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    }
+
   .categoriesDiv {
       display: flex;
       flex-flow: row wrap;
+      width: 100%;
+      justify-content: center;
   }
 
   .categoriesDiv button {
@@ -158,6 +197,7 @@ color: white;
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
+    font-size: 1rem;
     }
 
     
@@ -233,6 +273,36 @@ color: white;
         width: 70%;
     }
 
+
+    .categoriesDiv button {
+        height: 200px;
+        width: 200px;
+        margin: 15px;
+    }
+    
+    .categoryImg {
+      height: 200px;
+      width: 200px;
+  
+    }
+
+    .categoryText {
+        font-size: 2rem;
+        width: 65%;
+    }
+
+    .submitCategories {
+        font-size: 1.25rem;
+        
+    }
+
+    .categoriesDiv p {
+        font-size: 1.5rem;
+    }
+    
+    
+
+
 }
 
 @media only screen and (min-width: 768px) {
@@ -246,6 +316,17 @@ color: white;
 @media only screen and (min-width: 1200px) {
 
 
+    .categoriesDiv button {
+        height: 300px;
+        width: 300px;
+        margin: 20px;
+    }
+    
+    .categoryImg {
+      height: 300px;
+      width: 300px;
+  
+    }
 
 
     
