@@ -37,6 +37,7 @@ interface Businesses {
   favorite: boolean;
   fullWidth: boolean;
   imgSize: boolean;
+  hoursDetails: boolean;
 }
 
 interface ApiData {
@@ -126,6 +127,7 @@ export class OneOAKComponent implements OnInit {
   biz: Businesses[];
   category: any;
   categories: Categories[];
+  collapsedTimes: boolean = true;
 
   constructor(private api: Api, private route: ActivatedRoute) { }
 
@@ -176,6 +178,16 @@ this.api.businessList.subscribe(list => {
     });
     
     
+}
+
+collapseInfo = business => {
+  const currentState = business.info;
+  this.list.forEach(item => item.info = false);
+  business.info = !currentState;
+} 
+
+expandHours = () => {
+  this.collapsedTimes = !this.collapsedTimes;
 }
 
 favoriteBusiness = business => {

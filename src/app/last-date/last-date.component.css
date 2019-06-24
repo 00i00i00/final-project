@@ -9,6 +9,7 @@ p {
     margin: 50px 0px 0px 0px;
     align-self: center;
     padding: 0px;
+    width: 100%;
 }
 
 .business {
@@ -16,9 +17,12 @@ p {
     display: flex;
     flex-direction: column;
     position: relative;
+    width: 100%;
     margin: 50px 0px 0px 0px;
     border-top: 3px solid #33999b;
-    padding: 0px 0px 5px 0px;
+    padding: 0px 10px 5px 10px;
+    -webkit-transition: width 1s, height 0.5s;
+    transition: width 1s, height 0.5s;
 }
 
 .business-text {
@@ -27,13 +31,13 @@ p {
     justify-content: center;
     align-content: space-between;
     width: 60%;
-    margin: 5px 15px 20px 150px;
+    margin: 5px 15px 20px 140px;
     padding: 0px 10px 0px 0px;
 }
 
 .business-rating-price {
     position: absolute;
-    margin: 138px 0px 15px 15px;
+    margin: 138px 0px 15px 5px;
     padding: 0px 0px 10px 0px;
 }
 
@@ -54,6 +58,8 @@ p {
 .fa-heart {
     position: absolute;
     color: #33999b;
+    -webkit-text-stroke-color: white;
+    -webkit-text-stroke-width: 1.5px; 
     font-size: 30px;
     top: -12px;
     left: 12px;
@@ -156,10 +162,6 @@ padding-top: 15px;
     margin-top: 20px;
 }
 
-.like {
-    color: black;
-}
-
 img {
     top: 0px;
     left: 0;
@@ -167,57 +169,125 @@ img {
     object-fit: cover;
     width:130px;
     height:130px;
-  }
+}
+
+.like {
+    color: #1A4E4F; 
+}
 
 @media only screen and (min-width: 480px) {
  
+h1 {
+    font-size: 1rem;
+
+}
 .business-cont {
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 100%;
     padding: 0px;
-    margin: 0px;
+    margin-top: 15px;
 }
 
 .business {
-    margin: 50px 30px 0px 30px;
+    margin-top: 30px;
     display: flex;
-    flex-direction: row;
-    align-content: space-between;
+    flex-direction: column;
+    align-content: flex-start;
+    padding: 0px;
+    width: 90%;
 }
 
 .business-rating-price {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    margin: 15px 20px 15px 620px;
+    align-items: flex-start;
+    margin: 15px 20px 15px 175px;
     padding: 0px 0px 10px 0px;
 }
 
+img {
+    object-fit: cover;
+    width:165px;
+    height:165px;
+  }
+
+
 .business-rating-price p {
-    font-size: 1.3rem;
+    font-size: 1rem;
 }
 
 .fa-star {
-    font-size: 1.3rem;
+    font-size: 1rem;
+}
+
+.business-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: space-between;
+    width: 45%;
+    margin: 15px 15px 15px 240px;
+    padding: 0px 10px 0px 0px;
+}
+
+.fa-heart {
+    position: absolute;
+    font-size: 2.3rem;
+    top: 15px;
+    left: -14px;
 }
 
 }
 
 @media only screen and (min-width: 1024px) {
 
-    .business {
-        width: 32%;
-    }
-    
-    .fullWidth {
-        width: 100%;
+    .business-cont {
+        flex-flow: row wrap;
+        justify-content: center;
     }
 
-    .imgSize {
-        width: 350px;
-        top: 20px;
-        right: 20px;
+    .business {
+        margin: 50px 20px 0px 20px;
+        flex-direction: row;
+        align-items: flex-start;
+        align-content: space-between;
+        width: 45%;
+        min-height: 168px;
     }
+
+    .width {
+        display: flex;
+        flex-direction: row;
+        align-content: flex-start;
+        justify-content: flex-start;
+        width: 94%;
+        -webkit-box-shadow: 9px 7px 42px -25px rgba(0,0,0,0.75);
+        -moz-box-shadow: 9px 7px 42px -25px rgba(0,0,0,0.75);
+        box-shadow: 9px 7px 42px -25px rgba(0,0,0,0.75);
+    }
+
+    .business-rating-price p {
+        font-size: 0.85rem;
+    }
+
+    .fa-star {
+        font-size: 0.9rem;
+    }
+    
+    .business-text {
+        width: 70%;
+        margin: 15px 15px 15px 240px;
+        padding: 0px;
+    }
+
+    .infoDiv {
+        margin: 15px;
+        border-top: none;
+        border-left: 1px dotted lightgray;
+        padding-top: 0px;
+        padding-left: 15px;
+        }
 
 }

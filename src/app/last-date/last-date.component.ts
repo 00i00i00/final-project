@@ -125,8 +125,7 @@ export class LastDateComponent implements OnInit {
   biz: Businesses[];
   category: any;
   categories: Categories[];
-  price: string;
-  hoursDetails: boolean = false;
+  collapsedTimes: boolean = true;
 
   constructor(private api: Api, private route: ActivatedRoute){}
 
@@ -141,13 +140,14 @@ export class LastDateComponent implements OnInit {
         });
       }
 
-      if (list.favorites) {
-        this.favoriteList = list.favorites;
-      } 
+      // if (list.favorites) {
+      //   this.favoriteList = list.favorites;
+      // console.log(this.favoriteList);
+      // } 
+      this.favoriteList = list.favorites;
 
       this.list = list.lastDate;
     });
-
   }
 
   moreInfo = (id, business) => {
@@ -171,23 +171,57 @@ export class LastDateComponent implements OnInit {
     
 }
 
-hoursDetailsButton = () => {
-  this.hoursDetails = !this.hoursDetails;
+collapseInfo = business => {
+  const currentState = business.info;
+  this.list.forEach(item => item.info = false);
+  business.info = !currentState;
+} 
+
+expandHours = () => {
+  this.collapsedTimes = !this.collapsedTimes;
 }
 
 favoriteBusiness = business => {
   business.favorite = !business.favorite;
-    // this.biz = business;
-    console.log('heart clicked', business);
-      if (business.favorite) {
-        this.favoriteList = [...this.favoriteList, business];
-      } else {
-        this.favoriteList = this.favoriteList.filter(b => b.favorite);
-      }
-      this.api.updateBusinessList({ favorite: this.favoriteList });
-  
-  
+  console.log('heart clicked', this.favoriteList);
+
+  // if (!this.favoriteList && business.favorite) {
+  //   this.api.businessList.subscribe(list => {
+  //     this.favoriteList = list.favorites;
+  //   });
+  //   this.favoriteList = [business];
+  //   this.api.updateBusinessList({ favorite: this.favoriteList });
+  //   return console.log('First item added to favorite list', this.favoriteList);
+  // }
+
+  if (business.favorite) {
+    if (this.favoriteList === undefined) {
+      console.log('still undefined');
+      this.api.businessList.subscribe(list => {
+        this.favoriteList = list.favorites;
+      });
+      this.favoriteList = business;
+    } else {
+      this.favoriteList = [...this.favoriteList, business];
+      console.log('Favorite List', this.favoriteList);
+    }
+
+    this.api.updateBusinessList({ favorite: this.favoriteList });
+  }
+
+  if (!business.favorite) {
+    this.favoriteList = this.favoriteList.filter(b => b.favorite);
+    this.api.updateBusinessList({ favorite: this.favoriteList });
+    console.log('Business removed from favorite list');
+  }
+}
 }
 
-
-}
+ // if (business.favorite) {
+    //   this.favoriteList = [...this.favoriteList, business];
+    //   console.log('first if');
+    // } else {
+    //   this.favoriteList = this.favoriteList.filter(b => b.favorite);
+    //   console.log('second if');
+    // }
+    // this.api.updateBusinessList({ favorite: this.favoriteList });
