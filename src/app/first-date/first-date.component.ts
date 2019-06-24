@@ -36,6 +36,7 @@ interface Businesses {
   favorite: boolean;
   fullWidth: boolean;
   imgSize: boolean;
+  hoursDetails: boolean;
 }
 
 interface ApiData {
@@ -124,6 +125,7 @@ export class FirstDateComponent implements OnInit {
   biz: Businesses[];
   category: any;
   categories: Categories[];
+  collapsedTimes: boolean = true;
 
   constructor(private api: Api, private route: ActivatedRoute, private router: Router) { }
   
@@ -168,6 +170,17 @@ export class FirstDateComponent implements OnInit {
     });
 
   }
+
+  collapseInfo = business => {
+    const currentState = business.info;
+    this.list.forEach(item => item.info = false);
+    business.info = !currentState;
+  } 
+  
+  expandHours = () => {
+    this.collapsedTimes = !this.collapsedTimes;
+  }
+
 
   favoriteBusiness = business => {
     business.favorite = !business.favorite;

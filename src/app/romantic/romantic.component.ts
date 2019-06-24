@@ -36,6 +36,7 @@ interface Businesses {
   favorite: boolean;
   fullWidth: boolean;
   imgSize: boolean;
+  hoursDetails: boolean;
 }
 
 interface ApiData {
@@ -124,6 +125,9 @@ export class RomanticComponent implements OnInit {
   biz: Businesses[];
   category: any;
   categories: Categories[];
+  price: string;
+  hoursDetails: boolean = false;
+  collapsedTimes: boolean = true;
 
 constructor(private api: Api, private route: ActivatedRoute, private router: Router){}
 
@@ -165,6 +169,16 @@ moreInfo = (id, business) => {
     this.reviews = data.reviews;
   });
 
+}
+
+collapseInfo = business => {
+  const currentState = business.info;
+  this.list.forEach(item => item.info = false);
+  business.info = !currentState;
+} 
+
+expandHours = () => {
+  this.collapsedTimes = !this.collapsedTimes;
 }
 
 favoriteBusiness = business => {

@@ -1,54 +1,60 @@
-<div class="container">
-  <div class="business" *ngFor="let business of list" [ngClass]="{'width': business.info===true}">
-    <div class="business-text">
+<div class="business-cont">
+    <div class="business" *ngFor="let business of list" [ngClass]="{'width': business.info===true}">
+      <img src="{{ business.image_url }}" />
       <a class="favorite" (click)="favoriteBusiness(business)">
-        <i class="fa fa-heart" [ngClass]="{'like': business.favorite===true}"></i></a>
-      <div class="img-rating-price">
-        <img src="{{ business.image_url }}" />
-        <p class="rating"><i class="fas fa-star"></i> {{ business.rating }}</p>
-        <p class="price">{{ business.price }}</p>
+          <i class="fa fa-heart" [ngClass]="{'like': business.favorite===true}"></i></a>
+  
+      <div class="business-rating-price">
+        <p><i class="fas fa-star"></i> {{ business.rating }}</p>
+        <p>$${{ business.price }}</p>
       </div>
-      <div class="name-category-address">
-        <h1>{{ business.name }}</h1>
-        <div class="category-div" *ngFor="let category of categories">
-          <p class="categories"><i class="fas fa-tag"></i> {{ category.title }}</p>
+  
+      <div class="business-text">
+        <div class="business-name">
+          <h1>{{ business.name }}</h1>
+        </div>
+  
+        <div *ngFor="let category of categories">
+          <p class="categories">{{ category.title }}</p>
         </div>
         <div class="address">
-          <i class="fas fa-map-marker-alt"></i>
-          <div class="address-text">
-            <p>
+          <div><i class="fas fa-map-marker-alt"></i></div>
+          <div>
+            <p> 
               {{ business.location.address1 }}
               {{ business.location.address2 }}
-              {{ business.location.address3}}
-            </p>
-            <p>{{ business.location.city }} {{ business.location.state }} {{ business.location.zip_code }}</p>
+              {{ business.location.address3 }}</p>
+            <p>
+              {{ business.location.city }} 
+              {{ business.location.state }} 
+              {{ business.location.zip_code }}</p>
           </div>
         </div>
-        <div class="moreInfoDiv">
-          <button class="moreInfo" type="button" (click)="moreInfo(business.id, business)" *ngIf="!business.info" >MORE INFO...</button>
-          <button class="lessInfo" type="button" (click)="collapseInfo(business)" *ngIf="business.info">LESS INFO...</button>
-        </div>
+        <button *ngIf="business.info" type="button" (click)="moreInfo(business.id, business)">LESS INFO...</button>
+        <button *ngIf="!business.info" type="button" (click)="moreInfo(business.id, business)">MORE INFO...</button>
       </div>
-    </div>
       <div class="infoDiv" *ngIf="business.info">
         <p class="phone"><i class="fas fa-phone"></i> {{ business.display_phone }}</p>
         <div *ngFor="let hour of hours" class="hoursDiv">
-          <div class="open-button">{{ hour.is_open_now === false ? 'CLOSED NOW' : 'OPEN NOW' }} 
-            <button class="down" (click)="expandHours()" *ngIf="collapsedTimes"><i class="fas fa-sort-down"></i></button>
-            <button class="up" (click)="expandHours()" *ngIf="!collapsedTimes"><i class="fas fa-sort-up"></i></button>
-          </div>
-          <div class="hoursExpandedDiv" *ngIf="!collapsedTimes">
-            <p class="hoursTitle">HOURS</p>
-            <div class="hoursTimes" *ngFor="let times of open">
-              <p class="day">{{ dates[times.day] }}: </p>
-              <p class="dayTimes"> {{ times.start | convertFrom24To12Format }} - {{ times.end | convertFrom24To12Format }}</p>
+          <p (click)="expandHours()" class="open"><i class="far fa-clock"></i>
+            {{ hour.is_open_now === false ? 'CLOSED NOW' : 'OPEN NOW' }} <i *ngIf="collapsedTimes"
+              class="fas fa-caret-down"></i><i *ngIf="!collapsedTimes" class="fas fa-caret-up"></i></p>
+          <div *ngIf="!collapsedTimes">
+            <div *ngFor="let hour of hours">
+              <p class="hoursTitle">HOURS</p>
+              <div class="hoursTimes" *ngFor="let times of open">
+                <p><span class="p-bold">{{ dates[times.day] }}:</span> {{ times.start | convertFrom24To12Format }} -
+                  {{ times.end | convertFrom24To12Format }}</p>
+              </div>
             </div>
           </div>
         </div>
         <div class="reviews" *ngFor="let review of reviews">
-          <p class="reviewText"> {{ review.text }}</p>
-          <a href="{{ review.url }}">[Read more]</a>
+          <div class="reviewText">
+            <p>{{ review.text }}</p>
+            <a class="read-more" href="{{ review.url }}" target="_blank">(Read more)</a>
+          </div>
         </div>
+      </div>
     </div>
   </div>
-</div>

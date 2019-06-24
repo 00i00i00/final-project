@@ -130,7 +130,6 @@ export class AdventureComponent implements OnInit {
   constructor(private api: Api, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-
     this.api.businessList.subscribe(list => {
       if (!list.adventure) {
         this.api.getAdventure().subscribe((data: ApiData) => {
@@ -148,7 +147,6 @@ export class AdventureComponent implements OnInit {
       this.favoriteList = list.favorites;
 
       this.list = list.adventure;
-    
     });
   }
 
