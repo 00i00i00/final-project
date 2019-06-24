@@ -68,7 +68,9 @@
     <p><i class="fas fa-chevron-down"></i></p>
   </div>
   <div class="categoriesDiv">
-    <button class="restaurants" (click)="addedCategory('restaurants')">
+    <button class="restaurants" (click)="addedCategory('restaurants', item)">
+      <!-- <i class="far fa-circle" *ngIf="item.clicked"></i>
+      <i class="far fa-check-circle" *ngIf="!item.clicked"></i> -->
       <img class="categoryImg"
         src="https://images.unsplash.com/photo-1473093226795-af9932fe5856?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=985&q=80"
         alt="Food">
