@@ -4,8 +4,6 @@
       <h1>Hey!</h1>
       <h3>Where is your next<br>perfect date?</h3>
       <div class="inputContainer">
-        <!-- <input class="locationInput" type="text" [(ngModel)]="locationInput" placeholder="city & state" />
-      <button class="location-button" type="button" (click)="locationClick(locationInput)"><i class="fa fa-search"></i></button> -->
         <form (ngSubmit)="locationClick">
           <input class="locationInput" type="text" [(ngModel)]="locationInput" name="location"
             placeholder="City & State" />
@@ -28,13 +26,13 @@
         src="https://images.unsplash.com/photo-1548051072-b34898021f8b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
         alt="First slide">
     </button>
-    <button class="carousel-item" id="romantic"  (click)="romanticClick()">
+    <button class="carousel-item" id="romantic" (click)="romanticClick()">
       Romantic
       <img
         src="https://images.unsplash.com/photo-1542557497-4c7b03d0d245?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=362&q=80"
         alt="Second slide">
     </button>
-    <button class="carousel-item" id="adventure"  (click)="adventureClick()">
+    <button class="carousel-item" id="adventure" (click)="adventureClick()">
       Adventurous
       <img
         src="https://images.pexels.com/photos/1819657/pexels-photo-1819657.jpeg?auto=format%2Ccompress&cs=tinysrgb&h=750&w=1260"
@@ -46,9 +44,10 @@
         src="https://images.unsplash.com/42/QrXgXMhCSouyhU7idq7g_IMG_8402.JPG?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
         alt="Third slide">
     </button>
-    <button class="carousel-item" id="first-date"  (click)="lastDateClick()">
+    <button class="carousel-item" id="first-date" (click)="lastDateClick()">
       Last Date
-      <img src="https://images.unsplash.com/photo-1414759030024-7889df4b20f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1087&q=80"
+      <img
+        src="https://images.unsplash.com/photo-1414759030024-7889df4b20f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1087&q=80"
         alt="Third slide">
     </button>
   </div>
@@ -67,14 +66,27 @@
     <p>Date Search</p>
     <p><i class="fas fa-chevron-down"></i></p>
   </div>
+  <button class="submitCategories" (click)="submitCategories()">
+    <p>SEARCH</p>
+  </button>
   <div class="categoriesDiv">
-    <div class="category" id="restaurants">
+      <div *ngFor="let category of categories" class="category">
+          <img class="categoryImg"
+            src="{{category.image}}"
+            alt="">
+          <p>{{category.title}}</p>
+          <button class="categoryButton" (click)="addedCategory(category.alias, category)"><i *ngIf="!category.added" class="far fa-square"></i><i *ngIf="category.added" class="far fa-check-square"></i></button>
+      </div>
+    </div>
+  </div>
+    <!-- <div class="category" id="restaurants">
       <img class="categoryImg"
         src="https://images.unsplash.com/photo-1473093226795-af9932fe5856?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=985&q=80"
-        alt="Food">
+        alt="">
       <p>Restaurants</p>
-      <button class="categoryButton" (click)="addedCategory('restaurants', item)"><i class="fas fa-plus"></i></button>
+      <button class="categoryButton" (click)="addedCategory('restaurants', item)"><i [ngClass]="{'added': item.added===true}" class="fas fa-plus"></i></button>
     </div>
+    <div class="category">
     <button class="bars" (click)="addedCategory('bars')">
       <img class="categoryImg"
         src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1049&q=80"
@@ -254,12 +266,9 @@
         src="https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
         alt="">
       <p>Piano Bars</p>
-    </button>
-    <button class="submitCategories" (click)="submitCategories()">
-      <p>SEARCH</p>
-    </button>
-  </div>
-</div>
+    </button> -->
+
+
 
 
 
