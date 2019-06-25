@@ -123,7 +123,7 @@ export class OneOAKComponent implements OnInit {
   day: any;
   dates: any = {0: 'Monday', 1: 'Tuesday', 2: 'Wednesday', 3: 'Thursday', 4: 'Friday', 5: 'Saturday', 6: 'Sunday' };
   favorite: boolean;
-  favoriteList: Businesses[];
+  favoriteList: Businesses[] = [];
   biz: Businesses[];
   category: any;
   categories: Categories[];
@@ -192,14 +192,14 @@ expandHours = () => {
 
 favoriteBusiness = business => {
   business.favorite = !business.favorite;
-    // this.biz = business;
-    console.log('heart clicked', business);
-      if (business.favorite) {
-        this.favoriteList = [...this.favoriteList, business];
-      } else {
-        this.favoriteList = this.favoriteList.filter(b => b.favorite);
-      }
-      this.api.updateBusinessList({ favorite: this.favoriteList });
-  
+  console.log('heart clicked', business);
+    if (business.favorite) {
+      this.favoriteList = [...this.favoriteList, business];
+      console.log(this.favoriteList);
+    } else {
+      this.favoriteList = this.favoriteList.filter(b => b.favorite);
+      console.log('Removed from this.favoriteList');
+    }
+    this.api.updateBusinessList({ favorites: this.favoriteList });
   }
 }
