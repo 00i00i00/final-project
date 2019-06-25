@@ -4,8 +4,6 @@
       <h1>Hey!</h1>
       <h3>Where is your next<br>perfect date?</h3>
       <div class="inputContainer">
-        <!-- <input class="locationInput" type="text" [(ngModel)]="locationInput" placeholder="city & state" />
-      <button class="location-button" type="button" (click)="locationClick(locationInput)"><i class="fa fa-search"></i></button> -->
         <form (ngSubmit)="locationClick">
           <input class="locationInput" type="text" [(ngModel)]="locationInput" name="location"
             placeholder="City & State" />
@@ -72,15 +70,15 @@
     <p>SEARCH</p>
   </button>
   <div class="categoriesDiv">
-
       <div *ngFor="let category of categories" class="category">
           <img class="categoryImg"
             src="{{category.image}}"
             alt="">
           <p>{{category.title}}</p>
-          <button class="categoryButton" (click)="addedCategory(category.alias, item)"><i class="fas fa-plus"></i></button>
+          <button class="categoryButton" (click)="addedCategory(category.alias, category)"><i *ngIf="!category.added" class="far fa-square"></i><i *ngIf="category.added" class="far fa-check-square"></i></button>
       </div>
-
+    </div>
+  </div>
     <!-- <div class="category" id="restaurants">
       <img class="categoryImg"
         src="https://images.unsplash.com/photo-1473093226795-af9932fe5856?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=985&q=80"
@@ -89,37 +87,6 @@
       <button class="categoryButton" (click)="addedCategory('restaurants', item)"><i [ngClass]="{'added': item.added===true}" class="fas fa-plus"></i></button>
     </div>
     <div class="category">
-      <img class="categoryImg"
-        src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1049&q=80"
-        alt="bars">
-      <p>Bars</p>
-      <button class="categoryButton" (click)="addedCategory('bars', item)"><i class="fas fa-plus"></i></button>
-    </div>
-    <div class="category">
-      <img class="categoryImg"
-        src="https://images.unsplash.com/photo-1473163928189-364b2c4e1135?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
-        alt="tours">
-      <p>Tours</p>
-      <button class="categoryButton" (click)="addedCategory('tours', item)"><i class="fas fa-plus"></i></button>
-    </div>
-    <div class="category">
-      <img class="categoryImg"
-        src="https://images.unsplash.com/photo-1552676382-77b33d7639fa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
-        alt="">
-      <p>Parks</p>
-      <button class="categoryButton" (click)="addedCategory('parks', item)"><i class="fas fa-plus"></i></button>
-    </div>
-    <div class="category">
-      <img class="categoryImg"
-        src="https://images.unsplash.com/photo-1533856493584-0c6ca8ca9ce3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
-        alt="">
-      <p>Amusement Parks</p>
-      <button class="categoryButton" (click)="addedCategory('amusementparks', item)"><i
-          class="fas fa-plus"></i></button>
-    </div> -->
-
-
-    <!-- </div>
     <button class="bars" (click)="addedCategory('bars')">
       <img class="categoryImg"
         src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1049&q=80"
@@ -301,8 +268,7 @@
       <p>Piano Bars</p>
     </button> -->
 
-  </div>
-</div>
+
 
 
 

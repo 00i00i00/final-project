@@ -32,6 +32,9 @@ export class Api {
     private _userCategories = new BehaviorSubject<string>('');
     userCategories = this._userCategories.asObservable();
 
+    private _modal = new BehaviorSubject<boolean>(true);
+    modal = this._modal.asObservable();
+
 updateBusinessList = newBusinessList => { 
     const currentValue = this._businessList.getValue();
     this._businessList.next({...currentValue, ...newBusinessList}); 
@@ -44,12 +47,13 @@ updateUserCategories = newList => this._userCategories.next(newList);
 
 getLocation = location => this.http.get(this.baseUrl + '/businesses/search?location=' + location, { headers: this.headers });
 
+updateModal = state => this._modal.next(state);
 
-getCategories = () => {
-    console.log('Getting all categories');
-    const location = this._location.getValue();
-    return this.http.get(this.baseUrl + '/categories', {headers: this.headers});
-}
+// getCategories = () => {
+//     console.log('Getting all categories');
+//     const location = this._location.getValue();
+//     return this.http.get(this.baseUrl + '/categories', {headers: this.headers});
+// }
 
 getUserCurated = () => {
     console.log('User Curated Date');
