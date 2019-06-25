@@ -195,8 +195,8 @@ color: white;
 
     .categoryButton{
         position: absolute;
-        top: 22px;
-        right: 76px;
+        top: 10px;
+        right: 10px;
         background: transparent;
         margin: 0;
         padding: 0;
@@ -204,7 +204,18 @@ color: white;
         color: white;
     }
 
-  .categoriesDiv button {
+    .categoryButton:hover {
+      color: #33999b;
+    }
+    
+    .added {
+      color: #33999b;
+
+    }
+
+    
+
+  /* .categoriesDiv button {
       display: flex;
       justify-content: space-between;
       height: 130px;
@@ -214,7 +225,7 @@ color: white;
       margin: 5px;
       border-radius: 5px;
 
-  }
+  } */
     .categoriesDiv p {
     position: absolute;
     top: 50%;
@@ -254,6 +265,14 @@ color: white;
     text-align: center;
     border-radius: 5px;
     background-image: linear-gradient(#9999cd, #33999b);
+    width: 100px;
+    height: 50px;
+    position: relative;
+    opacity: 0.9;
+    /* position: fixed;
+    z-index: 2;
+    top: 0;
+    right: 0; */
   }
 
   .submitCategories p {

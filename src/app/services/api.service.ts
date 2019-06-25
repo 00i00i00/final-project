@@ -45,11 +45,11 @@ updateUserCategories = newList => this._userCategories.next(newList);
 getLocation = location => this.http.get(this.baseUrl + '/businesses/search?location=' + location, { headers: this.headers });
 
 
-// getCategories = () => {
-//     console.log('Getting all categories');
-//     const location = this._location.getValue();
-//     return this.http.get(this.baseUrl + '/categories', {headers: this.headers});
-// }
+getCategories = () => {
+    console.log('Getting all categories');
+    const location = this._location.getValue();
+    return this.http.get(this.baseUrl + '/categories', {headers: this.headers});
+}
 
 getUserCurated = () => {
     console.log('User Curated Date');
