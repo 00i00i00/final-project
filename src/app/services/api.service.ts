@@ -60,34 +60,33 @@ getUserCurated = () => {
 getFirstDate = () => {
     console.log('first date');
     const location = this._location.getValue();
-    return this.http.get(this.baseUrl + '/businesses/search?limit=50&'+ 'location=' + location + '&categories=aquariums&categories=parks&categories=axethrowing&categories=gokarts&categories=bars&categories=coffee', {headers: this.headers});
+    return this.http.get(this.baseUrl + '/businesses/search?limit=50&'+ 'location=' + location + '&categories=bars&categories=coffee&categories=bubbletea&categories=culturalcenter&categories=artmuseums&categories=opera&categories=theater&categories=beer_and_wine&categories=breweries&categories=pianobars&categories=beergardens&categories=coffeeshops&categories=restaurants&categories=cideries&categories=desserts&categories=distilleries&categories=gelato&categories=juicebars&categories=milkshakebars&categories=musicvenues&categories=parks&categories=arcades', {headers: this.headers});
 }
 
 getRomantic = () => {
     console.log('romantic date');
     const location = this._location.getValue();
-    return this.http.get(this.baseUrl + '/businesses/search?limit=50&'+ 'location=' + location + '&categories=jazzandblues&categories=dancerestaurants&categories=danceclubs&categories=speakeasies&categories=cocktailbars&categories=champagne_bars&categories=skiresorts&categories=resorts&categories=wineries&categories=wine_bars&categories=winetasteclasses&categories=winetastingroom&categories=winetours&categories=theater&categories=musicvenues&categories=opera&categories=artmuseums&categories=galleries&categories=steak&categories=seafood&categories=signature_cuisine&categories=hotel_bar', {headers: this.headers});
+    return this.http.get(this.baseUrl + '/businesses/search?limit=50&'+ 'location=' + location + '&categories=jazzandblues&categories=dancerestaurants&categories=danceclubs&categories=speakeasies&categories=cocktailbars&categories=champagne_bars&categories=resorts&categories=wineries&categories=wine_bars&categories=winetasteclasses&categories=winetastingroom&categories=winetours&categories=theater&categories=musicvenues&categories=opera&categories=artmuseums&categories=galleries&categories=steak&categories=seafood&categories=signature_cuisine&categories=hotel_bar&categories=spas&categories=aquariums&categories=hot_air_balloons', {headers: this.headers});
 }
 
 getOneOak = () => {
     console.log('one of a kind date');
     const location = this._location.getValue();
-    return this.http.get(this.baseUrl + '/businesses/search?limit=50&'+ 'location=' + location + '&categories=jazzandblues&categories=arcades', {headers: this.headers});
+    return this.http.get(this.baseUrl + '/businesses/search?limit=50&'+ 'location=' + location + '&categories=festivals&categories=jazzandblues', {headers: this.headers});
 }
 
 getAdventure = () => {
     console.log('adventure API called');
-    // const location = this._location.getValue();
+    const location = this._location.getValue();
     //change location back to above when done working 
-    const location = 'detroit';
-    return this.http.get(this.baseUrl + '/businesses/search?limit=50&'+ 'location=' + location + '&categories=airsoft&categories=archery&categories=axethrowing&categories=bobsledding&categories=bungeejumping&categories=canyoneering&categories=challengecourses&categories=escapegames&categories=gliding&categories=gokarts&categories=hanggliding&categories=horsebackriding&categories=hot_air_balloons&categories=paraglidin&categories=parasailing&categories=zipline&categories=hauntedhouses', {headers: this.headers});
+    // const location = 'detroit';
+    return this.http.get(this.baseUrl + '/businesses/search?limit=50&'+ 'location=' + location + '&categories=airsoft&categories=archery&categories=axethrowing&categories=bobsledding&categories=bungeejumping&categories=canyoneering&categories=challengecourses&categories=gliding&categories=gokarts&categories=hanggliding&categories=horsebackriding&categories=hot_air_balloons&categories=paraglidin&categories=parasailing&categories=zipline&categories=hauntedhouses&categories=skiresorts&categories=badminton&categories=basketballcourts&categories=discgolf', {headers: this.headers});
 }
 
 getLastDate = () =>  {
     console.log('last date');
     const location = this._location.getValue();
-    // return this.http.get(this.baseUrl + '/businesses/search?limit=50&'+ 'location=' + location + '&categories=galleries&categories=casinos&categories=choirs&categories=culturalcenter&categories=festivals&categories=jazzandblues&categories=artmuseums&categories=musicvenues&categories=opera&categories=theater&categories=spas&categories=cprclasses&categories=firearmtraining&categories=silentdisco&categories=beer_and_wine&categories=breweries&categories=bubbletea&categories=cideries&categories=desserts&categories=distilleries&categories=gelato&categories=juicebars&categories=milkshakebars&categories=bars&categories=beergardens&categories=coffeeshops&categories=restaurants&categories=pianobars', {headers: this.headers});
-    return this.http.get(this.baseUrl + '/businesses/search?limit=50&'+ 'location=' + 'San Diego' + '&categories=galleries&categories=casinos&categories=choirs&categories=culturalcenter&categories=festivals&categories=jazzandblues&categories=artmuseums&categories=musicvenues&categories=opera&categories=theater&categories=spas&categories=cprclasses&categories=firearmtraining&categories=silentdisco&categories=beer_and_wine&categories=breweries&categories=bubbletea&categories=cideries&categories=desserts&categories=distilleries&categories=gelato&categories=juicebars&categories=milkshakebars&categories=bars&categories=beergardens&categories=coffeeshops&categories=restaurants&categories=pianobars', {headers: this.headers});
+    return this.http.get(this.baseUrl + '/businesses/search?limit=50&'+ 'location=' + location + '&categories=casinos&categories=cprclasses&categories=firearmtraining&categories=archery&categories=axethrowing&categories=escapegames&categories=martialarts&categories=paintball', {headers: this.headers});
 }
 
 getReviews = id => {
