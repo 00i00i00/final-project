@@ -182,7 +182,6 @@ export class AdventureComponent implements OnInit {
 
   favoriteBusiness = business => {
     business.favorite = !business.favorite;
-    // this.biz = business;
     console.log('heart clicked', business);
       if (business.favorite) {
         this.favoriteList = [...this.favoriteList, business];
