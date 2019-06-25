@@ -110,7 +110,7 @@ interface Open {
 
 export class FavoritesComponent implements OnInit{
   location: string;
-  business: Businesses[];
+  business: any;
   list: Businesses[];
   id: Businesses[];
   reviews: Reviews[];
@@ -123,9 +123,9 @@ export class FavoritesComponent implements OnInit{
   times: any;
   day: any;
   dates: any = {0: 'Monday', 1: 'Tuesday', 2: 'Wednesday', 3: 'Thursday', 4: 'Friday', 5: 'Saturday', 6: 'Sunday' };
-  favorite: boolean;
+  favorite: boolean = true;
   favoritesList: Businesses[];
-  biz: any;
+  // business: any;
   category: any;
   categories: Categories[];
 
@@ -135,15 +135,15 @@ export class FavoritesComponent implements OnInit{
   
     this.api.businessList.subscribe(list => {
       this.list = list.favorites;
-      console.log(list.favorites);
+      console.log(this.list);
     });
 }
 
-  moreInfo = (id, biz) => {
+  moreInfo = (id, business) => {
 
-    const currentState = biz.info;
+    const currentState = business.info;
     this.favoritesList.forEach(item => item.info = false);
-    biz.info = !currentState;
+    business.info = !currentState;
 
       this.api.getBusinessDetails(id).subscribe((data:BusinessDetails) => {
           console.log(`API Call: Business Details from id`, data);
@@ -160,12 +160,11 @@ export class FavoritesComponent implements OnInit{
       
 }
 
-favoriteBusiness = biz => {
-    biz.favorite = !biz.favorite;
-    if (biz.favorite) {
+favoriteBusiness = business => {
+    business.favorite = !business.favorite;
       this.list = this.list.filter(b => b.favorite);
-    }
-    this.api.updateBusinessList({favorite: this.list});
+    
+    this.api.updateBusinessList({ favorites: this.list });
 
 }
 

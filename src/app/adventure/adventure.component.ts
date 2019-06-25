@@ -121,7 +121,7 @@ export class AdventureComponent implements OnInit {
   day: any;
   dates: any = { 0: 'Monday', 1: 'Tuesday', 2: 'Wednesday', 3: 'Thursday', 4: 'Friday', 5: 'Saturday', 6: 'Sunday' };
   favorite: boolean;
-  favoriteList: Businesses[];
+  favoriteList: Businesses[] = [];
   biz: Businesses[];
   category: any;
   categories: Categories[];
@@ -140,11 +140,9 @@ export class AdventureComponent implements OnInit {
         });
       }
 
-      // if (list.favorites) {
-      //   this.favoriteList = list.favorites;
-      //   console.log(this.favoriteList);
-      // }  
-      this.favoriteList = list.favorites;
+      if (list.favorites) {
+        this.favoriteList = list.favorites;
+      }  
 
       this.list = list.adventure;
     });
@@ -181,48 +179,18 @@ export class AdventureComponent implements OnInit {
     this.collapsedTimes = !this.collapsedTimes;
   }
 
+
   favoriteBusiness = business => {
     business.favorite = !business.favorite;
-    console.log('heart clicked', this.favoriteList);
-
-    // if (!this.favoriteList && business.favorite) {
-    //   this.api.businessList.subscribe(list => {
-    //     this.favoriteList = list.favorites;
-    //   });
-    //   this.favoriteList = [business];
-    //   this.api.updateBusinessList({ favorite: this.favoriteList });
-    //   return console.log('First item added to favorite list', this.favoriteList);
-    // }
-
-    if (business.favorite) {
-      if (this.favoriteList === undefined) {
-        console.log('still undefined');
-        this.api.businessList.subscribe(list => {
-          this.favoriteList = list.favorites;
-        });
-        this.favoriteList = business;
-      } else {
+    // this.biz = business;
+    console.log('heart clicked', business);
+      if (business.favorite) {
         this.favoriteList = [...this.favoriteList, business];
-        console.log('Favorite List', this.favoriteList);
+        console.log(this.favoriteList);
+      } else {
+        this.favoriteList = this.favoriteList.filter(b => b.favorite);
+        console.log('Removed from this.favoriteList');
       }
-
-      this.api.updateBusinessList({ favorite: this.favoriteList });
+      this.api.updateBusinessList({ favorites: this.favoriteList });
     }
-
-    if (!business.favorite) {
-      this.favoriteList = this.favoriteList.filter(b => b.favorite);
-      this.api.updateBusinessList({ favorite: this.favoriteList });
-      console.log('Business removed from favorite list');
-    }
-  }
 }
-
-    // if (business.favorite) {
-    //   this.favoriteList = [...this.favoriteList, business];
-    //   console.log('first if');
-    // } else {
-    //   this.favoriteList = this.favoriteList.filter(b => b.favorite);
-    //   console.log('second if');
-    // }
-    // this.api.updateBusinessList({ favorite: this.favoriteList });
-
