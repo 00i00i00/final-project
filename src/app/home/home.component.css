@@ -166,29 +166,28 @@ color: white;
   }
 
   .container {
-      display: flex;
-      flex-direction: column;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
+    padding: 0;
+    margin: 0;
 
     }
 
   .categoriesDiv {
       display: flex;
       flex-flow: row wrap;
-      width: 100%;
-      justify-content: center;
+      justify-content: space-evenly;
   }
 
   .category {
-    display: flex;
-    justify-content: space-between;
     height: 130px;
     width: 130px;
     position: relative;
     padding: 0;
-    margin: 5px;
+    margin: 6px 0;
     border-radius: 5px;
     position: relative;
     }
@@ -208,24 +207,6 @@ color: white;
       color: #33999b;
     }
     
-    .added {
-      color: #33999b;
-
-    }
-
-    
-
-  /* .categoriesDiv button {
-      display: flex;
-      justify-content: space-between;
-      height: 130px;
-      width: 130px;
-      position: relative;
-      padding: 0;
-      margin: 5px;
-      border-radius: 5px;
-
-  } */
     .categoriesDiv p {
     position: absolute;
     top: 50%;
@@ -234,8 +215,6 @@ color: white;
     color: white;
     font-size: 1rem;
     }
-
-    
 
   .categoryImg {
     object-fit: cover;
@@ -264,19 +243,22 @@ color: white;
     font-size: 1.25rem;
     text-align: center;
     border-radius: 5px;
-    background-image: linear-gradient(#9999cd, #33999b);
-    width: 100px;
+    /* background-image: linear-gradient(#9999cd, #33999b); */
+    background: transparent;
+    border: solid 2px #33999b;
+    width: 85%;;
     height: 50px;
     position: relative;
     opacity: 0.9;
+    margin-bottom: 15px;
     /* position: fixed;
-    z-index: 2;
+    z-index: 1;
     top: 0;
     right: 0; */
   }
 
   .submitCategories p {
-    color: white;
+    color: #33999b;
   }
 
 
@@ -316,18 +298,10 @@ color: white;
         width: 70%;
     }
 
-
-    .categoriesDiv button {
-        height: 200px;
-        width: 200px;
-        margin: 15px;
-    }
-    
-    .categoryImg {
+    .category, .categoryImg {
       height: 200px;
       width: 200px;
-  
-    }
+      }
 
     .categoryText {
         font-size: 2rem;
@@ -343,7 +317,10 @@ color: white;
         font-size: 1.5rem;
     }
     
-    
+    .container {
+      padding: auto;
+      margin: auto;
+    }
 
 
 }
@@ -358,19 +335,12 @@ color: white;
 
 @media only screen and (min-width: 1200px) {
 
-
-    .categoriesDiv button {
-        height: 300px;
-        width: 300px;
-        margin: 20px;
-    }
-    
-    .categoryImg {
-      height: 300px;
-      width: 300px;
-  
+    .category, .categoryImg {
+        height: 250px;
+        width: 250px;
     }
 
-
-    
+    .categoryButton {
+      font-size: 2rem;
+    }
 }
