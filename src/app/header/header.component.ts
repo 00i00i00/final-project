@@ -138,7 +138,7 @@ export class HeaderComponent implements OnInit {
     
     this.api.businessList.subscribe(list => {
       if (!list.search) {
-        this.api.getDateSearch(this.searchInput).subscribe((data: ApiData) => {
+        this.api.getDateSearch().subscribe((data: ApiData) => {
           console.log('User input search data from api', data);
           this.list = data.businesses;
           this.categories = data.businesses[0].categories;
