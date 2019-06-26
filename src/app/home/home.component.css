@@ -248,9 +248,12 @@ color: white;
     border: solid 2px #33999b;
     width: 85%;;
     height: 50px;
-    position: relative;
+    /* position: relative; */
     opacity: 0.9;
     margin-bottom: 15px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
     /* position: fixed;
     z-index: 1;
     top: 0;
