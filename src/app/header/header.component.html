@@ -1,3 +1,43 @@
+<nav id="navbar-example1" class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="small-logo" [routerLink]="['/']">+1</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>  
+  
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['/first-date']">First Date</a>
+      </li>
+      <div role="separator" class="dropdown-divider"></div>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/romantic']">Romantic</a>
+      </li>          
+      <div role="separator" class="dropdown-divider"></div>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/adventure']">Adventurous</a>
+      </li>
+      <div role="separator" class="dropdown-divider"></div>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/one-oak']">One of a Kind</a>
+      </li>
+      <div role="separator" class="dropdown-divider"></div>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/last-date']">Last Date</a>
+      </li>
+      <div role="separator" class="dropdown-divider"></div>
+    </ul>
+    <div class="input-group input-group-sm mb-3">
+        <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" [(ngModel)]="searchInput" (change)='getDateSearch()' placeholder="search...">
+      <div class="input-group-append">
+        <button type="button" class="btn btn-primary btn-sm" (click)="getDateSearch(searchInput)">Enter</button>
+      </div>
+      </div>
+    <!-- </form> -->
+  </div>
+</nav>
+
+
   <nav id="navbar-example2" class="navbar navbar-light  navbar-dark-background">
       <span class="logo-input navbar-brand">
         <a class="small-logo" [routerLink]="['/']">+1</a>
@@ -20,7 +60,7 @@
           <div class="input-group input-group-sm mb-3">
             <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" [(ngModel)]="searchInput" (change)='getDateSearch()' placeholder="search...">
           <div class="input-group-append">
-            <!-- <button type="button" class="btn btn-primary btn-sm" (click)="getDateSearch(searchInput)">Enter</button> -->
+            <button type="button" class="btn btn-primary btn-sm" (click)="getDateSearch(searchInput)">Enter</button>
           </div>
           <!-- <div class="inputContainer">
               <input class="locationInput" type="text" [(ngModel)]="locationInput" placeholder="city & state" />

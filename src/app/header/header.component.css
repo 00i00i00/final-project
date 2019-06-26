@@ -1,11 +1,3 @@
-#navbar-example2 {
-    position: fixed;
-    z-index: 2;
-    left: 0;
-    right: 0;
-    top: 0;
-}
-
 input {
     border: none;
     width: 60px;
@@ -59,10 +51,51 @@ input {
     border:  none;
 }
 
+#navbarTogglerDemo02 {
+    padding-left: 2%;
+    padding-right: 2%;
+    background-image: linear-gradient(to right, #8a8aff, white);
+    z-index: 4;
+    border:  none;
+    margin: none;
+}
+
 .separator {
     border-top: 1px solid white;
 }
 
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
     background-color: rgb(26,26,26);
+}
+
+@media (max-width: 768.05px) { 
+    #navbar-example1 {
+            background-color: rgb(26,26,26);
+            position: fixed;
+            z-index: 3;
+            left: 0;
+            right: 0;
+            top: 0;
+    }
+
+    #formControlMobile {
+        width: 60%;
+    }
+
+    #navbar-example2 {
+        display: none;
+    }
+}
+
+@media (min-width: 768.10px) { 
+    #navbar-example1 {
+        display: none;
+}
+#navbar-example2 {
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    right: 0;
+    top: 0;
+}
 }
