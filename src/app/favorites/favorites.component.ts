@@ -142,7 +142,7 @@ export class FavoritesComponent implements OnInit{
   moreInfo = (id, business) => {
 
     const currentState = business.info;
-    this.favoritesList.forEach(item => item.info = false);
+    this.list.forEach(item => item.info = false);
     business.info = !currentState;
 
       this.api.getBusinessDetails(id).subscribe((data:BusinessDetails) => {
