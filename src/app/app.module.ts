@@ -27,7 +27,8 @@ const appRoutes: Routes =[
   { path: 'adventure', component: AdventureComponent },
   { path: 'romantic', component: RomanticComponent},
   { path: 'first-date', component: FirstDateComponent},
-  { path: 'user-curated', component: UserCuratedComponent}
+  { path: 'user-curated', component: UserCuratedComponent},
+  { path: 'search', component: SearchComponent}
 
 ];
 

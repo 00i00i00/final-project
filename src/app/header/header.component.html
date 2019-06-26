@@ -28,16 +28,13 @@
       <div role="separator" class="dropdown-divider"></div>
     </ul>
     <div class="input-group input-group-sm mb-3">
-        <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" [(ngModel)]="searchInput" (change)='getDateSearch()' placeholder="search...">
+        <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" [(ngModel)]="searchInput" (change)='getDateSearch(searchInput)' placeholder="search...">
       <div class="input-group-append">
         <button type="button" class="btn btn-primary btn-sm" (click)="getDateSearch(searchInput)">Enter</button>
       </div>
       </div>
-    <!-- </form> -->
   </div>
 </nav>
-
-
   <nav id="navbar-example2" class="navbar navbar-light  navbar-dark-background">
       <span class="logo-input navbar-brand">
         <a class="small-logo" [routerLink]="['/']">+1</a>

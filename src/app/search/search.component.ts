@@ -5,8 +5,8 @@ import { Api } from '../services/api.service';
 interface Location {
   city: string;
   country: string;
-  address2: string; 
-  address3: string; 
+  address2: string;
+  address3: string;
   state: string;
   address1: string;
   zip_code: string;
@@ -20,13 +20,13 @@ interface Categories {
 }
 
 interface Businesses {
-  alias: string; 
+  alias: string;
   categories: Categories[];
-  id: string; 
+  id: string;
   rating: number;
   price: string;
-  display_phone: string; 
-  name: string; 
+  display_phone: string;
+  name: string;
   url: string;
   image_url: string;
   location: Location[];
@@ -35,6 +35,8 @@ interface Businesses {
   info: boolean;
   favorite: boolean;
   fullWidth: boolean;
+  imgSize: boolean;
+  hoursDetails: boolean;
 }
 
 interface ApiData {
@@ -42,7 +44,7 @@ interface ApiData {
   businesses: Businesses[];
   region: {
     center: {
-      latitude:number;
+      latitude: number;
       longitude: number;
     }
   }
@@ -105,8 +107,11 @@ interface Open {
 })
 export class SearchComponent implements OnInit {
   location: string;
-  business: any;
+  locationInput: string;
+  searchInput: string;
   list: Businesses[];
+  showModal: boolean = true;
+  business: any;
   id: string;
   reviews: Reviews[];
   review: any;
@@ -123,64 +128,35 @@ export class SearchComponent implements OnInit {
   biz: Businesses[];
   category: any;
   categories: Categories[];
+  collapsedTimes: boolean = true;
+  searchList: any;
 
   constructor(private api: Api, private route: ActivatedRoute, private router: Router){}
 
-    ngOnInit() {
-      this.api.location.subscribe(data => {
-        console.log(data);
-        this.location = data;
+  ngOnInit() {
+        this.api.businessList.subscribe(list => {
+          if (!list.search) {
+            this.api.getDateSearch().subscribe((data: ApiData) => {
+              console.log('User input search data from api', data);
+              this.list = data.businesses;
+              this.categories = data.businesses[0].categories;
+              this.api.updateBusinessList({ search: this.list });
+            });
+          }
+          if (list.favorites) {
+            this.favoriteList = list.favorites;
+          }  
+    
+          this.searchList = list.search;
         });
-     
-      this.api.getFirstDate().subscribe((data:ApiData) => {
-        console.log('First Date data from api', data);
-        this.list = data.businesses;
-        this.categories = data.businesses[0].categories;
-  
-      });
-      
-    }
-  
-    moreInfo = (id, business) => {
-  
-      for (let business of this.list) {
-        business.info = false;
       }
-      business.info = !business.info;
-  
-      this.api.getBusinessDetails(id).subscribe((data:BusinessDetails) => {
-        console.log(`API Call: Business Details from id`, data);
-        this.hours = data.hours;
-        this.open = data.hours[0].open;
-        //above means now this.open is the array of objects
-        this.day = this.open[0].day;
-      });
-  
-      this.api.getReviews(id).subscribe((data:ReviewData) => {
-        console.log(`API Call: Reviews from id`, data);
-        this.reviews = data.reviews;
-      });
-  
-      business.fullWidth = !business.fullWidth;
-  
-      
-    }
-  
-   //THIS NEEDS TO BE CHANGED OVER TO NEW FORMAT OF CALLS
-  // favoriteBusiness = business => {
-  //   business.favorite = !business.favorite;
-  //   this.biz = business;
-  
-  //   this.api.favoriteList.subscribe(data => {
-  //     console.log(data);
-  //     this.favoriteList = data;
-  //   });
-  
-  //   this.favoriteList.push(this.biz);
-  //   this.api.updateFavorites(this.favoriteList);
-  //   console.log('heart clicked', this.favoriteList);
-  // }
-  
-  
-  }
-
+    
+          getDateSearch = () => {
+            this.api.getDateSearch(this.searchInput).subscribe((data: {businesses: []}) => {
+              console.log('Date input search from api', data.businesses);
+              this.api.updateBusinessList(data.businesses);
+        
+            });
+        
+          }
+        }

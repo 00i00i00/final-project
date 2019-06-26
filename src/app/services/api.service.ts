@@ -11,6 +11,7 @@ interface BusinessList {
     firstDate ?: any[];
     lastDate ?: any[];
     userCurated ?: any[];
+    search ?: any[];
 }
 
 @Injectable()
@@ -22,7 +23,10 @@ export class Api {
         });
 
     constructor(private http: HttpClient) {}
-    
+    private _searchInput = new BehaviorSubject<string>('');
+    searchInput = this._searchInput.asObservable();
+
+
     private _location = new BehaviorSubject<string>('');
     location = this._location.asObservable();
     
@@ -42,8 +46,11 @@ updateBusinessList = newBusinessList => {
 getDate = () => this.http.get(this.baseUrl);    
 
 updateLocation = newLocation => this._location.next(newLocation);
+updateSearchInput = newLocation => this._searchInput.next(newLocation);
 
 updateUserCategories = newList => this._userCategories.next(newList);
+
+
 
 getLocation = location => this.http.get(this.baseUrl + '/businesses/search?location=' + location, { headers: this.headers });
 
@@ -104,13 +111,15 @@ getBusinessDetails = id => {
     return this.http.get(this.baseUrl + `/businesses/${id}`, {headers: this.headers});
 }
 
-getDateSearch = (searchInput) => {
-    if (!searchInput) {
-        return this.getDate();
-    }
+getDateSearch = () => {
+    // if (!searchInput) {
+    //     return this.getDate();
+    // }
     const location = this._location.getValue();
+    const search = this._searchInput.getValue();
     console.log('Date Search');
-    return this.http.get(this.baseUrl + '/businesses/search?limit=50&' + 'location=' + location + '&term=' + searchInput, {headers: this.headers});
+    return this.http.get(this.baseUrl + '/businesses/search?limit=50&' + 'location=' + location + '&term=' + search, {headers: this.headers});
+
 }
 
 }
