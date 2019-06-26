@@ -23,6 +23,13 @@ p {
     padding: 0px 10px 5px 10px;
     -webkit-transition: width 1s, height 0.5s;
     transition: width 1s, height 0.5s;
+    transition: transform .2s; /* hover zoom Animation */
+
+}
+
+.business:hover {
+    transform: scale(1.125);
+    z-index: 1;
 }
 
 .business-text {

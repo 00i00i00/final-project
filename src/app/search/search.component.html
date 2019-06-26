@@ -1,3 +1,60 @@
-<p>
-  search works!
-</p>
+<div class="business-cont">
+  <div class="business" *ngFor="let business of list" [ngClass]="{'width': business.info===true}">
+    <img src="{{ business.image_url }}" />
+    <a class="favorite" (click)="favoriteBusiness(business)">
+        <i class="fa fa-heart" [ngClass]="{'like': business.favorite===true}"></i></a>
+
+    <div class="business-rating-price">
+      <p><i class="fas fa-star"></i> {{ business.rating }}</p>
+      <p>$${{ business.price }}</p>
+    </div>
+
+    <div class="business-text">
+      <div class="business-name">
+        <h1>{{ business.name }}</h1>
+      </div>
+
+      <div *ngFor="let category of categories">
+        <p class="categories">{{ category.title }}</p>
+      </div>
+      <div class="address">
+        <div><i class="fas fa-map-marker-alt"></i></div>
+        <div>
+          <p> 
+            {{ business.location.address1 }}
+            {{ business.location.address2 }}
+            {{ business.location.address3 }}</p>
+          <p>
+            {{ business.location.city }} 
+            {{ business.location.state }} 
+            {{ business.location.zip_code }}</p>
+        </div>
+      </div>
+      <button *ngIf="business.info" type="button" (click)="moreInfo(business.id, business)">LESS INFO...</button>
+      <button *ngIf="!business.info" type="button" (click)="moreInfo(business.id, business)">MORE INFO...</button>
+    </div>
+    <div class="infoDiv" *ngIf="business.info">
+      <p class="phone"><i class="fas fa-phone"></i> {{ business.display_phone }}</p>
+      <div *ngFor="let hour of hours" class="hoursDiv">
+        <p (click)="expandHours()" class="open"><i class="far fa-clock"></i>
+          {{ hour.is_open_now === false ? 'CLOSED NOW' : 'OPEN NOW' }} <i *ngIf="collapsedTimes"
+            class="fas fa-caret-down"></i><i *ngIf="!collapsedTimes" class="fas fa-caret-up"></i></p>
+        <div *ngIf="!collapsedTimes">
+          <div *ngFor="let hour of hours">
+            <p class="hoursTitle">HOURS</p>
+            <div class="hoursTimes" *ngFor="let times of open">
+              <p><span class="p-bold">{{ dates[times.day] }}:</span> {{ times.start | convertFrom24To12Format }} -
+                {{ times.end | convertFrom24To12Format }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="reviews" *ngFor="let review of reviews">
+        <div class="reviewText">
+          <p>{{ review.text }}</p>
+          <a class="read-more" href="{{ review.url }}" target="_blank">(Read more)</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
