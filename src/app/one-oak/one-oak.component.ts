@@ -133,15 +133,16 @@ export class OneOAKComponent implements OnInit {
 
  
   ngOnInit() {
-
+    this.api.location.subscribe(location => {
+      this.api.previousLocation.subscribe(previous => {
+        if (previous !== location) {
+          this.componentApiCall();
+        }
+      })
+    });
 this.api.businessList.subscribe(list => {
       if (!list.oneOAK) {
-        this.api.getOneOak().subscribe((data: ApiData) => {
-          console.log('OOAK data from api', data);
-          this.list = data.businesses;
-          this.categories = data.businesses[0].categories;
-          this.api.updateBusinessList({ oneOAK: this.list });
-        });
+        this.componentApiCall();
       }
 
       if (list.favorites) {
@@ -152,6 +153,13 @@ this.api.businessList.subscribe(list => {
     });
 
   }
+
+  componentApiCall = () => this.api.getOneOak().subscribe((data: ApiData) => {
+    console.log('OOAK data from api', data);
+    this.list = data.businesses;
+    this.categories = data.businesses[0].categories;
+    this.api.updateBusinessList({ oneOAK: this.list });
+  });
 
   moreInfo = (id, business) => {
 

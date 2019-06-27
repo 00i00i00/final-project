@@ -153,6 +153,12 @@ export class HeaderComponent implements OnInit {
     });
   }
 
+  locationClick = location => {
+    this.api.updateLocation(location);
+    console.log('location data', location);
+  }
+
+
       getDateSearch = searchInput => {
         this.api.updateSearchInput(searchInput);
         this.router.navigateByUrl('/search');
