@@ -147,12 +147,12 @@ export class SearchComponent implements OnInit {
             this.favoriteList = list.favorites;
           }  
     
-          this.searchList = list.search;
+          // this.searchList = list.search;
         });
       }
     
           getDateSearch = () => {
-            this.api.getDateSearch(this.searchInput).subscribe((data: {businesses: []}) => {
+            this.api.getDateSearch().subscribe((data: {businesses: []}) => {
               console.log('Date input search from api', data.businesses);
               this.api.updateBusinessList(data.businesses);
         
