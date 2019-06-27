@@ -1,353 +1,352 @@
 <div class="overlay" *ngIf="showModal">
   <div class="modal-container" *ngIf="showModal">
-    <div class="locationDiv">
-      <h1>Hey!</h1>
-      <h3>Where is your next<br>perfect date?</h3>
-      <div class="inputContainer">
-        <form (ngSubmit)="locationClick">
-          <input class="locationInput" type="text" [(ngModel)]="locationInput" name="location"
-            placeholder="City & State" />
-          <button class="location-button" type="submit" (click)="locationClick(locationInput)"><i
-              class="fa fa-search"></i></button>
-        </form>
-      </div>
-    </div>
+  <div class="locationDiv">
+  <h1>Hey!</h1>
+  <h3>Where is your next<br>perfect date?</h3>
+  <div class="inputContainer">
+  <form (ngSubmit)="locationClick">
+  <input class="locationInput" type="text" [(ngModel)]="locationInput" name="location"
+  placeholder="City & State" />
+  <button class="location-button" type="submit" (click)="locationClick(locationInput)"><i
+  class="fa fa-search"></i></button>
+  </form>
   </div>
-</div>
-<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  </div>
+  </div>
+ </div>
+ <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
-    <div class="carousel-item active">
-      <button id="first-date" (click)="firstDateClick()">
-        <img class="d-block w-100"
-          src="https://images.unsplash.com/photo-1548051072-b34898021f8b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
-          alt="First slide">
-      </button>
-      <div class="carousel-caption d-md-block">
-        <h5 (click)="firstDateClick()">First Date</h5>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <button id="romantic" (click)="romanticClick()">
-        <img class="d-block w-100"
-          src="https://images.unsplash.com/photo-1513279922550-250c2129b13a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
-          alt="Second slide">
-      </button>
-      <div class="carousel-caption d-md-block">
-          <h5 (click)="romanticClick()">Romantic</h5>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <button id="adventure" (click)="adventureClick()">
-        <img class="d-block w-100"
-          src="https://images.unsplash.com/photo-1511147796401-7d6e54ef24e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
-          alt="Third slide">
-      </button>
-      <div class="carousel-caption d-md-block">
-          <h5 (click)="adventureClick()">Adventurous</h5>
-        </div>
-    </div>
-    <!-- <div class="carousel-item">
-      <button id="ooak" (click)="oneOfClick()">
-        <img class="d-block w-100"
-          src="https://images.unsplash.com/42/QrXgXMhCSouyhU7idq7g_IMG_8402.JPG?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
-          alt="Fourth slide">
-      </button>
-      <div class="carousel-caption d-md-block">
-          <h5 (click)="oneOfClick()">One of a kind</h5>
-        </div>
-    </div> -->
-    <div class="carousel-item">
-      <button id="last-date" (click)="lastDateClick()">
-        <img class="d-block w-100"
-          src="https://images.unsplash.com/photo-1414759030024-7889df4b20f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1087&q=80"
-          alt="Fourth slide">
-      </button>
-      <div class="carousel-caption d-md-block">
-          <h5 (click)="lastDateClick()">Last Date</h5>
-        </div>
-    </div>
+  <div class="carousel-item active">
+  <button id="first-date" (click)="firstDateClick()">
+  <img class="d-block w-100"
+  src="https://images.unsplash.com/photo-1548051072-b34898021f8b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+  alt="First slide">
+  </button>
+  <div class="carousel-caption d-md-block">
+  <h5 (click)="firstDateClick()">First Date</h5>
+  </div>
+  </div>
+  <div class="carousel-item">
+  <button id="romantic" (click)="romanticClick()">
+  <img class="d-block w-100"
+  src="https://images.unsplash.com/photo-1513279922550-250c2129b13a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+  alt="Second slide">
+  </button>
+  <div class="carousel-caption d-md-block">
+  <h5 (click)="romanticClick()">Romantic</h5>
+  </div>
+  </div>
+  <div class="carousel-item">
+  <button id="adventure" (click)="adventureClick()">
+  <img class="d-block w-100"
+  src="https://images.unsplash.com/photo-1511147796401-7d6e54ef24e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+  alt="Third slide">
+  </button>
+  <div class="carousel-caption d-md-block">
+  <h5 (click)="adventureClick()">Adventurous</h5>
+  </div>
+  </div>
+  <!-- <div class="carousel-item">
+  <button id="ooak" (click)="oneOfClick()">
+  <img class="d-block w-100"
+  src="https://images.unsplash.com/42/QrXgXMhCSouyhU7idq7g_IMG_8402.JPG?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+  alt="Fourth slide">
+  </button>
+  <div class="carousel-caption d-md-block">
+  <h5 (click)="oneOfClick()">One of a kind</h5>
+  </div>
+  </div> -->
+  <div class="carousel-item">
+  <button id="last-date" (click)="lastDateClick()">
+  <img class="d-block w-100"
+  src="https://images.unsplash.com/photo-1414759030024-7889df4b20f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1087&q=80"
+  alt="Fourth slide">
+  </button>
+  <div class="carousel-caption d-md-block">
+  <h5 (click)="lastDateClick()">Last Date</h5>
+  </div>
+  </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
+  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+  <span class="sr-only">Previous</span>
   </a>
   <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
+  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+  <span class="sr-only">Next</span>
   </a>
-</div>
-<!-- <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+ </div>
+ <!-- <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
-    <button class="carousel-item active" id="first-date" (click)="firstDateClick()">
-      First Date
-      <img
-        src="https://images.unsplash.com/photo-1548051072-b34898021f8b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
-        alt="First slide">
-    </button>
-    <button class="carousel-item" id="romantic" (click)="romanticClick()">
-      Romantic
-      <img
-        src="https://images.unsplash.com/photo-1542557497-4c7b03d0d245?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=362&q=80"
-        alt="Second slide">
-    </button>
-    <button class="carousel-item" id="adventure" (click)="adventureClick()">
-      Adventurous
-      <img
-        src="https://images.pexels.com/photos/1819657/pexels-photo-1819657.jpeg?auto=format%2Ccompress&cs=tinysrgb&h=750&w=1260"
-        alt="Third slide">
-    </button>
-    <button class="carousel-item" id="ooak" (click)="oneOfClick()">
-      One of a kind
-      <img
-        src="https://images.unsplash.com/42/QrXgXMhCSouyhU7idq7g_IMG_8402.JPG?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
-        alt="Third slide">
-    </button>
-    <button class="carousel-item" id="first-date" (click)="lastDateClick()">
-      Last Date
-      <img
-        src="https://images.unsplash.com/photo-1414759030024-7889df4b20f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1087&q=80"
-        alt="Third slide">
-    </button>
+  <button class="carousel-item active" id="first-date" (click)="firstDateClick()">
+  First Date
+  <img
+  src="https://images.unsplash.com/photo-1548051072-b34898021f8b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+  alt="First slide">
+  </button>
+  <button class="carousel-item" id="romantic" (click)="romanticClick()">
+  Romantic
+  <img
+  src="https://images.unsplash.com/photo-1542557497-4c7b03d0d245?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=362&q=80"
+  alt="Second slide">
+  </button>
+  <button class="carousel-item" id="adventure" (click)="adventureClick()">
+  Adventurous
+  <img
+  src="https://images.pexels.com/photos/1819657/pexels-photo-1819657.jpeg?auto=format%2Ccompress&cs=tinysrgb&h=750&w=1260"
+  alt="Third slide">
+  </button>
+  <button class="carousel-item" id="ooak" (click)="oneOfClick()">
+  One of a kind
+  <img
+  src="https://images.unsplash.com/42/QrXgXMhCSouyhU7idq7g_IMG_8402.JPG?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+  alt="Third slide">
+  </button>
+  <button class="carousel-item" id="first-date" (click)="lastDateClick()">
+  Last Date
+  <img
+  src="https://images.unsplash.com/photo-1414759030024-7889df4b20f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1087&q=80"
+  alt="Third slide">
+  </button>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
+  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+  <span class="sr-only">Previous</span>
   </a>
   <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
+  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+  <span class="sr-only">Next</span>
   </a>
-</div> -->
-<div class="container">
+ </div> -->
+ <div class="container">
   <div class="categoryText">
-    <p>Build Your Own</p>
-    <p>Date Search</p>
-    <p><i class="fas fa-chevron-down"></i></p>
+  <p>Build Your Own Date Search</p>
+  <p><i class="fas fa-chevron-down"></i></p>
   </div>
   <button class="submitCategories" (click)="submitCategories()">
-    <p>SEARCH</p>
+  <p>SEARCH</p>
   </button>
   <div class="categoriesDiv">
-    <div *ngFor="let category of categories" class="category">
-      <img class="categoryImg" src="{{category.image}}" alt="">
-      <p>{{category.title}}</p>
-      <button class="categoryButton" (click)="addedCategory(category.alias, category)"><i *ngIf="!category.added"
-          class="far fa-square"></i><i *ngIf="category.added" class="far fa-check-square"></i></button>
-    </div>
+  <div *ngFor="let category of categories" class="category">
+  <img class="categoryImg" src="{{category.image}}" alt="">
+  <p>{{category.title}}</p>
+  <button class="categoryButton" (click)="addedCategory(category.alias, category)"><i *ngIf="!category.added"
+  class="far fa-square"></i><i *ngIf="category.added" class="far fa-check-square"></i></button>
   </div>
-</div>
-<!-- <div class="category" id="restaurants">
-      <img class="categoryImg"
-        src="https://images.unsplash.com/photo-1473093226795-af9932fe5856?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=985&q=80"
-        alt="">
-      <p>Restaurants</p>
-      <button class="categoryButton" (click)="addedCategory('restaurants', item)"><i [ngClass]="{'added': item.added===true}" class="fas fa-plus"></i></button>
-    </div>
-    <div class="category">
-    <button class="bars" (click)="addedCategory('bars')">
-      <img class="categoryImg"
-        src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1049&q=80"
-        alt="bars">
-      <p>Bars</p>
-    </button>
-    <button class="Tours" (click)="addedCategory('tours')">
-      <img class="categoryImg"
-        src="https://images.unsplash.com/photo-1473163928189-364b2c4e1135?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
-        alt="tours">
-      <p>Tours</p>
-    </button>
-    <button class="park" (click)="addedCategory('parks')">
-      <img class="categoryImg"
-        src="https://images.unsplash.com/photo-1552676382-77b33d7639fa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
-        alt="">
-      <p>Parks</p>
-    </button>
-    <button class="amusement" (click)="addedCategory('amusementparks')">
-      <img class="categoryImg"
-        src="https://images.unsplash.com/photo-1533856493584-0c6ca8ca9ce3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
-        alt="">
-      <p>Amusement Parks</p>
-    </button>
-    <button class="aquariums" (click)="addedCategory('aquariums')">
-      <img class="categoryImg"
-        src="https://images.unsplash.com/photo-1459207982041-089ff95be891?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80"
-        alt="">
-      <p>Aquariums</p>
-    </button>
-    <button class="beaches" (click)="addedCategory('beaches')">
-      <img class="categoryImg"
-        src="https://images.unsplash.com/photo-1525183995014-bd94c0750cd5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80"
-        alt="">
-      <p>Beaches</p>
-    </button>
-    <button class="galleries" (click)="addedCategory('galleries')">
-      <img class="categoryImg"
-        src="https://images.unsplash.com/photo-1518998053901-5348d3961a04?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80"
-        alt="">
-      <p>Art Galleries</p>
-    </button>
-    <button class="rafting" (click)="addedCategory('rafting')">
-      <img class="categoryImg"
-        src="https://images.unsplash.com/photo-1515569045695-3b8a5db84e22?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1139&q=80"
-        alt="">
-      <p>Rafting / Kayaking</p>
-    </button>
-    <button class="escapeGames" (click)="addedCategory('escapegames')">
-      <img class="categoryImg"
-        src="https://images.unsplash.com/photo-1494059980473-813e73ee784b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1049&q=80"
-        alt="">
-      <p>Escape Games</p>
-    </button>
-    <button class="yoga" (click)="addedCategory('yoga')">
-      <img class="categoryImg"
-        src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1094&q=80"
-        alt="">
-      <p>Yoga</p>
-    </button>
-    <button class="horseback" (click)="addedCategory('horsebackriding')">
-      <img class="categoryImg"
-        src="https://images.unsplash.com/photo-1512074252045-2db98d993285?ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80"
-        alt="">
-      <p>Horseback Riding</p>
-    </button>
-    <button class="zoos" (click)="addedCategory('zoos')">
-      <img class="categoryImg"
-        src="https://images.unsplash.com/photo-1534567153574-2b12153a87f0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
-        alt="">
-      <p>Zoos</p>
-    </button>
-    <button class="arcades" (click)="addedCategory('arcades')">
-      <img class="categoryImg"
-        src="https://images.unsplash.com/photo-1511882150382-421056c89033?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80"
-        alt="">
-      <p>Arcades</p>
-    </button>
-    <button class="gardens" (click)="addedCategory('gardens')">
-      <img class="categoryImg"
-        src="https://images.unsplash.com/photo-1534710961216-75c88202f43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80"
-        alt="">
-      <p>Botanical Gardens</p>
-    </button>
-    <button class="cinema" (click)="addedCategory('movietheaters')">
-      <img class="categoryImg"
-        src="https://images.unsplash.com/photo-1543536448-d209d2d13a1c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
-        alt="">
-      <p>Cinema</p>
-    </button>
-    <button class="jazz" (click)="addedCategory('jazzandblues')">
-      <img class="categoryImg"
-        src="https://images.unsplash.com/photo-1415201364774-f6f0bb35f28f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
-        alt="">
-      <p>Jazz & Blues</p>
-    </button>
-    <button class="museums" (click)="addedCategory('museums')">
-      <img class="categoryImg"
-        src="https://images.unsplash.com/photo-1554907984-15263bfd63bd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
-        alt="">
-      <p>Museums</p>
-    </button>
-    <button class="musicvenues" (click)="addedCategory('musicvenues')">
-      <img class="categoryImg"
-        src="https://images.unsplash.com/photo-1468359601543-843bfaef291a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1053&q=80"
-        alt="">
-      <p>Music Venues</p>
-    </button>
-    <button class="observatories" (click)="addedCategory('observatories')">
-      <img class="categoryImg"
-        src="https://images.unsplash.com/photo-1555582874-cb3064e5be06?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80"
-        alt="">
-      <p>Observatories</p>
-    </button>
-    <button class="bowling" (click)="addedCategory('bowling')">
-      <img class="categoryImg"
-        src="https://images.unsplash.com/photo-1538511625527-e893585d8ed2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
-        alt="">
-      <p>Bowling</p>
-    </button>
-    <button class="opera" (click)="addedCategory('opera')">
-      <img class="categoryImg"
-        src="https://images.unsplash.com/photo-1516307365426-bea591f05011?ixlib=rb-1.2.1&auto=format&fit=crop&w=1041&q=80"
-        alt="">
-      <p>Opera & Ballet</p>
-    </button>
-    <button class="Planetarium" (click)="addedCategory('planetarium')">
-      <img class="categoryImg"
-        src="https://images.unsplash.com/photo-1464802686167-b939a6910659?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1033&q=80"
-        alt="">
-      <p>Planetariums</p>
-    </button>
-    <button class="wineries" (click)="addedCategory('wineries')">
-      <img class="categoryImg"
-        src="https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
-        alt="">
-      <p>Wineries</p>
-    </button>
-    <button class="wineTasting" (click)="addedCategory('winetastingroom')">
-      <img class="categoryImg"
-        src="https://images.unsplash.com/photo-1470158499416-75be9aa0c4db?ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80"
-        alt="">
-      <p>Wine Tasting Rooms</p>
-    </button>
-    <button class="daySpas" (click)="addedCategory('spas')">
-      <img class="categoryImg"
-        src="https://images.unsplash.com/photo-1531299204812-e6d44d9a185c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80"
-        alt="">
-      <p>Spas</p>
-    </button>
-    <button class="massage" (click)="addedCategory('massage')">
-      <img class="categoryImg"
-        src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
-        alt="">
-      <p>Massages</p>
-    </button>
-    <button class="tasting" (click)="addedCategory('tastingclasses')">
-      <img class="categoryImg"
-        src="https://images.unsplash.com/photo-1452195100486-9cc805987862?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
-        alt="">
-      <p>Tasting Classes</p>
-    </button>
-    <button class="Saunas" (click)="addedCategory('saunas')">
-      <img class="categoryImg"
-        src="https://images.pexels.com/photos/269110/pexels-photo-269110.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-        alt="">
-      <p>Saunas</p>
-    </button>
-    <button class="comedy" (click)="addedCategory('comedyclubs')">
-      <img class="categoryImg"
-        src="https://images.pexels.com/photos/713149/pexels-photo-713149.jpeg?auto=format%2Ccompress&cs=tinysrgb&dpr=2&h=650&w=940"
-        alt="">
-      <p>Comedy Clubs</p>
-    </button>
-    <button class="piano" (click)="addedCategory('pianobars')">
-      <img class="categoryImg"
-        src="https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
-        alt="">
-      <p>Piano Bars</p>
-    </button> -->
-
-
-
-
-
-
-
-<!-- ________________________________ -->
-
-<!-- <div class="movie-item" [ngClass]="{'Business': pokemon.favoriteMovie === true}" *ngFor='let pokemon of list; let i = index' ></div> -->
-
-<!-- <div id="carousel1" data-ride="carousel">
+  </div>
+ </div>
+ <!-- <div class="category" id="restaurants">
+  <img class="categoryImg"
+  src="https://images.unsplash.com/photo-1473093226795-af9932fe5856?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=985&q=80"
+  alt="">
+  <p>Restaurants</p>
+  <button class="categoryButton" (click)="addedCategory('restaurants', item)"><i [ngClass]="{'added': item.added===true}" class="fas fa-plus"></i></button>
+  </div>
+  <div class="category">
+  <button class="bars" (click)="addedCategory('bars')">
+  <img class="categoryImg"
+  src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1049&q=80"
+  alt="bars">
+  <p>Bars</p>
+  </button>
+  <button class="Tours" (click)="addedCategory('tours')">
+  <img class="categoryImg"
+  src="https://images.unsplash.com/photo-1473163928189-364b2c4e1135?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+  alt="tours">
+  <p>Tours</p>
+  </button>
+  <button class="park" (click)="addedCategory('parks')">
+  <img class="categoryImg"
+  src="https://images.unsplash.com/photo-1552676382-77b33d7639fa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+  alt="">
+  <p>Parks</p>
+  </button>
+  <button class="amusement" (click)="addedCategory('amusementparks')">
+  <img class="categoryImg"
+  src="https://images.unsplash.com/photo-1533856493584-0c6ca8ca9ce3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+  alt="">
+  <p>Amusement Parks</p>
+  </button>
+  <button class="aquariums" (click)="addedCategory('aquariums')">
+  <img class="categoryImg"
+  src="https://images.unsplash.com/photo-1459207982041-089ff95be891?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80"
+  alt="">
+  <p>Aquariums</p>
+  </button>
+  <button class="beaches" (click)="addedCategory('beaches')">
+  <img class="categoryImg"
+  src="https://images.unsplash.com/photo-1525183995014-bd94c0750cd5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80"
+  alt="">
+  <p>Beaches</p>
+  </button>
+  <button class="galleries" (click)="addedCategory('galleries')">
+  <img class="categoryImg"
+  src="https://images.unsplash.com/photo-1518998053901-5348d3961a04?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80"
+  alt="">
+  <p>Art Galleries</p>
+  </button>
+  <button class="rafting" (click)="addedCategory('rafting')">
+  <img class="categoryImg"
+  src="https://images.unsplash.com/photo-1515569045695-3b8a5db84e22?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1139&q=80"
+  alt="">
+  <p>Rafting / Kayaking</p>
+  </button>
+  <button class="escapeGames" (click)="addedCategory('escapegames')">
+  <img class="categoryImg"
+  src="https://images.unsplash.com/photo-1494059980473-813e73ee784b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1049&q=80"
+  alt="">
+  <p>Escape Games</p>
+  </button>
+  <button class="yoga" (click)="addedCategory('yoga')">
+  <img class="categoryImg"
+  src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1094&q=80"
+  alt="">
+  <p>Yoga</p>
+  </button>
+  <button class="horseback" (click)="addedCategory('horsebackriding')">
+  <img class="categoryImg"
+  src="https://images.unsplash.com/photo-1512074252045-2db98d993285?ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80"
+  alt="">
+  <p>Horseback Riding</p>
+  </button>
+  <button class="zoos" (click)="addedCategory('zoos')">
+  <img class="categoryImg"
+  src="https://images.unsplash.com/photo-1534567153574-2b12153a87f0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+  alt="">
+  <p>Zoos</p>
+  </button>
+  <button class="arcades" (click)="addedCategory('arcades')">
+  <img class="categoryImg"
+  src="https://images.unsplash.com/photo-1511882150382-421056c89033?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80"
+  alt="">
+  <p>Arcades</p>
+  </button>
+  <button class="gardens" (click)="addedCategory('gardens')">
+  <img class="categoryImg"
+  src="https://images.unsplash.com/photo-1534710961216-75c88202f43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80"
+  alt="">
+  <p>Botanical Gardens</p>
+  </button>
+  <button class="cinema" (click)="addedCategory('movietheaters')">
+  <img class="categoryImg"
+  src="https://images.unsplash.com/photo-1543536448-d209d2d13a1c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+  alt="">
+  <p>Cinema</p>
+  </button>
+  <button class="jazz" (click)="addedCategory('jazzandblues')">
+  <img class="categoryImg"
+  src="https://images.unsplash.com/photo-1415201364774-f6f0bb35f28f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+  alt="">
+  <p>Jazz & Blues</p>
+  </button>
+  <button class="museums" (click)="addedCategory('museums')">
+  <img class="categoryImg"
+  src="https://images.unsplash.com/photo-1554907984-15263bfd63bd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+  alt="">
+  <p>Museums</p>
+  </button>
+  <button class="musicvenues" (click)="addedCategory('musicvenues')">
+  <img class="categoryImg"
+  src="https://images.unsplash.com/photo-1468359601543-843bfaef291a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1053&q=80"
+  alt="">
+  <p>Music Venues</p>
+  </button>
+  <button class="observatories" (click)="addedCategory('observatories')">
+  <img class="categoryImg"
+  src="https://images.unsplash.com/photo-1555582874-cb3064e5be06?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80"
+  alt="">
+  <p>Observatories</p>
+  </button>
+  <button class="bowling" (click)="addedCategory('bowling')">
+  <img class="categoryImg"
+  src="https://images.unsplash.com/photo-1538511625527-e893585d8ed2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+  alt="">
+  <p>Bowling</p>
+  </button>
+  <button class="opera" (click)="addedCategory('opera')">
+  <img class="categoryImg"
+  src="https://images.unsplash.com/photo-1516307365426-bea591f05011?ixlib=rb-1.2.1&auto=format&fit=crop&w=1041&q=80"
+  alt="">
+  <p>Opera & Ballet</p>
+  </button>
+  <button class="Planetarium" (click)="addedCategory('planetarium')">
+  <img class="categoryImg"
+  src="https://images.unsplash.com/photo-1464802686167-b939a6910659?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1033&q=80"
+  alt="">
+  <p>Planetariums</p>
+  </button>
+  <button class="wineries" (click)="addedCategory('wineries')">
+  <img class="categoryImg"
+  src="https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+  alt="">
+  <p>Wineries</p>
+  </button>
+  <button class="wineTasting" (click)="addedCategory('winetastingroom')">
+  <img class="categoryImg"
+  src="https://images.unsplash.com/photo-1470158499416-75be9aa0c4db?ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80"
+  alt="">
+  <p>Wine Tasting Rooms</p>
+  </button>
+  <button class="daySpas" (click)="addedCategory('spas')">
+  <img class="categoryImg"
+  src="https://images.unsplash.com/photo-1531299204812-e6d44d9a185c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80"
+  alt="">
+  <p>Spas</p>
+  </button>
+  <button class="massage" (click)="addedCategory('massage')">
+  <img class="categoryImg"
+  src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+  alt="">
+  <p>Massages</p>
+  </button>
+  <button class="tasting" (click)="addedCategory('tastingclasses')">
+  <img class="categoryImg"
+  src="https://images.unsplash.com/photo-1452195100486-9cc805987862?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+  alt="">
+  <p>Tasting Classes</p>
+  </button>
+  <button class="Saunas" (click)="addedCategory('saunas')">
+  <img class="categoryImg"
+  src="https://images.pexels.com/photos/269110/pexels-photo-269110.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+  alt="">
+  <p>Saunas</p>
+  </button>
+  <button class="comedy" (click)="addedCategory('comedyclubs')">
+  <img class="categoryImg"
+  src="https://images.pexels.com/photos/713149/pexels-photo-713149.jpeg?auto=format%2Ccompress&cs=tinysrgb&dpr=2&h=650&w=940"
+  alt="">
+  <p>Comedy Clubs</p>
+  </button>
+  <button class="piano" (click)="addedCategory('pianobars')">
+  <img class="categoryImg"
+  src="https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+  alt="">
+  <p>Piano Bars</p>
+  </button> -->
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <!-- ________________________________ -->
+ 
+ <!-- <div class="movie-item" [ngClass]="{'Business': pokemon.favoriteMovie === true}" *ngFor='let pokemon of list; let i = index' ></div> -->
+ 
+ <!-- <div id="carousel1" data-ride="carousel">
   <ol class="carousel-indicators">
-    <li data-target="#carousel1" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel1" data-slide-to="1"></li>
-    <li data-target="#carousel1" data-slide-to="2"></li>
-    <li data-target="#carousel1" data-slide-to="3"></li>
-    <li data-target="#carousel1" data-slide-to="4"></li>
-    <li data-target="#carousel1" data-slide-to="5"></li>
+  <li data-target="#carousel1" data-slide-to="0" class="active"></li>
+  <li data-target="#carousel1" data-slide-to="1"></li>
+  <li data-target="#carousel1" data-slide-to="2"></li>
+  <li data-target="#carousel1" data-slide-to="3"></li>
+  <li data-target="#carousel1" data-slide-to="4"></li>
+  <li data-target="#carousel1" data-slide-to="5"></li>
   </ol>
-
-<div>First Date</div>
-<div>Romantic</div>
-<div>Adventurous</div>
-<div>One of a kind</div>
-<div>Last Date</div>
-</div> -->
+ 
+ <div>First Date</div>
+ <div>Romantic</div>
+ <div>Adventurous</div>
+ <div>One of a kind</div>
+ <div>Last Date</div>
+ </div> -->
