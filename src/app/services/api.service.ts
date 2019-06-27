@@ -19,7 +19,7 @@ export class Api {
     baseUrl = 'https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3';
 
     headers = new HttpHeaders({
-        "Authorization":"Bearer 5pIHLNTdSTs09-cvgqNOfEJP8D8Rx0ntlwKe-Kqo7pjkv2m88fuTYmq-PkqDwaD9JzyD3bqzjRQYFarXwkiYk_FrkTluO0Ri9-4u6x9WCybjoYFCt1bp93e42gP_XHYx"
+        "Authorization":"Bearer ZsSLb4Ex3QxF4wIC9JZpBbW5SIjyhGxKzgIdMvrpOgVU0W-TX2RdzFHgDua1Eg7ZG7-UHJ0Jh5TjyM5mBmpdwZdWhiJnO4kvmSXOKff7Bj_uSA7DydW-9mrsXlAVXXYx"
         });
 
     constructor(private http: HttpClient) {}
