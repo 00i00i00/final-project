@@ -138,12 +138,12 @@ export class HeaderComponent implements OnInit {
     
     this.api.businessList.subscribe(list => {
       // if (!list.search) {
-        this.api.getDateSearch().subscribe((data: ApiData) => {
-          console.log('User input search data from api', data);
-          this.list = data.businesses;
-          this.categories = data.businesses[0].categories;
-          this.api.updateBusinessList({ search: this.list });
-        });
+        // this.api.getDateSearch().subscribe((data: ApiData) => {
+        //   console.log('User input search data from api', data);
+        //   this.list = data.businesses;
+        //   this.categories = data.businesses[0].categories;
+        //   this.api.updateBusinessList({ search: this.list });
+        // });
       // }
       if (list.favorites) {
         this.favoriteList = list.favorites;
@@ -160,6 +160,7 @@ export class HeaderComponent implements OnInit {
 
 
       getDateSearch = searchInput => {
+        this.api.updateBusinessList({search: null});
         this.api.updateSearchInput(searchInput);
         this.router.navigateByUrl('/search');
     
