@@ -1,16 +1,19 @@
-<nav id="navbar-example1" class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav id="navbar-example1" class="navbar navbar-expand-lg navbar-dark bg-dark nav-flex">
   <a class="small-logo" [routerLink]="['/']">+1</a>
+    <div class="buttons-right">
   <form (ngSubmit)="locationClick">
-      <input class="locationInput" type="text" [(ngModel)]="locationInput" name="location" placeholder="Update City or State" />
-      <button class="location-button" type="submit" (click)="locationClick(locationInput)"><i
-          class="fa fa-search"></i></button>
+      <input class="locationInput" type="text" [(ngModel)]="locationInput" name="location" placeholder="Update Location" />
+      <button class="location-button" type="submit" (click)="locationClick(locationInput)"><i class="fas fa-map-marker-alt"></i></button>
   </form>
+  <a class="nav-link" [routerLink]="['/favorites']"><i class="fa fa-heart"></i></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+      <i class="fa fa-search"></i>
   </button>  
+</div>
   
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <div role="separator" class="dropdown-divider"></div>
       <li class="nav-item active">
         <a class="nav-link" [routerLink]="['/first-date']">First Date</a>
       </li>
@@ -23,10 +26,10 @@
         <a class="nav-link" [routerLink]="['/adventure']">Adventurous</a>
       </li>
       <div role="separator" class="dropdown-divider"></div>
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" [routerLink]="['/one-oak']">One of a Kind</a>
       </li>
-      <div role="separator" class="dropdown-divider"></div>
+      <div role="separator" class="dropdown-divider"></div> -->
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['/last-date']">Last Date</a>
       </li>
@@ -51,6 +54,10 @@
           <input class="locationInput" type="text" (input)="locationSearch(locationInput)" [(ngModel)]="locationInput" placeholder="City, State" />
       </div> -->
       <!-- <a class="small-logo navbar-brand" href="#">+1{{logo}}</a> -->
+      <form (ngSubmit)="locationClick">
+          <input class="locationInput" type="text" [(ngModel)]="locationInput" name="location" placeholder="Update City or State" />
+          <button class="location-button" type="submit" (click)="locationClick(locationInput)"><i class="fas fa-map-marker-alt"></i></button>
+      </form>
     <ul class="nav nav-pills">    
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['/favorites']"><i class="fa fa-heart"></i></a>
