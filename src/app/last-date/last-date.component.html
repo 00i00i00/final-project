@@ -43,8 +43,9 @@
           <div *ngFor="let hour of hours">
             <p class="hoursTitle">HOURS</p>
             <div class="hoursTimes" *ngFor="let times of open">
-              <p><span class="p-bold">{{ dates[times.day] }}:</span> {{ times.start | convertFrom24To12Format }} -
-                {{ times.end | convertFrom24To12Format }}</p>
+                          
+                  <p><span class="p-bold">{{ dates[times.day] }}:</span> {{ times.start | convertFrom24To12Format }} -
+                  {{ times.end | convertFrom24To12Format }}</p>
             </div>
           </div>
         </div>
