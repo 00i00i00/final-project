@@ -72,6 +72,16 @@ input {
     color: black;
 }
 
+form {
+border: none;
+background: transparent;
+}
+
+form b {
+    background-color: transparent;
+    border: none;
+}
+
 @media (max-width: 768.05px) { 
     #navbar-example1 {
             background-color: rgb(26,26,26);
