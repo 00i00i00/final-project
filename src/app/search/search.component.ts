@@ -147,7 +147,7 @@ export class SearchComponent implements OnInit {
         this.favoriteList = list.favorites;
       }
 
-      this.searchList = list.search;
+      // this.searchList = list.search;
     });
   }
 
