@@ -132,14 +132,16 @@ export class AdventureComponent implements OnInit {
 
   
   ngOnInit() {
+    this.api.location.subscribe(location => {
+      this.api.previousLocation.subscribe(previous => {
+        if (previous !== location) {
+          this.componentApiCall();
+        }
+      })
+    });
     this.api.businessList.subscribe(list => {
       if (!list.adventure) {
-        this.api.getAdventure().subscribe((data: ApiData) => {
-          console.log('Adventure data from api', data);
-          this.list = data.businesses;
-          this.categories = data.businesses[0].categories;
-          this.api.updateBusinessList({ adventure: this.list });
-        });
+        this.componentApiCall();
       }
 
       if (list.favorites) {
@@ -149,6 +151,13 @@ export class AdventureComponent implements OnInit {
       this.list = list.adventure;
     });
   }
+
+  componentApiCall = () => this.api.getAdventure().subscribe((data: ApiData) => {
+    console.log('Adventure data from api', data);
+    this.list = data.businesses;
+    this.categories = data.businesses[0].categories;
+    this.api.updateBusinessList({ adventure: this.list });
+  });
 
   moreInfo = (id, business) => {
 

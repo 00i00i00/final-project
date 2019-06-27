@@ -29,6 +29,9 @@ export class Api {
 
     private _location = new BehaviorSubject<string>('');
     location = this._location.asObservable();
+
+    private _previousLocation = new BehaviorSubject<string>('');
+    previousLocation = this._previousLocation.asObservable();
     
     private _businessList = new BehaviorSubject<BusinessList>({});
     businessList = this._businessList.asObservable();
@@ -45,7 +48,10 @@ updateBusinessList = newBusinessList => {
 }
 getDate = () => this.http.get(this.baseUrl);    
 
-updateLocation = newLocation => this._location.next(newLocation);
+updateLocation = newLocation => { 
+    this._previousLocation.next(this._location.getValue());
+    this._location.next(newLocation)
+};
 updateSearchInput = newLocation => this._searchInput.next(newLocation);
 
 updateUserCategories = newList => this._userCategories.next(newList);
