@@ -21,7 +21,6 @@ p {
     margin: 50px 0px 0px 0px;
     border-top: 3px solid #33999b;
     padding: 0px 10px 5px 10px;
-<<<<<<< Updated upstream
     -webkit-transition: width 1s, height 0.5s;
     transition: width 1s, height 0.5s;
     transition: transform .2s; /* hover zoom Animation */
@@ -31,8 +30,6 @@ p {
 .business:hover {
     transform: scale(1.125);
     z-index: 1;
-=======
->>>>>>> Stashed changes
 }
 
 .business-text {
@@ -303,6 +300,14 @@ img {
         -webkit-box-shadow: 9px 7px 42px -25px rgba(0,0,0,0.75);
         -moz-box-shadow: 9px 7px 42px -25px rgba(0,0,0,0.75);
         box-shadow: 9px 7px 42px -25px rgba(0,0,0,0.75);
+        -webkit-transition: width 1s, height 0.5s;
+        transition: width 1s, height 0.5s;
+        transition: transform .2s; /* hover zoom Animation */
+    }
+
+    .width:hover {
+    transform: scale(1.03);
+    z-index: 1;
     }
 
     .business-rating-price p {
