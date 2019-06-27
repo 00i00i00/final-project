@@ -122,7 +122,7 @@ export class SearchComponent implements OnInit {
   open: Open[];
   times: any;
   day: any;
-  dates: any = {0: 'Monday', 1: 'Tuesday', 2: 'Wednesday', 3: 'Thursday', 4: 'Friday', 5: 'Saturday', 6: 'Sunday' };
+  dates: any = { 0: 'Monday', 1: 'Tuesday', 2: 'Wednesday', 3: 'Thursday', 4: 'Friday', 5: 'Saturday', 6: 'Sunday' };
   favorite: boolean;
   favoriteList: object[] = [];
   biz: Businesses[];
@@ -131,32 +131,32 @@ export class SearchComponent implements OnInit {
   collapsedTimes: boolean = true;
   searchList: any;
 
-  constructor(private api: Api, private route: ActivatedRoute, private router: Router){}
+  constructor(private api: Api, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-        this.api.businessList.subscribe(list => {
-          if (!list.search) {
-            this.api.getDateSearch().subscribe((data: ApiData) => {
-              console.log('User input search data from api', data);
-              this.list = data.businesses;
-              this.categories = data.businesses[0].categories;
-              this.api.updateBusinessList({ search: this.list });
-            });
-          }
-          if (list.favorites) {
-            this.favoriteList = list.favorites;
-          }  
-    
-          this.searchList = list.search;
+    this.api.businessList.subscribe(list => {
+      if (!list.search) {
+        this.api.getDateSearch().subscribe((data: ApiData) => {
+          console.log('User input search data from api', data);
+          this.list = data.businesses;
+          this.categories = data.businesses[0].categories;
+          this.api.updateBusinessList({ search: this.list });
         });
       }
-    
-          getDateSearch = () => {
-            this.api.getDateSearch().subscribe((data: {businesses: []}) => {
-              console.log('Date input search from api', data.businesses);
-              this.api.updateBusinessList(data.businesses);
-        
-            });
-        
-          }
-        }
+      if (list.favorites) {
+        this.favoriteList = list.favorites;
+      }
+
+      this.searchList = list.search;
+    });
+  }
+
+  getDateSearch = () => {
+    this.api.getDateSearch().subscribe((data: { businesses: [] }) => {
+      console.log('Date input search from api', data.businesses);
+      this.api.updateBusinessList(data.businesses);
+
+    });
+
+  }
+}

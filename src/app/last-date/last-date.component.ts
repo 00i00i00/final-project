@@ -130,24 +130,32 @@ export class LastDateComponent implements OnInit {
   constructor(private api: Api, private route: ActivatedRoute){}
 
   ngOnInit() {
+    this.api.location.subscribe(location => {
+      this.api.previousLocation.subscribe(previous => {
+        if (previous !== location) {
+          this.componentApiCall();
+        }
+      })
+    });
     this.api.businessList.subscribe(list => {
       if (!list.lastDate) {
-        this.api.getLastDate().subscribe((data: ApiData) => {
-          console.log('Adventure data from api', data);
-          this.list = data.businesses;
-          this.categories = data.businesses[0].categories;
-          this.api.updateBusinessList({ lastDate: this.list });
-        });
+        this.componentApiCall();
       }
 
       if (list.favorites) {
         this.favoriteList = list.favorites;
-      console.log(this.favoriteList);
       } 
 
       this.list = list.lastDate;
     });
   }
+
+  componentApiCall = () => this.api.getLastDate().subscribe((data: ApiData) => {
+    console.log('Adventure data from api', data);
+    this.list = data.businesses;
+    this.categories = data.businesses[0].categories;
+    this.api.updateBusinessList({ lastDate: this.list });
+  });
 
   moreInfo = (id, business) => {
 

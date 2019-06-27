@@ -130,15 +130,18 @@ export class FirstDateComponent implements OnInit {
   constructor(private api: Api, private route: ActivatedRoute, private router: Router) { }
   
   ngOnInit() {
- index: 
+
+    this.api.location.subscribe(location => {
+      this.api.previousLocation.subscribe(previous => {
+        if (previous !== location) {
+          this.componentApiCall();
+        }
+      })
+    });
+
     this.api.businessList.subscribe(list => {
       if (!list.firstDate) {
-        this.api.getFirstDate().subscribe((data: ApiData) => {
-          console.log('First Date data from api', data);
-          this.list = data.businesses;
-          // this.categories = data.businesses[index].categories;
-          this.api.updateBusinessList({ firstDate: this.list });
-        });
+       this.componentApiCall();
       }
 
       if (list.favorites) {
@@ -148,6 +151,13 @@ export class FirstDateComponent implements OnInit {
       this.list = list.firstDate;
     });
   }
+
+ componentApiCall = () => this.api.getFirstDate().subscribe((data: ApiData) => {
+    console.log('First Date data from api', data);
+    this.list = data.businesses;
+    this.categories = data.businesses[0].categories;
+    this.api.updateBusinessList({ firstDate: this.list });
+  });
 
   moreInfo = (id, business) => {
 
