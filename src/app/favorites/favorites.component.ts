@@ -86,8 +86,6 @@ interface BusinessDetails {
   rating: number;
   review_count: number;
   url: string;
-  // info: boolean;
-  
   // attributes: object;
 }
 
@@ -107,7 +105,6 @@ interface Open {
     templateUrl: './favorites.component.html',
     styleUrls: ['./favorites.component.css']
 })
-
 export class FavoritesComponent implements OnInit{
   location: string;
   business: any;
@@ -125,9 +122,10 @@ export class FavoritesComponent implements OnInit{
   dates: any = {0: 'Monday', 1: 'Tuesday', 2: 'Wednesday', 3: 'Thursday', 4: 'Friday', 5: 'Saturday', 6: 'Sunday' };
   favorite: boolean = true;
   favoritesList: Businesses[];
-  // business: any;
+  biz: Businesses[];
   category: any;
   categories: Categories[];
+  collapsedTimes: boolean = true;
 
   constructor(private api: Api, private route: ActivatedRoute, private router: Router){}
 
@@ -158,6 +156,16 @@ export class FavoritesComponent implements OnInit{
             this.reviews = data.reviews;
         });
       
+}
+
+collapseInfo = business => {
+  const currentState = business.info;
+  this.list.forEach(item => item.info = false);
+  business.info = !currentState;
+} 
+
+expandHours = () => {
+  this.collapsedTimes = !this.collapsedTimes;
 }
 
 favoriteBusiness = business => {
