@@ -1,9 +1,15 @@
-<nav id="navbar-example1" class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="small-logo" [routerLink]="['/']">+1</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>  
+<nav id="navbar-example1" class="navbar navbar-expand-lg navbar-dark bg-dark flex-nav-bar">
   
+  <a class="small-logo" [routerLink]="['/']">+1</a>
+  <span class="button-right">
+    <span ><a class="nav-link" [routerLink]="['/favorites']"><i class="fa fa-heart"></i></a></span> 
+  <button class="navbar-toggler white-button" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span ><i class="fa fa-search"></i></span>
+    </button>  
+  </span>
+
+
+    
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item active">
@@ -18,10 +24,10 @@
         <a class="nav-link" [routerLink]="['/adventure']">Adventurous</a>
       </li>
       <div role="separator" class="dropdown-divider"></div>
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" [routerLink]="['/one-oak']">One of a Kind</a>
-      </li>
-      <div role="separator" class="dropdown-divider"></div>
+      </li> -->
+      <!-- <div role="separator" class="dropdown-divider"></div> -->
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['/last-date']">Last Date</a>
       </li>
@@ -52,7 +58,7 @@
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-search"></i></a>
-        <div class="dropdown-menu">
+            <div class="dropdown-menu">
  
           <div class="input-group input-group-sm mb-3">
             <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" [(ngModel)]="searchInput" (change)='getDateSearch()' placeholder="search...">

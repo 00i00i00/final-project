@@ -12,6 +12,27 @@ input {
     font-family: 'Rubik', sans-serif;
 }
 
+.flex-nav-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.white-button {
+    color: white;
+    border: none;
+    font-size: 18px;
+}
+
+.white-button:hover {
+    color: #9999cd;
+}
+
+.button-right {
+    display: flex;
+    flex-direction: row;
+}
+
 /* .plus-logo {
     text-align: center;
     font-size: 1rem;
@@ -34,7 +55,11 @@ input {
 }
 
 .navbar-dark-background {
-    background-color: rgb(26,26,26);
+    background-color: black;
+}
+
+.bg-dark {
+    background-color: black !important;
 }
 
 .nav-link {
