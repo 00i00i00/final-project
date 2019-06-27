@@ -1,5 +1,10 @@
 <nav id="navbar-example1" class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="small-logo" [routerLink]="['/']">+1</a>
+  <form (ngSubmit)="locationClick">
+      <input class="locationInput" type="text" [(ngModel)]="locationInput" name="location" placeholder="Update City or State" />
+      <button class="location-button" type="submit" (click)="locationClick(locationInput)"><i
+          class="fa fa-search"></i></button>
+  </form>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>  
