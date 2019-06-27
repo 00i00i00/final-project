@@ -71,6 +71,12 @@ p {
     left: 12px;
 }
 
+.fa-heart:hover {
+    color: #1A4E4F;
+    cursor: pointer;
+    font-size: 50px;
+}
+
 .fa-star {
     font-size: 0.8rem;
 }
@@ -88,6 +94,7 @@ h1 {
     font-weight: 800;
     color: #33999b;
 }
+
 
 .categories {
     font-size: 0.9rem;
@@ -129,6 +136,11 @@ button {
     color: #33999b;
 }
 
+button:hover {
+    cursor: pointer;
+    color: #1A4E4F;
+}
+
 .infoDiv {
 margin: 15px;
 border-top: 1px dotted lightgray;
@@ -144,6 +156,11 @@ padding-top: 15px;
 .phone, .open {
     font-weight: 900;
     margin: 2px 0px 2px 0px;
+}
+
+.open:hover {
+    cursor: pointer;
+    color: #33999b;
 }
 
 .p-bold {
@@ -181,6 +198,11 @@ img {
     color: #1A4E4F; 
 }
 
+.like:hover {
+    color: #33999b;
+    cursor: pointer;
+}
+
 @media only screen and (min-width: 480px) {
  
 h1 {
@@ -203,6 +225,7 @@ h1 {
     align-content: flex-start;
     padding: 0px;
     width: 90%;
+    min-height: 190px;
 }
 
 .business-rating-price {
@@ -245,6 +268,10 @@ img {
     left: -14px;
 }
 
+.fa-heart:hover {
+    font-size: 3rem;
+}
+
 }
 
 @media only screen and (min-width: 1024px) {
@@ -260,7 +287,7 @@ img {
         align-items: flex-start;
         align-content: space-between;
         width: 45%;
-        min-height: 168px;
+        min-height: 190px;
     }
 
     .width {
@@ -272,7 +299,15 @@ img {
         -webkit-box-shadow: 9px 7px 42px -25px rgba(0,0,0,0.75);
         -moz-box-shadow: 9px 7px 42px -25px rgba(0,0,0,0.75);
         box-shadow: 9px 7px 42px -25px rgba(0,0,0,0.75);
+        -webkit-transition: width 1s, height 0.5s;
+        transition: width 1s, height 0.5s;
+        transition: transform .2s; /* hover zoom Animation */
     }
+
+    .width:hover {
+    transform: scale(1.03);
+    z-index: 1;
+}
 
     .business-rating-price p {
         font-size: 0.85rem;
@@ -295,5 +330,6 @@ img {
         padding-top: 0px;
         padding-left: 15px;
         }
+
 
 }

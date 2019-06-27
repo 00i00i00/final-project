@@ -23,7 +23,7 @@
           alt="First slide">
       </button>
       <div class="carousel-caption d-md-block">
-        <h5>First Date</h5>
+        <h5 (click)="firstDateClick()">First Date</h5>
       </div>
     </div>
     <div class="carousel-item">
@@ -33,7 +33,7 @@
           alt="Second slide">
       </button>
       <div class="carousel-caption d-md-block">
-          <h5>Romantic</h5>
+          <h5 (click)="romanticClick()">Romantic</h5>
       </div>
     </div>
     <div class="carousel-item">
@@ -43,19 +43,19 @@
           alt="Third slide">
       </button>
       <div class="carousel-caption d-md-block">
-          <h5>Adventurous</h5>
+          <h5 (click)="adventureClick()">Adventurous</h5>
         </div>
     </div>
-    <div class="carousel-item">
+    <!-- <div class="carousel-item">
       <button id="ooak" (click)="oneOfClick()">
         <img class="d-block w-100"
           src="https://images.unsplash.com/42/QrXgXMhCSouyhU7idq7g_IMG_8402.JPG?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
           alt="Fourth slide">
       </button>
       <div class="carousel-caption d-md-block">
-          <h5>One of a kind</h5>
+          <h5 (click)="oneOfClick()">One of a kind</h5>
         </div>
-    </div>
+    </div> -->
     <div class="carousel-item">
       <button id="last-date" (click)="lastDateClick()">
         <img class="d-block w-100"
@@ -63,7 +63,7 @@
           alt="Fourth slide">
       </button>
       <div class="carousel-caption d-md-block">
-          <h5>Last Date</h5>
+          <h5 (click)="lastDateClick()">Last Date</h5>
         </div>
     </div>
   </div>
