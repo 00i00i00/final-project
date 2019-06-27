@@ -1,3 +1,63 @@
+.nav-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    margin-bottom: 0px;
+}
+
+.buttons-right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-right: 10px;
+}
+
+.navbar-toggler {
+    color: white;
+    border: none;
+    font-size: 18px;
+    padding: 0px;
+}
+
+.navbar-toggler:hover {
+    color: #9999cd;
+}
+
+.locationInput {
+    background-color: black;
+    color: white;
+    border: none;
+    width: 90%;
+    text-align: right;
+    padding-right: 3px;
+    font-size: 0.9rem;
+}
+
+.locationInput::placeholder {
+    color: rgb(122, 122, 122);
+}
+
+.location-button {
+    background-color: black;
+    color: white;
+    border: none;
+    width: 5%;
+    text-align: center;
+    padding: 3px;
+    font-size: 16px;
+}
+
+.location-button:hover {
+    color: #9999cd;
+}
+
+.bg-dark {
+    background-color: black !important;
+}
+
 input {
     border: none;
     width: 60px;
@@ -31,10 +91,11 @@ input {
     -webkit-text-fill-color: transparent;
     margin: 0px;
     font-family: 'Rubik', sans-serif;
+    width: 40px;
 }
 
 .navbar-dark-background {
-    background-color: rgb(26,26,26);
+    background-color: black !important;
 }
 
 .nav-link {

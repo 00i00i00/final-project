@@ -215,11 +215,14 @@ button {
   .categoryText {
       font-size: 1rem;
       text-align: center;
-      border: 2px solid #9999cd;
-      color: #9999cd;
-      border-radius: 5px;
-      margin: 15px;
-      padding: 15px;
+      /* border-top: 2px solid #9999cd; */
+      /* border-bottom: 2px solid #9999cd; */
+      /* color: #9999cd; */
+      color: #33999b;
+      /* border-radius: 5px; */
+      margin: 15px 0px 0px 0px;
+      padding: 10px;
+      width: 90%;
   }
 
   .categoryText p i{
@@ -227,13 +230,13 @@ button {
   }
 
   .submitCategories {
-    font-size: 1.25rem;
+    font-size: 1rem;
     text-align: center;
     border-radius: 5px;
     /* background-image: linear-gradient(#9999cd, #33999b); */
     background-color: #33999b;
     border: solid 2px white;
-    width: 90%;;
+    width: 90%;
     height: 50px;
     /* position: relative; */
     /* opacity: 0.9; */
@@ -295,6 +298,14 @@ button {
         width: 65%;
     }
 
+    .categoryText{
+      font-size: 1.25rem;
+    }
+
+    .categoryText {
+      font-size: 1.25rem;
+    }
+
     .submitCategories {
         font-size: 1.25rem;
         
@@ -322,6 +333,10 @@ button {
 
 @media only screen and (min-width: 1024px) {
 
+  .categoryText {
+    font-size: 1.5rem;
+    width: 65%;
+  }
 
   .submitCategories {
     font-size: 1.5rem;
