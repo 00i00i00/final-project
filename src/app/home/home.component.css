@@ -119,16 +119,10 @@ input {
   -webkit-text-fill-color: transparent;
   font-family: 'Rubik', sans-serif;
  }
- 
- /* .carousel-item {
-  background-image: linear-gradient(#9999cd, #33999b);
-  height: 250px;
-  line-height: 250px;
-  margin: 0 auto;
-  text-align: center;
-  color: white;
-  font-size: 2rem;
-  } */
+
+ .carousel-item {
+   max-height: 610px;
+ }
  
  .carousel-item img {
   filter: brightness(35%);
@@ -207,7 +201,7 @@ input {
   .categoryImg {
   object-fit: cover;
   height: 130px;
-  width: 130px;
+  width: 130px; 
   filter: brightness(50%);
   border-radius: 5px;
  
@@ -326,6 +320,7 @@ input {
  
  @media only screen and (min-width: 768px) {
  
+
  .carousel-caption {
   bottom: 42%;
   font-size: 3rem;
@@ -363,10 +358,6 @@ input {
   width: 136%!important;
   }
  
-  .carousel-caption {
-  font-size: 3rem;
-  }
- 
   .logo-input {
   display: none;
   }
@@ -374,5 +365,9 @@ input {
   bottom: 45%;
   font-size: 3rem;
  }
+
+ .carousel-item {
+  max-height: 710px;
+}
   
  }

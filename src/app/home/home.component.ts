@@ -62,6 +62,8 @@ export class HomeComponent implements OnInit {
     this.api.modal.subscribe(state => {
       this.showModal = state;
     });
+
+    window.scroll(0,0);
     
   }
 
