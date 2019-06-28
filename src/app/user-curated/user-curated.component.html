@@ -1,4 +1,7 @@
+<div class="title">My Search</div>
+
 <div class="business-cont">
+
     <div class="business" *ngFor="let business of list" [ngClass]="{'width': business.info===true}">
       <img src="{{ business.image_url }}" />
       <a class="favorite" (click)="favoriteBusiness(business)">
