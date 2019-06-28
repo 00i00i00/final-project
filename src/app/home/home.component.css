@@ -121,7 +121,7 @@ input {
  }
 
  .carousel-item {
-   max-height: 500px;
+   max-height: 465px;
  }
  
  .carousel-item img {
@@ -287,15 +287,7 @@ input {
   height: 200px;
   width: 200px;
   }
-
-  /* #carouselImg1, #carouselImg2, #carouselImg3, #carouselImg4 {
-    width: 100%;
-  }
-  .carousel-inner{
-    width:100%;
-    max-height: 500px;
-  } */
-
+ 
   .categoryText {
   font-size: 2rem;
   width: 65%;
@@ -328,16 +320,14 @@ input {
  
  @media only screen and (min-width: 768.05px) {
  
-  /* .carousel-item {
-    max-height: 500px;
-  } */
-  /* #carouselImg1, #carouselImg2, #carouselImg3, #carouselImg4 {
-    width: 100%;
+  .carousel-item {
+    max-height: 465px;
   }
+  
   .carousel-inner{
     width:100%;
     max-height: 500px;
-  } */
+  }
 
  .carousel-caption {
   bottom: 42%;
@@ -347,9 +337,11 @@ input {
  
  @media only screen and (min-width: 1023.98px) {
   .carousel-item {
-    max-height: 465px;
+    max-height: 462px;
   }
-
+  .w-100 {
+    width: 104%!important;
+    }
   .categoryText {
   font-size: 1.5rem;
   width: 65%;
@@ -365,10 +357,8 @@ input {
  }
  
  @media only screen and (min-width: 1200px) {
-   
-  .categoryImg, 
-  .category 
-  {
+ 
+  .category, .categoryImg {
   height: 250px;
   width: 250px;
   }
@@ -378,14 +368,14 @@ input {
   }
  
   .w-100 {
-  width: 136%;
+  width: 136%!important;
   }
  
   .logo-input {
   display: none;
   }
   .carousel-caption {
-  bottom: 45%;
+  bottom: 58%;
   font-size: 3rem;
  }
 
