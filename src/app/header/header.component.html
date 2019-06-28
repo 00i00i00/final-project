@@ -2,7 +2,7 @@
   <a class="small-logo" [routerLink]="['/']">+1</a>
     <div class="buttons-right">
   <form (ngSubmit)="locationClick">
-      <input class="locationInput" type="text" [(ngModel)]="locationInput" name="location" placeholder="Update Location" />
+      <input class="locationInput" type="text" [(ngModel)]="locationInput" name="location" placeholder="New location?" />
       <button class="location-button" type="submit" (click)="locationClick(locationInput)"><i class="fas fa-map-marker-alt"></i></button>
   </form>
   <a class="nav-link" [routerLink]="['/favorites']"><i class="fa fa-heart"></i></a>
@@ -55,7 +55,7 @@
       </div> -->
       <!-- <a class="small-logo navbar-brand" href="#">+1{{logo}}</a> -->
       <form (ngSubmit)="locationClick">
-          <input class="locationInput" type="text" [(ngModel)]="locationInput" name="location" placeholder="Update City or State" />
+          <input class="locationInput" type="text" [(ngModel)]="locationInput" name="New location?" placeholder="New location?" />
           <button class="location-button" type="submit" (click)="locationClick(locationInput)"><i class="fas fa-map-marker-alt"></i></button>
       </form>
     <ul class="nav nav-pill">    
