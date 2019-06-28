@@ -19,7 +19,7 @@ export class Api {
     baseUrl = 'https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3';
 
     headers = new HttpHeaders({
-        "Authorization":"Bearer 5pIHLNTdSTs09-cvgqNOfEJP8D8Rx0ntlwKe-Kqo7pjkv2m88fuTYmq-PkqDwaD9JzyD3bqzjRQYFarXwkiYk_FrkTluO0Ri9-4u6x9WCybjoYFCt1bp93e42gP_XHYx"
+        "Authorization":"Bearer ZsSLb4Ex3QxF4wIC9JZpBbW5SIjyhGxKzgIdMvrpOgVU0W-TX2RdzFHgDua1Eg7ZG7-UHJ0Jh5TjyM5mBmpdwZdWhiJnO4kvmSXOKff7Bj_uSA7DydW-9mrsXlAVXXYx"
         });
 
     constructor(private http: HttpClient) {}
@@ -29,6 +29,9 @@ export class Api {
 
     private _location = new BehaviorSubject<string>('');
     location = this._location.asObservable();
+
+    private _previousLocation = new BehaviorSubject<string>('');
+    previousLocation = this._previousLocation.asObservable();
     
     private _businessList = new BehaviorSubject<BusinessList>({});
     businessList = this._businessList.asObservable();
@@ -45,7 +48,10 @@ updateBusinessList = newBusinessList => {
 }
 getDate = () => this.http.get(this.baseUrl);    
 
-updateLocation = newLocation => this._location.next(newLocation);
+updateLocation = newLocation => { 
+    this._previousLocation.next(this._location.getValue());
+    this._location.next(newLocation)
+};
 updateSearchInput = newLocation => this._searchInput.next(newLocation);
 
 updateUserCategories = newList => this._userCategories.next(newList);
