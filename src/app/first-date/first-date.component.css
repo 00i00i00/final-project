@@ -27,7 +27,7 @@ p {
 }
 
 .business:hover {
-    transform: scale(1.125);
+    transform: scale(1.075);
     z-index: 1;
 }
 

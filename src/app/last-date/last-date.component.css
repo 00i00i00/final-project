@@ -23,12 +23,6 @@ p {
     padding: 0px 10px 5px 10px;
     -webkit-transition: width 1s, height 0.5s;
     transition: width 1s, height 0.5s;
-    transition: transform .2s; /* hover zoom Animation */
-}
-
-.business:hover {
-    transform: scale(1.125);
-    z-index: 1;
 }
 
 .business-text {
@@ -274,7 +268,7 @@ img {
 
 }
 
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 1023.98px) {
 
     .business-cont {
         flex-flow: row wrap;
@@ -288,6 +282,12 @@ img {
         align-content: space-between;
         width: 45%;
         min-height: 190px;
+        transition: transform .2s; /* hover zoom Animation */
+    }
+    
+    .business:hover {
+        transform: scale(1.075);
+        z-index: 1;
     }
 
     .width {
