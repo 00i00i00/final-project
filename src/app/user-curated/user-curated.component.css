@@ -17,6 +17,7 @@ p {
   padding: 15px;
   text-align: center;
   margin: 0 auto;
+  margin-top: 2%;
   background-color: white;
 }
 
@@ -283,15 +284,13 @@ img {
 
 }
 
-
 @media only screen and (min-width: 768px) {
 
     .title {
         width: 40%;
-        margin-top: 15px;
+        margin-top: 4%;
     }
 }    
-
 
 @media only screen and (min-width: 1023.98px) {
 

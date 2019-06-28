@@ -16,6 +16,7 @@ p {
   padding: 15px;
   text-align: center;
   margin: 0 auto;
+  margin-top: 2%;
   background-color: white;
 }
 
@@ -293,7 +294,7 @@ img {
 
     .title {
         width: 40%;
-        margin-top: 15px;
+        margin-top: 4%;
     }
 }    
 

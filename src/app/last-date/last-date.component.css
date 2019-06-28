@@ -5,6 +5,7 @@ p {
     padding: 0px;
 }
 
+
 .title {
     font-size: 2rem;
   margin-bottom: 15px;
@@ -16,8 +17,10 @@ p {
   padding: 15px;
   text-align: center;
   margin: 0 auto;
+  margin-top: 2%;
   background-color: white;
 }
+
 
 .business-cont {
     margin: 50px 0px 0px 0px;
@@ -285,9 +288,10 @@ img {
 
     .title {
         width: 40%;
-        margin-top: 15px;
+        margin-top: 4%;
     }
-} 
+}    
+
 @media only screen and (min-width: 1023.98px) {
 
     .business-cont {
