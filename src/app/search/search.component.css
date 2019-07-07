@@ -5,8 +5,6 @@ p {
     padding: 0px;
 }
 
-
-
 .title {
     font-size: 2rem;
   margin-bottom: 15px;
@@ -27,7 +25,10 @@ p {
     align-self: center;
     padding: 0px;
     width: 100%;
+
 }
+
+  
 
 .business {
     background-color: white;
@@ -40,7 +41,11 @@ p {
     padding: 0px 10px 5px 10px;
     -webkit-transition: width 1s, height 0.5s;
     transition: width 1s, height 0.5s;
+    transition: transform .2s; 
+
 }
+
+
 
 .business-text {
     display: flex;
@@ -77,7 +82,7 @@ p {
     color: #33999b;
     -webkit-text-stroke-color: white;
     -webkit-text-stroke-width: 1.5px; 
-    font-size: 30px;
+    font-size: 1.8rem;
     top: -12px;
     left: 12px;
 }
@@ -99,6 +104,7 @@ h1 {
     font-weight: 800;
     color: #33999b;
 }
+
 
 .categories {
     font-size: 0.9rem;
@@ -140,6 +146,7 @@ button {
     color: #33999b;
 }
 
+
 .infoDiv {
 margin: 15px;
 border-top: 1px dotted lightgray;
@@ -155,6 +162,11 @@ padding-top: 15px;
 .phone, .open {
     font-weight: 900;
     margin: 2px 0px 2px 0px;
+}
+
+.open:hover {
+    cursor: pointer;
+    color: #33999b;
 }
 
 .p-bold {
@@ -192,6 +204,7 @@ img {
     color: #1A4E4F; 
 }
 
+
 @media only screen and (min-width: 480px) {
  
 h1 {
@@ -214,7 +227,9 @@ h1 {
     align-content: flex-start;
     padding: 0px;
     width: 90%;
+    min-height: 190px;
 }
+
 
 .business-rating-price {
     display: flex;
@@ -256,9 +271,9 @@ img {
     left: -14px;
 }
 
+
+
 }
-
-
 
 @media only screen and (min-width: 768px) {
 
@@ -267,10 +282,15 @@ img {
         margin-top: 4%;
     }
 }    
- 
 
 
-@media only screen and (min-width: 1023.98px) {
+@media only screen and (min-width: 1024px) {
+
+    button:hover {
+        cursor: pointer;
+        color: #1A4E4F;
+    }
+    
 
     .business-cont {
         flex-flow: row wrap;
@@ -283,15 +303,15 @@ img {
         align-items: flex-start;
         align-content: space-between;
         width: 45%;
-        min-height: 168px;
-        transition: transform .2s; /* hover zoom Animation */
-    }
-    
-    .business:hover {
-        transform: scale(1.075);
-        z-index: 1;
+        min-height: 190px;
     }
 
+
+    .business:hover {
+        transform: scale(1.015);
+        z-index: 1;
+    }
+    
     .width {
         display: flex;
         flex-direction: row;
@@ -301,7 +321,15 @@ img {
         -webkit-box-shadow: 9px 7px 42px -25px rgba(0,0,0,0.75);
         -moz-box-shadow: 9px 7px 42px -25px rgba(0,0,0,0.75);
         box-shadow: 9px 7px 42px -25px rgba(0,0,0,0.75);
+        -webkit-transition: width 1s, height 0.5s;
+        transition: width 1s, height 0.5s;
+        transition: transform .2s; 
     }
+
+    .width:hover {
+    transform: scale(1.03);
+    z-index: 1;
+}
 
     .business-rating-price p {
         font-size: 0.85rem;
@@ -323,6 +351,11 @@ img {
         border-left: 1px dotted lightgray;
         padding-top: 0px;
         padding-left: 15px;
+        }
+
+        .fa-heart:hover {
+            font-size: 2.5rem;
+            cursor: pointer;
         }
 
 }
