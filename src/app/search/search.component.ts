@@ -146,17 +146,51 @@ export class SearchComponent implements OnInit {
       if (list.favorites) {
         this.favoriteList = list.favorites;
       }
-
-      // this.searchList = list.search;
     });
   }
 
-  getDateSearch = () => {
-    this.api.getDateSearch().subscribe((data: { businesses: [] }) => {
-      console.log('Date input search from api', data.businesses);
-      this.api.updateBusinessList(data.businesses);
+moreInfo = (id, business) => {
 
-    });
+  const currentState = business.info;
+  this.list.forEach(item => item.info = false);
+  business.info = !currentState;
 
+  this.api.getBusinessDetails(id).subscribe((data: BusinessDetails) => {
+    console.log(`API Call: Business Details from id`, data);
+    this.hours = data.hours;
+    this.open = data.hours[0].open;
+    this.day = this.open[0].day;
+  });
+
+  this.api.getReviews(id).subscribe((data: ReviewData) => {
+    console.log(`API Call: Reviews from id`, data);
+    this.reviews = data.reviews;
+  });
+
+}
+
+collapseInfo = business => {
+  const currentState = business.info;
+  this.list.forEach(item => item.info = false);
+  business.info = !currentState;
+} 
+
+expandHours = () => {
+  this.collapsedTimes = !this.collapsedTimes;
+}
+
+
+favoriteBusiness = business => {
+  business.favorite = !business.favorite;
+  console.log('heart clicked', business);
+    if (business.favorite) {
+      this.favoriteList = [...this.favoriteList, business];
+      console.log(this.favoriteList);
+    } else {
+      this.favoriteList = this.favoriteList.filter(b => b.favorite);
+      console.log('Removed from this.favoriteList');
+    }
+    this.api.updateBusinessList({ favorites: this.favoriteList });
   }
 }
+
