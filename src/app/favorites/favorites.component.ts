@@ -135,6 +135,9 @@ export class FavoritesComponent implements OnInit{
       this.list = list.favorites;
       console.log(this.list);
     });
+
+    this.list.forEach(item => item.info = false);
+
 }
 
   moreInfo = (id, business) => {
