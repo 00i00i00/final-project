@@ -124,7 +124,7 @@ export class SearchComponent implements OnInit {
   day: any;
   dates: any = { 0: 'Monday', 1: 'Tuesday', 2: 'Wednesday', 3: 'Thursday', 4: 'Friday', 5: 'Saturday', 6: 'Sunday' };
   favorite: boolean;
-  favoriteList: object[] = [];
+  favoriteList: Businesses[] = [];
   biz: Businesses[];
   category: any;
   categories: Categories[];
@@ -146,51 +146,52 @@ export class SearchComponent implements OnInit {
       if (list.favorites) {
         this.favoriteList = list.favorites;
       }
+
     });
   }
 
-moreInfo = (id, business) => {
+  moreInfo = (id, business) => {
 
-  const currentState = business.info;
-  this.list.forEach(item => item.info = false);
-  business.info = !currentState;
+    const currentState = business.info;
+    this.list.forEach(item => item.info = false);
+    business.info = !currentState;
 
-  this.api.getBusinessDetails(id).subscribe((data: BusinessDetails) => {
-    console.log(`API Call: Business Details from id`, data);
-    this.hours = data.hours;
-    this.open = data.hours[0].open;
-    this.day = this.open[0].day;
-  });
+    this.api.getBusinessDetails(id).subscribe((data: BusinessDetails) => {
+      console.log(`API Call: Business Details from id`, data);
+      this.hours = data.hours;
+      this.open = data.hours[0].open;
+      //above means now this.open is the array of objects
+      this.day = this.open[0].day;
+    });
 
-  this.api.getReviews(id).subscribe((data: ReviewData) => {
-    console.log(`API Call: Reviews from id`, data);
-    this.reviews = data.reviews;
-  });
+    this.api.getReviews(id).subscribe((data: ReviewData) => {
+      console.log(`API Call: Reviews from id`, data);
+      this.reviews = data.reviews;
+    });
 
-}
-
-collapseInfo = business => {
-  const currentState = business.info;
-  this.list.forEach(item => item.info = false);
-  business.info = !currentState;
-} 
-
-expandHours = () => {
-  this.collapsedTimes = !this.collapsedTimes;
-}
-
-
-favoriteBusiness = business => {
-  business.favorite = !business.favorite;
-  console.log('heart clicked', business);
-    if (business.favorite) {
-      this.favoriteList = [...this.favoriteList, business];
-      console.log(this.favoriteList);
-    } else {
-      this.favoriteList = this.favoriteList.filter(b => b.favorite);
-      console.log('Removed from this.favoriteList');
-    }
-    this.api.updateBusinessList({ favorites: this.favoriteList });
   }
-}
 
+  collapseInfo = business => {
+    const currentState = business.info;
+    this.list.forEach(item => item.info = false);
+    business.info = !currentState;
+  } 
+
+  expandHours = () => {
+    this.collapsedTimes = !this.collapsedTimes;
+  }
+
+
+  favoriteBusiness = business => {
+    business.favorite = !business.favorite;
+    console.log('heart clicked', business);
+      if (business.favorite) {
+        this.favoriteList = [...this.favoriteList, business];
+        console.log(this.favoriteList);
+      } else {
+        this.favoriteList = this.favoriteList.filter(b => b.favorite);
+        console.log('Removed from this.favoriteList');
+      }
+      this.api.updateBusinessList({ favorites: this.favoriteList });
+    }
+}
